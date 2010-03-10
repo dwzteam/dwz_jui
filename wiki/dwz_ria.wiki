@@ -2,7 +2,7 @@
 #labels DWZ富客户端框架,jQueryRIA
 基于jQuery实现纯html+css+js富客户端UI组件框架
 = Introduction =
-DWZ富客户端框架即jQuery RIA framework．基于jQuery实现纯html+css+js富客户端UI组件框架. 布署到Apache或IIS等WEB应用下, 打开index.html就可看到demo.
+DWZ富客户端框架即jQuery RIA framework．基于jQuery实现纯html+css+js富客户端UI组件框架.
 
 在线演示地址 http://html.duqn.com/dwz-demo/
 
