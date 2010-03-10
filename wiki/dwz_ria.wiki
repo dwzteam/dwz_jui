@@ -5,8 +5,7 @@
 DWZ富客户端框架即jQuery RIA framework．基于jQuery实现纯html+css+js富客户端UI组件框架.
 
 在线演示地址 http://html.duqn.com/dwz-demo/
-
-此版本为试用版本，欢迎大家提出建议，我们将在下一版本中进一步调整和完善功能．
+源码下载地址 http://code.google.com/p/dwz/
 
 如有需要可做定制化开发. 
 
