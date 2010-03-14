@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xhEditor demo5 : Javascript交互</title>
+<link rel="stylesheet" href="common.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../jquery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../xheditor-zh-cn.js"></script>
+<script type="text/javascript">
+$(pageInit);
+var editor;
+function pageInit()
+{
+	editor=$('#elm1').xheditor(true)[0].xheditor;
+}
+</script>
+</head>
+<body>
+<form method="post" action="test.php">
+	<h3>xhEditor demo5 : Javascript交互</h3>
+	<textarea id="elm1" name="elm1" rows="12" cols="80" style="width: 80%">
+<p><span style="font-size:small;color:#ff6600;"><strong>登幽州台歌</strong></span></p><p><u>陈子昂</u></p><p>前不见古人，后不见来者。<img src="../xheditor_emot/default/shocked.gif"/></p><p>念天地之悠悠，独怆然而涕下！<img src="../xheditor_emot/default/cry.gif"/></p>
+	</textarea>
+	<br/><br />
+	<input type="submit" name="save" value="Submit" />
+	<input type="reset" name="reset" value="Reset" />
+</form>
+<br/>
+<div style="border:1px solid #999;padding:10px;">
+<a href="javascript:;" onclick="editor.focus();">focus();</a> | 
+<a href="javascript:;" onclick="editor.setSource('<p>aaa</p>');">setSource('&lt;p&gt;aaa&lt;/p&gt;');</a> |
+<a href="javascript:;" onclick="alert(editor.getSource());">getSource();</a> | 
+<a href="javascript:;" onclick="editor.appendHTML('<strong>添加在尾部</strong>');">appendHTML('&lt;strong&gt;添加在尾部&lt;/strong&gt;');</a> | 
+<a href="javascript:;" onclick="alert(editor.getSelect());">getSelect();</a> | 
+<a href="javascript:;" onclick="alert(editor.getSelect('text'));">getSelect('text');</a> | 
+<a href="javascript:;" onclick="editor.pasteHTML('<strong>粘贴的内容</strong>');">pasteHTML('&lt;strong&gt;粘贴的内容&lt;/strong&gt;');</a> | 
+<a href="javascript:;" onclick="editor.pasteText('<strong>粘贴的内容</strong>');">pasteText('&lt;strong&gt;粘贴的内容&lt;/strong&gt;');</a> | 
+<a href="javascript:;" onclick="alert(editor.formatXHTML('<b>abc</b>'));">formatXHTML('&lt;b&gt;abc&lt;/b&gt;');</a> | 
+<a href="javascript:;" onclick="editor.toggleSource();">toggleSource();</a> | 
+<a href="javascript:;" onclick="editor.toggleSource(true);">toggleSource(true);</a> | 
+<a href="javascript:;" onclick="editor.togglePreview(true);">togglePreview(true);</a> | 
+<a href="javascript:;" onclick="editor.toggleFullscreen(true);">toggleFullscreen(true);</a> | 
+<a href="javascript:;" onclick="editor.toggleReadonly();">toggleReadonly();</a> | 
+<a href="javascript:;" onclick="editor.toggleShowBlocktag();">toggleShowBlocktag();</a> | 
+<a href="javascript:;" onclick="alert(editor.settings.upLinkExt);">alert(settings.upLinkExt)</a>
+</div>
+</body>
+</html>

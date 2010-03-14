@@ -1,0 +1,87 @@
+<div id="alertMsgBox" class="alert" style="display:none">
+	<div class="alertContent">
+		<div class="#type#">
+			<div class="alertInner">
+				<h1>#title#</h1>
+				<p>#message#</p>
+			</div>
+			<div class="toolBar">
+				<ul>#butFragment#</ul>
+			</div>
+		</div>
+	</div>
+	<div class="alertFooter"><div class="alertFooter_r"><div class="alertFooter_c"></div></div></div>
+</div>
+
+ 
+<li><a class="button" href="#" onclick="#butCall#"><span>#butMsg#</span></a></li>
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+<!--提示对话框-->
+<div class="alert" style="display:; width:300px; top:0; left:450px;">
+	<div class="alertContent">
+		<div class="error" style="display:;">
+			<div class="alertInner">
+				<h1>错误</h1>
+				<p>您提交的数据有误，请检查后重新提交！</p>
+			</div>
+			<div class="toolBar">
+				<ul>
+					<li><a class="buttonActive" href="#"><span>保存</span></a></li>
+					<li><a class="button" href="#"><span>取消</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="information" style="display:none;">
+			<div class="alertInner">
+				<h1>信息</h1>
+				<p>您提交的数据有误，请检查后重新提交！</p>
+			</div>
+			<div class="toolBar">
+				<ul>
+					<li><a class="buttonActive" href="#"><span>保存</span></a></li>
+					<li><a class="button" href="#"><span>取消</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="warning" style="display:none;">
+			<div class="alertInner">
+				<h1>警告</h1>
+				<p>您输入了非法信息，请检查后重新提交！</p>
+			</div>
+			<div class="toolBar">
+				<ul>
+					<li><a class="buttonActive" href="#"><span>保存</span></a></li>
+					<li><a class="button" href="#"><span>取消</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="correct" style="display:none;">
+			<div class="alertInner">
+				<h1>成功</h1>
+				<p>您的数据提交成功！</p>
+			</div>
+			<div class="toolBar">
+				<ul>
+					<li><a class="buttonActive" href="#"><span>保存</span></a></li>
+					<li><a class="button" href="#"><span>取消</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="confirm" style="display:none;">
+			<div class="alertInner">
+				<h1>提示</h1>
+				<p>您修改的资料未保存，请选择保存或取消！</p>
+			</div>
+			<div class="toolBar">
+				<ul>
+					<li><a class="buttonActive" href="#"><span>保存</span></a></li>
+					<li><a class="button" href="#"><span>取消</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="alertFooter"><div class="alertFooter_r"><div class="alertFooter_c"></div></div></div>
+</div>

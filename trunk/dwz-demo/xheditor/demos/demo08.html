@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xhEditor demo8 : Ajax文件上传</title>
+<link rel="stylesheet" href="common.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../jquery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../xheditor-zh-cn.js"></script>
+<script type="text/javascript">
+$(pageInit);
+function pageInit()
+{
+	$('#elm1').xheditor(true,{tools:'full',upLinkUrl:"upload.php",upLinkExt:"zip,rar,txt",upImgUrl:"upload.php",upImgExt:"jpg,jpeg,gif,png",upFlashUrl:"upload.php",upFlashExt:"swf",upMediaUrl:"upload.php",upMediaExt:"avi"});
+}
+</script>
+</head>
+<body>
+<form method="post" action="test.php">
+	<h3>xhEditor demo8 : Ajax文件上传</h3>
+	<textarea id="elm1" name="elm1" rows="12" cols="80" style="width: 80%">
+请确保当前目录中的upload.php有相应的PHP执行权限，若您使用的是其它的服务器脚本语言，请自行对初始化参数中的upLinkUrl、upImgUrl、upFlashUrl和upMediaUrl进行修改，并开发相应服务器上传接收程序。<br/>注：upload.php仅为演示代码，若您希望在自己的项目中实际使用，请自行修改代码或者重新开发，开发过程中请注意上传文件的格式及大小限制，注意服务器安全问题。 <br/><br/><strong>上传接收程序开发规范：<br/></strong>1,上传文件域名字为：upload<br/>2,返回结构必需为json，并且结构如下：{"err":"","msg":"200906030521128703.gif"}<br/>若上传出现错误，请将错误内容保存在err变量中；若上传成功，请将服务器上的绝对或者相对地址保存在msg变量中。<br/>编辑器若发现返回的err变量不为空，则弹出窗口显示返回的错误内容。<br/><br/><br/><strong>上传管理方案建议：</strong><br/>1,在编辑器初始化时在upload.php后面跟上一个服务器生成的绝对唯一的跟踪值，例如：upload.php?infoid=121312121<br/>2,在服务器接收程序中以这个跟踪值保存到数据库中，同样可以限制单个跟踪值下总上传文件数或者总文件大小，否则就是一个可以上传无限个文件的漏洞了<br/>3,最终当前表单提交时，再根据编辑器提交的HTML内容和数据库中上传内容进行比较，删除所有没有使用的上传文件<br/>4,定期由服务器脚本删除上传数据库中没提交的文件记录，这样就能防止别人将您的网站作为免费相册空间了<br/>
+	</textarea>
+	<br/><br />
+	<input type="submit" name="save" value="Submit" />
+	<input type="reset" name="reset" value="Reset" />
+</form>
+</body>
+</html>

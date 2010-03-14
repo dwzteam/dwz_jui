@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xhEditor demo9 : 自定义按钮之插件扩展</title>
+<link rel="stylesheet" href="common.css" type="text/css" media="screen" />
+<style type="text/css">
+<!--
+.testClassName {
+	background:transparent url(../xheditor_skin/default/img/icons.gif) no-repeat 20px 20px;
+	background-position:-20px 0;
+}
+-->
+</style>
+<script type="text/javascript" src="../jquery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../xheditor-zh-cn.js"></script>
+<script type="text/javascript">
+$(pageInit);
+function pageInit()
+{
+	$('#elm1').xheditor(true,{
+		plugins:{test:{c:'testClassName',t:'测试按钮名字',e:function(){
+			var _this=this;
+			var jTest=$('<div>测试窗口内容</div><div style="text-align:right;"><input type="button" id="xhEdtSave" value="确定" /></div>');
+			var jSave=$('#xhEdtSave',jTest);
+			jSave.click(function(){
+				_this.focus();
+				_this.hidePanel();
+				return false;	
+			});
+			_this.showDialog(jTest);
+			}}},
+		tools:'GStart,test,GEnd,Separator,GStart,Source,Preview,Fullscreen,About,GEnd'});
+}
+</script>
+</head>
+<body>
+<form method="post" action="test.php">
+	<h3>xhEditor demo9 : 自定义按钮之插件扩展</h3>
+	<textarea id="elm1" name="elm1" rows="12" cols="80" style="width: 80%">
+&lt;p&gt;&lt;strong&gt;插件初始化参考代码：&lt;/strong&gt;&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;&lt;br /&gt;
+&lt;br /&gt;
+$(pageInit);&lt;br /&gt;
+
+function pageInit()&lt;br /&gt;
+{&lt;br /&gt;
+&lt;/p&gt;
+&amp;nbsp;&amp;nbsp; &amp;nbsp;$('#elm1').xheditor(true,{&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;plugins:{test:{c:'testClassName',t:'测试按钮名字',e:function(){&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;var _this=this;&lt;br /&gt;&amp;nbsp;&amp;nbsp;
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;var jTest=$('&amp;lt;div&amp;gt;测试窗口内容&amp;lt;/div&amp;gt;&amp;lt;div
+style=&quot;text-align:right;&quot;&amp;gt;&amp;lt;input type=&quot;button&quot; id=&quot;xhEdtSave&quot;
+
+value=&quot;确定&quot; /&amp;gt;&amp;lt;/div&amp;gt;');&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;var jSave=$('#xhEdtSave',jTest);&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;jSave.click(function(){&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;_this.focus();&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;_this.hidePanel();&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;return false;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;});&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;_this.showDialog(jTest);&lt;br /&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;}}},&lt;br /&gt;&amp;nbsp;&amp;nbsp;
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;tools:'GStart,test,GEnd,Separator,GStart,Source,Preview,Fullscreen,About,GEnd'});&lt;br /&gt;}&lt;br /&gt;
+&lt;p&gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;插件对象的属性解释：&lt;/strong&gt;&lt;br /&gt;
+c：样式表名称　t：插件名字(鼠标在按钮上方时显示)　s：快捷方式(例如：Esc、Ctr+B)　e：按钮点击后需要执行的代码&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;特别说明：&lt;/strong&gt;&lt;br /&gt;如果您希望样式表存储在系统自带的模板目录ui.css中，请将插件对象的样式名留空，则会自动按照插件名来调用相应的样式，例如：xhEdtBtnCut、xhEdtBtnCopy，其中的Cut和Copy是插件名&lt;br /&gt;
+
+&lt;/p&gt;
+	</textarea>
+	<br/><br />
+	<input type="submit" name="save" value="Submit" />
+	<input type="reset" name="reset" value="Reset" />
+</form>
+</body>
+</html>
