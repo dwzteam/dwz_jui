@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xhEditor demo7 : UBB可视化编辑</title>
+<link rel="stylesheet" href="common.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../jquery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../xheditor-zh-cn.js"></script>
+<script type="text/javascript" src="../xheditor_plugins/ubb.js"></script>
+<script type="text/javascript">
+$(pageInit);
+function pageInit()
+{
+	$('#elm1').xheditor(true,{tools:'full',showBlocktag:false,beforeSetSource:ubb2html,beforeGetSource:html2ubb});
+}
+</script>
+</head>
+<body>
+<form method="post" action="test.php">
+	<h3>xhEditor demo7 : UBB可视化编辑</h3>
+	<textarea id="elm1" name="elm1" rows="12" cols="80" style="width: 80%">
+[b]粗体文字 Abc[/b]
+[u]下划线文字 Abc[/u]
+[i]斜体文字 Abc[/i]
+[s]删除线 Abc[/s]
+[s][i][u][b]粗体下划斜体删除线 Abc[/b][/u][/i][/s]
+[color=red]红颜色[/color]
+[back=#cccccc]背景灰色[/back]
+[size=3]文字大小为 3[/size]
+[font=仿宋]字体为仿宋[/font]
+[align=Center]内容居中[/align]
+[img]img/pirate9.gif[/img]
+[img=238,66]img/pirate9.gif[/img]
+[url]http://pirate9.com/[/url]
+[url=http://pirate9.com/]第9海盗[/url]
+[url=http://pirate9.com/][img]img/pirate9.gif[/img][/url]
+[email]yanis.wang@gmail.com[/email]
+[email=yanis.wang@gmail.com]Yanis.Wang[/email]
+X[sup]2[/sup]
+X[sub]2[/sub]
+[list][*]aaa[*]bbb[*]ccc[/list]
+[list=1][*]列表项 #1[*]列表项 #2[*]列表项 #3[list=a][*]列表项 #1[*]列表项 #2[*]列表项 #3[/list][*]列表项 #4[/list]
+[table=300,#f5f5f5][tr=#E8F3FD][td=2,1]&nbsp;[/td][/tr][tr][td]&nbsp;[/td][td]&nbsp;[/td][/tr][tr][td]&nbsp;[/td][td]&nbsp;[/td][/tr][/table]
+[quote]我们是一艘年轻的海盗船，载着梦想，我们愿将快乐带到大海的每一个角落。 [/quote] 
+[code]分享游戏，分享快乐[/code]
+
+[flash=400,300]test.swf[/flash]
+
+[media=400,300,1]test.avi[/media]
+	</textarea>
+	<br/><br />
+	<input type="submit" name="save" value="Submit" />
+	<input type="reset" name="reset" value="Reset" />
+</form>
+</body>
+</html>

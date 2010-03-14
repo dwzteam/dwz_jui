@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>文件上传</title>
+<style>
+body{
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}	
+</style>
+<script>
+function upload()
+{
+	callback('http://pirate9.com/test.zip');
+	unloadme();
+}
+</script>
+</head> 
+<body> 
+<a href="javascript:;" onclick="upload();">点击这里完成文件上传</a><br />
+<p style="color:#999;">注：此页面仅供演示用，您可以在此页面的基础上实现文件上传和文件管理功能<br />本页面提供两个接口用来和编辑器进行互动：callback和unloadme，其中callback接口的返回参数个数可在showIframeModal调用时进行定义</p>
+</body> 
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xhEditor demo10 : showModal接口的iframe文件上传</title>
+<link rel="stylesheet" href="common.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../jquery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../xheditor-zh-cn.js"></script>
+<script type="text/javascript">
+$(pageInit);
+function pageInit()
+{
+	$('#elm1').xheditor(true,{tools:'full',upLinkUrl:"!uploadgui.html"});
+}
+</script>
+</head>
+<body>
+<form method="post" action="test.php">
+	<h3>xhEditor demo10 : showModal接口的iframe文件上传</h3>
+	<textarea id="elm1" name="elm1" rows="12" cols="80" style="width: 80%">
+<p>本页面演示通过showModal接口来调用iframe调用指定的文件上传页来上传和管理文件，可以实现高可定义的文件上传和管理，当前示例页面中仅在“<strong>超链接</strong>”按钮中实现了演示。</p>
+<p>此功能可在以下4个按钮中通过参数调用来实现：超链接、图片、动画和视频，接口分别为：upLinkUrl、upImgUrl、upFlashUrl和upMediaUrl，默认这几个函数为编辑器内置的ajax式文件上传，想要在frame中调用自定义上传管理页面，必需在参数值最前面添加感叹号：“!”，注意必需为半角符号。例如：upLinkUrl:'!gui.html'</p>
+<p>上传管理页面可使用接口：callback和unoadme，callback用来返回上传或者选择的文件链接，unloadme用来隐藏当前的Modal窗口，您可以查看uploadgui.html页面来了解具体的管理页面制作示例</p>
+<p>重要说明：上传管理页必需要与编辑器所在页在同一个域下，如果是不同子域，请在管理页和编辑器所在页代码中分别设置相同的document.domain</p>
+	</textarea>
+	<br/><br />
+	<input type="submit" name="save" value="Submit" />
+	<input type="reset" name="reset" value="Reset" />
+</form>
+</body>
+</html>
