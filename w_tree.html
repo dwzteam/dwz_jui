@@ -1,0 +1,91 @@
+<h2 class="contentTitle">树形菜单</h2>
+
+<div id="resultBox"></div>
+
+<div style=" float:left; display:block; margin:10px; overflow:auto; width:200px; height:200px; overflow:auto; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+<p>treeFolder treeCheck expand</p>
+<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this)">
+<ul class="tree treeFolder treeCheck expand" oncheck="kkk">
+	<li><a >框架面板</a>
+		<ul>
+			<li><a tname="name" tvalue="value1" checked="true">我的主页</a></li>
+			<li><a tname="name" tvalue="value2">页面一</a></li>
+			<li><a tname="name" tvalue="value3">替换页面一</a></li>
+			<li><a tname="name" tvalue="value4">页面二</a></li>
+			<li><a tname="name" tvalue="value5">页面三</a></li>
+		</ul>
+	</li>
+
+	<li><a tname="name" tvalue="test1">Test 1</a>
+		<ul>
+			<li><a tname="name" tvalue="test1.1">Test 1.1</a>
+				<ul>
+					<li><a tname="name" tvalue="test1.1.1" checked="true">Test 1.1.1</a></li>
+					<li><a tname="name" tvalue="test1.1.2" checked="false">Test 1.1.2</a></li>
+				</ul>
+			</li>
+			<li><a tname="name" tvalue="test1.2" checked="true">Test 1.2</a></li>
+		</ul>
+	</li>
+	<li><a tname="name" tvalue="test2" checked="true">Test 2</a></li>
+</ul>
+
+<input type="submit" value="Submit"/>
+</form>
+</div>
+
+<div style="float:left; display:block; margin:10px; overflow:auto; width:200px; height:200px; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+<p>treeFolder collapse</p>
+<ul class="tree treeFolder collapse">
+	<li><a href="tabsPage.html" target="navTab">框架面板</a>
+		<ul>
+			<li target="selectedObjId" rel="1"><a href="main.html" target="navTab" rel="main">我的主页</a></li>
+			<li target="selectedObjId" rel="2"><a href="newPage1.html" target="navTab" rel="page1">页面一</a></li>
+			<li><a href="newPage2.html" target="navTab" rel="page1">替换页面一</a></li>
+			<li><a href="newPage2.html" target="navTab" rel="page2">页面二</a></li>
+			<li><a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a></li>
+		</ul>
+	</li>
+	<li><a href="w_panel.html" target="navTab" rel="w_panel">面板</a></li>
+	<li><a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a></li>
+	<li><a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a></li>
+	<li><a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a></li>
+	<li><a href="w_table.html" target="navTab" rel="w_table">表格容器</a></li>
+	<li><a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a></li>
+	<li><a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a></li>
+</ul>
+</div>
+<div style=" float:left; display:block; margin:10px; overflow:auto; width:200px; height:200px; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+<ul class="tree">
+	<li><a href="tabsPage.html" target="navTab">框架面板</a>
+		<ul>
+			<li><a href="main.html" target="navTab" rel="main">我的主页</a></li>
+			<li><a href="newPage1.html" target="navTab" rel="page1">页面一</a></li>
+			<li><a href="newPage2.html" target="navTab" rel="page1">替换页面一</a></li>
+			<li><a href="newPage2.html" target="navTab" rel="page2">页面二</a></li>
+			<li><a href="newPage3.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a></li>
+		</ul>
+	</li>
+	<li><a href="w_panel.html" target="navTab" rel="w_panel">面板</a></li>
+	<li><a href="w_tabs.html" target="navTab" rel="w_tabs">选项卡面板</a></li>
+	<li><a href="w_dialog.html" target="navTab" rel="w_dialog">弹出窗口</a></li>
+	<li><a href="w_alert.html" target="navTab" rel="w_alert">提示窗口</a></li>
+	<li><a href="w_table.html" target="navTab" rel="w_table">表格容器</a></li>
+	<li><a href="w_tree.html" target="navTab" rel="w_tree">树形菜单</a></li>
+	<li><a href="w_editor.html" target="navTab" rel="w_editor">编辑器</a></li>
+	
+</ul>
+</div>
+
+<script type="text/javascript">
+function kkk(){
+	var json = arguments[0], result="";
+//	alert(json.checked);
+
+	$(json.items).each(function(i){
+		result += "<p>name:"+this.name + " value:"+this.value+" text: "+this.text+"</p>";
+	});
+	$("#resultBox").html(result);
+	
+}
+</script>

@@ -1,0 +1,72 @@
+<h2 class="contentTitle">可拖动表单示例</h2>
+<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this)">
+<div class="pageContent">
+	<div class="pageFormContent sortDrag" layoutH="97">
+		<dl>
+			<dt>客户名称：</dt><dd><input name="name" class="required" alt="请输入名称" type="text"></dd>
+		</dl>
+		<dl>
+			<dt>性别：</dt><dd><input type="radio" name="sex" value="1">男 <input type="radio" name="sex" value="0">女</dd>
+		</dl>
+		<dl>
+			<dt>年龄：</dt><dd><input name="age" value="25" /></dd>
+		</dl>
+		<dl>
+			<dt>电话：</dt><dd><input name="phone" /></dd>
+		</dl>
+		<dl>
+			<dt>生日：</dt>
+			<dd>
+				<input name="birthday" class="date" readonly="readonly" value="2011-03-21" type="text">
+				<a href="javascript:void(0)" class="inputDateButton">选择</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>部门名称：</dt>
+			<dd>
+				<input id="inputOrg1" name="org1.id" value="" type="hidden"/>
+				<input class="required" name="org1.orgName" type="text" postField="keyword" suggestFields="orgNum,orgName" 
+					suggestUrl="demo/database/db_lookupSuggest.html" lookupGroup="org1"/>
+				<a class="btnLook" href="demo/database/dwzOrgLookup.html" lookupGroup="org1">查找带回</a>	
+			</dd>
+		</dl>
+		<dl>
+			<dt>部门编号：</dt>
+			<dd>
+				<input class="readonly" name="org1.orgNum" readonly="readonly" type="text"/>
+			</dd>
+		</dl>
+		<dl>
+			<dt>客户状态：</dt>
+			<dd>
+				<select class="combox">
+					<option value="Yes">是</option>
+					<option value="No">否</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>附件：</dt>
+			<dd>
+				<input name="attachment.id" value="" type="hidden">
+				<input class="readonly" name="attachment.fileName" value="" readonly="readonly" type="text"/>
+				<a class="btnAttach" href="demo/database/db_attachmentLookup.html" lookupGroup="attachment" width="560" height="300" title="附件">附件</a>
+			</dd>
+		</dl>
+		<dl class="nowrap">
+			<dt>介绍：</dt>
+			<dd>
+				<textarea class="editor" name="note" rows="8" cols="95"></textarea>
+			</dd>
+		</dl>
+	</div>
+	
+	<div class="formBar">
+		<ul>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+			<li><div class="button"><div class="buttonContent"><button class="close" type="button">关闭</button></div></div></li>
+		</ul>
+	</div>  
+
+</div>
+</form>

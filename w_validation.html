@@ -1,0 +1,164 @@
+<h2 class="contentTitle">表单验证</h2>
+
+
+<div class="pageContent">
+	
+	<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this)">
+		<div class="pageFormContent nowrap" layoutH="97">
+
+			<dl>
+				<dt>必填：</dt>
+				<dd>
+					<input type="text" name="name" maxlength="20" class="required" />
+					<span class="info">class="required"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>必填+邮箱：</dt>
+				<dd>
+					<input type="text" name="email" class="required email" alt="请输入您的电子邮件"/>
+					<span class="info">class="required email"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>电话：</dt>
+				<dd>
+					<input type="text" name="phone" class="phone" alt="请输入您的电话"/>
+					<span class="info">class="phone"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>密码：</dt>
+				<dd>
+					<input id="w_validation_pwd" type="password" name="password" class="required alphanumeric" minlength="6" maxlength="20" alt="字母、数字、下划线 6-20位"/>
+					<span class="info">class="required alphanumeric" minlength="6" maxlength="20"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>确认密码：</dt>
+				<dd>
+					<input type="password" name="repassword" class="required" equalto="#w_validation_pwd"/>
+					<span class="info">class="required" equalto="#xxxId"</span>
+				</dd>
+			</dl>
+			
+			<dl>
+				<dt>整数：</dt>
+				<dd>
+					<input type="text" name="digits" class="digits" />
+					<span class="info">class="digits"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>浮点数：</dt>
+				<dd>
+					<input type="text" name="number" class="number" />
+					<span class="info">class="number"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>最小值：</dt>
+				<dd>
+					<input type="text" name="min" min="1"/>
+					<span class="info">min="1"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>最大值：</dt>
+				<dd>
+					<input type="text" name="max" max="10"/>
+					<span class="info">max="10"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>最小值-最大值：</dt>
+				<dd>
+					<input type="text" name="min_max" min="1" max="10"/>
+					<span class="info">min="1" max="10"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>最小长度：</dt>
+				<dd>
+					<input type="text" name="minlength_maxlength6" minlength="6" />
+					<span class="info">min="6"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>最大长度：</dt>
+				<dd>
+					<input type="text" name="minlength_maxlength10" maxlength="10"/>
+					<span class="info">max="10"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>最小长度-最大长度：</dt>
+				<dd>
+					<input type="text" name="minlength_maxlength" minlength="6" maxlength="20"/>
+					<span class="info">minlength="6" maxlength="20"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>信用卡：</dt>
+				<dd>
+					<input type="text" name="creditcard" class="creditcard" />
+					<span class="info">class="creditcard"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>字母、数字、下划线：</dt>
+				<dd>
+					<input type="text" name="alphanumeric" class="alphanumeric" />
+					<span class="info">class="alphanumeric"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>字母：</dt>
+				<dd>
+					<input type="text" name="lettersonly" class="lettersonly" />
+					<span class="info">class="lettersonly"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>网址：</dt>
+				<dd>
+					<input type="text" name="url" class="url" />
+					<span class="info">class="url"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>remote：</dt>
+				<dd>
+					<input type="text" name="remote" remote="validate_remote.html"/>
+					<span class="info">唯一性验证input添加属性：remote="xxxUrl"</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>customvalid+remote：</dt>
+				<dd>
+					<input type="text" name="remote2" remote="validate_remote.html" customvalid="customvalidXxx(element)"/>
+					<span class="info">customvalid="customvalidXxx(element)" | remote="xxxUrl"</span>
+				</dd>
+			</dl>
+			
+			<div class="divider"></div>
+			<p>自定义扩展请参照：dwz.validate.method.js</p>
+			<p>错误提示信息国际化请参照：dwz.regional.zh.js</p>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+</div>
+
+
+<script type="text/javascript">
+function customvalidXxx(element){
+	if ($(element).val() == "xxx") return false;
+	return true;
+}
+</script>

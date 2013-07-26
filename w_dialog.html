@@ -1,0 +1,29 @@
+<script type="text/javascript">
+function closedialog(param) {
+	alert(param.msg);
+	return true;
+}
+</script>
+
+<h2 class="contentTitle">弹出窗口</h2>
+<div class="pageContent" layoutH="42">
+
+	<div style="float:left; display:block; overflow:hidden; width:400px; padding:0 10px; line-height:21px;">
+		<a class="button" href="demo_page1.html" target="dialog" rel="dlg_page1" max="true" title="打开窗口1 [自定义标题]" width="800" height="480"><span>打开窗口1</span></a><br /><br />
+		<a class="button" href="demo_page1.html" target="dialog" rel="dlg_page2"><span>打开窗口2</span></a><br /><br />
+		<a class="button" href="demo_page2.html" target="dialog" rel="dlg_page2" width="645" height="370" fresh="false"><span>打开窗口3</span></a><br /><br />
+		<div class="divider"></div>
+		<a class="button" href="demo_page1.html" target="dialog" rel="dlg_page4" title="打开窗口4 [自定义标题]"><span>打开窗口4</span></a><br /><br />
+		<a class="button" href="demo_page2.html" target="dialog" rel="dlg_page5" close="closedialog" param="{msg:'gogo'}"><span>打开窗口5</span></a><br /><br />
+		<a class="button" href="demo_page2.html" target="dialog" rel="dlg_page5"><span>打开窗口6</span></a>
+	</div>
+	<div style="float:left; display:block; overflow:hidden; width:400px; padding:0 10px; line-height:21px;">
+		<a class="button" href="demo_page1.html" target="dialog" rel="dlg_page7"><span>打开窗口7</span></a><br /><br />
+		<a class="button" href="demo_page4.html" target="dialog" rel="dlg_page8"><span>打开窗口8</span></a><br /><br />
+		<a class="button" href="demo_page4.html" target="dialog" rel="dlg_page9"><span>打开窗口9</span></a><br /><br />
+		<div class="divider"></div>
+		<a class="button" href="demo_page1.html" target="dialog" rel="dlg_page10" mask="true" title="模态窗口1 [自定义标题]"><span>模态窗口1</span></a><br /><br />
+		<a class="button" href="demo_page2.html" target="dialog" rel="dlg_page11" mask="true"><span>模态窗口2</span></a><br /><br />
+		<a class="button" href="demo_page2.html" target="dialog" rel="dlg_page12" mask="true"><span>模态窗口3</span></a><br /><br />
+	</div>
+</div>

@@ -1,0 +1,73 @@
+<h2 class="contentTitle">选项卡面板演示</h2>
+
+<div class="pageContent">
+	<div class="tabs" currentIndex="1" eventType="click">
+		<div class="tabsHeader">
+			<div class="tabsHeaderContent">
+				<ul>
+					<li><a href="javascript:;"><span>标题1</span></a></li>
+					<li><a href="javascript:;"><span>标题2</span></a></li>
+					<li><a href="demo_page2.html" class="j-ajax"><span>标题3</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="tabsContent" style="height:150px;">
+			<div>
+<pre>
+currentIndex: 0-n	default:0
+eventType: click|hover	default:click
+</pre>
+			</div>
+			<div>内容2</div>
+			<div></div>
+		</div>
+		<div class="tabsFooter">
+			<div class="tabsFooterContent"></div>
+		</div>
+	</div>
+	
+	<p>&nbsp;</p>
+	
+	<div class="tabs" currentIndex="0" eventType="click">
+		<div class="tabsHeader">
+			<div class="tabsHeaderContent">
+				<ul>
+					<li><a href="javascript:;"><span>标题1</span></a></li>
+					<li><a href="javascript:;"><span>标题2</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="tabsContent" style="height:250px;">
+			<div>内容1
+				<p>
+					<label>客户名称：</label>
+					<input name="name" class="required" type="hover" size="30" value="" alt="请输入客户名称"/>
+				</p>
+			</div>
+			<div>
+				
+				<div class="tabs" currentIndex="0" eventType="click" style="width:300px">
+					<div class="tabsHeader">
+						<div class="tabsHeaderContent">
+							<ul>
+								<li><a href="javascript:;"><span>标题1</span></a></li>
+								<li><a href="javascript:;"><span>标题2</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="tabsContent" style="height:150px;">
+						<div>内容1</div>
+						<div>内容2</div>
+					</div>
+					<div class="tabsFooter">
+						<div class="tabsFooterContent"></div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="tabsFooter">
+			<div class="tabsFooterContent"></div>
+		</div>
+	</div>
+</div>
