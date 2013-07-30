@@ -201,7 +201,7 @@
 			
 			var $checkbox = $(":checkbox", parent);
 			if (aClass == "checked") $checkbox.attr("checked","checked");
-			else $checkbox.removeAttr("checked");
+			else if (aClass == "unchecked") $checkbox.removeAttr("checked");
 			
 			parent._checkParent();
 		}
