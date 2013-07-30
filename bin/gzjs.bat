@@ -1,4 +1,4 @@
-cd D:\workspace\UI\dev\dwz-ria\bin
+cd D:\workspace\UI\dev\dwz_jui\bin
 
 REM -------------- start package javascript --------------
 
