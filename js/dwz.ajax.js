@@ -148,6 +148,7 @@ function navTabAjaxDone(json){
 
 /**
  * dialog上的表单提交回调函数
+ * 当前navTab页面有pagerForm就重新加载
  * 服务器转回navTabId，可以重新载入指定的navTab. statusCode=DWZ.statusCode.ok表示操作成功, 自动关闭当前dialog
  * 
  * form提交后返回json数据结构,json格式和navTabAjaxDone一致
