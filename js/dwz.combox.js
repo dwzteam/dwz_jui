@@ -18,6 +18,31 @@
 		});
 	};
 	
+	var _onchange = function (event){
+		var $ref = $("#"+event.data.ref);
+		if ($ref.size() == 0) return false;
+		$.ajax({
+			type:'POST', dataType:"json", url:event.data.refUrl.replace("{value}", encodeURIComponent(event.data.$this.attr("value"))), cache: false,
+			data:{},
+			success: function(json){
+				if (!json) return;
+				var html = '';
+
+				$.each(json, function(i){
+					if (json[i] && json[i].length > 1){
+						html += '<option value="'+json[i][0]+'">' + json[i][1] + '</option>';
+					}
+				});
+				
+				var $refCombox = $ref.parents("div.combox:first");
+				$ref.html(html).insertAfter($refCombox);
+				$refCombox.remove();
+				$ref.trigger("change").combox();
+			},
+			error: DWZ.ajaxError
+		});
+	};
+					
 	$.extend($.fn, {
 		comboxSelect: function(options){
 			var op = $.extend({ selector: ">a" }, options);
@@ -99,32 +124,7 @@
 				$("div.select", $this.next()).comboxSelect().append($this);
 				
 				if (ref && refUrl) {
-					function _onchange(event){
-						var $ref = $("#"+ref);
-						if ($ref.size() == 0) return false;
-						$.ajax({
-							type:'POST', dataType:"json", url:refUrl.replace("{value}", encodeURIComponent($this.attr("value"))), cache: false,
-							data:{},
-							success: function(json){
-								if (!json) return;
-								var html = '';
-	
-								$.each(json, function(i){
-									if (json[i] && json[i].length > 1){
-										html += '<option value="'+json[i][0]+'">' + json[i][1] + '</option>';
-									}
-								});
-								
-								var $refCombox = $ref.parents("div.combox:first");
-								$ref.html(html).insertAfter($refCombox);
-								$refCombox.remove();
-								$ref.trigger("change").combox();
-							},
-							error: DWZ.ajaxError
-						});
-					}
-					
-					$this.unbind("change", _onchange).bind("change", _onchange);
+					$this.unbind("change", _onchange).bind("change", {ref:ref, refUrl:refUrl, $this:$this}, _onchange);
 				}
 				
 			});

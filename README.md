@@ -37,11 +37,11 @@ DWZ官方微博 http://weibo.com/dwzui
 
 
 <b>最新测试版SVN下载:</b>
-https://code.csdn.net/zhanghuihua/dwz
+https://code.csdn.net/dwzteam/
 
 <b>有偿服务:</b>
 <ul>
-<li>定制化开发</li><li>公司培训</li><li>技术支持</li>
+<li>公司培训，技术支持，解决使用jUI过程中出现的全部疑难问题</li><li>定制化开发</li>
 </ul>
 合作电话：<b>010-52897073</b><br/>
 邮箱：support@j-ui.com<br/>

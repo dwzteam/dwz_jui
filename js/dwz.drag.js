@@ -75,7 +75,7 @@
 			}
 			
 			if (data.options.drag) {
-				data.options.drag.apply(current.el, [current.el]);
+				data.options.drag.apply(current.el, [current.el, e]);
 			}
 			
 			return $.rwdrag.preventEvent(e);
@@ -85,7 +85,7 @@
 			var data = $.data(current.el, 'pp-rwdrag');
 			$(document).unbind('mousemove', $.rwdrag.drag).unbind('mouseup', $.rwdrag.stop);
 			if (data.options.stop) {
-				data.options.stop.apply(current.el, [current.el]);
+				data.options.stop.apply(current.el, [current.el, e]);
 			}
 			$.rwdrag.current = null;
 

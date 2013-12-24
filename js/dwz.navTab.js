@@ -348,7 +348,7 @@ var navTab = {
 		if (iOpenIndex >= 0){
 			var $tab = this._getTabs().eq(iOpenIndex);
 			var span$ = $tab.attr("tabid") == this._op.mainTabId ? "> span > span" : "> span";
-			$tab.find(">a").attr("title", op.title).find(span$).text(op.title);
+			$tab.find(">a").attr("title", op.title).find(span$).html(op.title);
 			var $panel = this._getPanels().eq(iOpenIndex);
 			if(op.fresh || $tab.attr("url") != url) {
 				$tab.attr("url", url);

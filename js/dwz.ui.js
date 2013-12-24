@@ -204,7 +204,7 @@ function initUI(_box){
 			event.preventDefault();
 		});
 	});
-	
+
 	//dialogs
 	$("a[target=dialog]", $p).each(function(){
 		$(this).click(function(event){
