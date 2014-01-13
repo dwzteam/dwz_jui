@@ -260,6 +260,7 @@
 			return this.opts[name];
 		},
 		_getDays: function (y,m){//获取某年某月的天数
+
 			return m==2?(y%4||!(y%100)&&y%400?28:29):(/4|6|9|11/.test(m)?30:31);
 		},
 
@@ -280,9 +281,11 @@
 			var _date = this._minMaxDate(_sDate);
 			
 			if (_count < 2) { //format:y-M、y
+
 				var _day = this._getDays(_date.getFullYear(), _date.getMonth()+1);
 				_date.setDate(_day);
 				if (_count == 0) {//format:y
+
 					_date.setMonth(11);
 				}
 			}
@@ -290,6 +293,7 @@
 			return _date;
 		},
 		getDateWrap: function(date){ //得到年,月,日
+
 			if (!date) date = this.parseDate(this.sDate) || new Date();
 			var y = date.getFullYear();
 			var m = date.getMonth()+1;
