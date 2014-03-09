@@ -369,7 +369,7 @@
 							+'<a class="inputDateButton" href="javascript:void(0)">选择</a>';
 						break;
 					default:
-						html = '<input type="text" name="'+field.name+'" value="'+field.defaultVal+'" size="'+field.size+'" class="'+field.fieldClass+'" '+attrFrag+'/>';
+						html = '<input type="'+field.type+'" name="'+field.name+'" value="'+field.defaultVal+'" size="'+field.size+'" class="'+field.fieldClass+'" '+attrFrag+'/>';
 						break;
 				}
 				return '<td>'+html+'</td>';
