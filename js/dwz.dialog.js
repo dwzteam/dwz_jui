@@ -303,7 +303,7 @@
 		checkTimeout:function(){
 			var $conetnt = $(".dialogContent", $.pdialog._current);
 			var json = DWZ.jsonEval($conetnt.html());
-			if (json && json.statusCode == DWZ.statusCode.timeout) this.closeCurrent();
+			if (json && json[DWZ.keys.statusCode] == DWZ.statusCode.timeout) this.closeCurrent();
 		},
 		maxsize:function(dialog) {
 			$(dialog).data("original",{

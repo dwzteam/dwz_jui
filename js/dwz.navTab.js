@@ -328,7 +328,7 @@ var navTab = {
 	},
 	checkTimeout:function(){
 		var json = DWZ.jsonEval(this.getCurrentPanel().html());
-		if (json && json.statusCode == DWZ.statusCode.timeout) this.closeCurrentTab();
+		if (json && json[DWZ.keys.statusCode] == DWZ.statusCode.timeout) this.closeCurrentTab();
 	},
 	openExternal:function(url, $panel){
 		var ih = navTab._panelBox.height();

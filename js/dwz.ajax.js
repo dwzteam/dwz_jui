@@ -115,7 +115,7 @@ function _iframeResponse(iframe, callback){
  */
 function navTabAjaxDone(json){
 	DWZ.ajaxDone(json);
-	if (json.statusCode == DWZ.statusCode.ok){
+	if (json[DWZ.keys.statusCode] == DWZ.statusCode.ok){
 		if (json.navTabId){ //把指定navTab页面标记为需要“重新载入”。注意navTabId不能是当前navTab页面的
 			navTab.reloadFlag(json.navTabId);
 		} else { //重新载入当前navTab页面
@@ -155,7 +155,7 @@ function navTabAjaxDone(json){
  */
 function dialogAjaxDone(json){
 	DWZ.ajaxDone(json);
-	if (json.statusCode == DWZ.statusCode.ok){
+	if (json[DWZ.keys.statusCode] == DWZ.statusCode.ok){
 		if (json.navTabId){
 			navTab.reload(json.forwardUrl, {navTabId: json.navTabId});
 		} else {

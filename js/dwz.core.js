@@ -26,6 +26,7 @@ var DWZ = {
 	
 	pageInfo: {pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"},
 	statusCode: {ok:200, error:300, timeout:301},
+	keys: {statusCode:"statusCode", message:"message"},
 	ui:{sbar:true},
 	frag:{}, //page fragment
 	_msg:{}, //alert message
@@ -103,25 +104,26 @@ var DWZ = {
 		}
 	},
 	ajaxDone:function(json){
-		if(json.statusCode == DWZ.statusCode.error) {
+		if(json[DWZ.keys.statusCode] == DWZ.statusCode.error) {
 			if(json.message && alertMsg) alertMsg.error(json.message);
-		} else if (json.statusCode == DWZ.statusCode.timeout) {
-			if(alertMsg) alertMsg.error(json.message || DWZ.msg("sessionTimout"), {okCall:DWZ.loadLogin});
+		} else if (json[DWZ.keys.statusCode] == DWZ.statusCode.timeout) {
+			if(alertMsg) alertMsg.error(json[DWZ.keys.message] || DWZ.msg("sessionTimout"), {okCall:DWZ.loadLogin});
 			else DWZ.loadLogin();
 		} else {
-			if(json.message && alertMsg) alertMsg.correct(json.message);
+			if(json[DWZ.keys.message] && alertMsg) alertMsg.correct(json[DWZ.keys.message]);
 		};
 	},
 
 	init:function(pageFrag, options){
 		var op = $.extend({
 				loginUrl:"login.html", loginTitle:null, callback:null, debug:false, 
-				statusCode:{}
+				statusCode:{}, keys:{}
 			}, options);
 		this._set.loginUrl = op.loginUrl;
 		this._set.loginTitle = op.loginTitle;
 		this._set.debug = op.debug;
 		$.extend(DWZ.statusCode, op.statusCode);
+		$.extend(DWZ.keys, op.keys);
 		$.extend(DWZ.pageInfo, op.pageInfo);
 		
 		jQuery.ajax({
@@ -185,18 +187,18 @@ var DWZ = {
 				success: function(response){
 					var json = DWZ.jsonEval(response);
 					
-					if (json.statusCode==DWZ.statusCode.error){
-						if (json.message) alertMsg.error(json.message);
+					if (json[DWZ.keys.statusCode]==DWZ.statusCode.error){
+						if (json[DWZ.keys.message]) alertMsg.error(json.message);
 					} else {
 						$this.html(response).initUI();
 						if ($.isFunction(op.callback)) op.callback(response);
 					}
 					
-					if (json.statusCode==DWZ.statusCode.timeout){
+					if (json[DWZ.keys.statusCode]==DWZ.statusCode.timeout){
 						if ($.pdialog) $.pdialog.checkTimeout();
 						if (navTab) navTab.checkTimeout();
 	
-						alertMsg.error(json.message || DWZ.msg("sessionTimout"), {okCall:function(){
+						alertMsg.error(json[DWZ.keys.message] || DWZ.msg("sessionTimout"), {okCall:function(){
 							DWZ.loadLogin();
 						}});
 					} 
