@@ -105,7 +105,7 @@ var DWZ = {
 	},
 	ajaxDone:function(json){
 		if(json[DWZ.keys.statusCode] == DWZ.statusCode.error) {
-			if(json.message && alertMsg) alertMsg.error(json.message);
+			if(json[DWZ.keys.message] && alertMsg) alertMsg.error(json[DWZ.keys.message]);
 		} else if (json[DWZ.keys.statusCode] == DWZ.statusCode.timeout) {
 			if(alertMsg) alertMsg.error(json[DWZ.keys.message] || DWZ.msg("sessionTimout"), {okCall:DWZ.loadLogin});
 			else DWZ.loadLogin();
@@ -188,7 +188,7 @@ var DWZ = {
 					var json = DWZ.jsonEval(response);
 					
 					if (json[DWZ.keys.statusCode]==DWZ.statusCode.error){
-						if (json[DWZ.keys.message]) alertMsg.error(json.message);
+						if (json[DWZ.keys.message]) alertMsg.error(json[DWZ.keys.message]);
 					} else {
 						$this.html(response).initUI();
 						if ($.isFunction(op.callback)) op.callback(response);
