@@ -277,7 +277,10 @@ function initUI(_box){
 	if ($.fn.selectedTodo) $("a[target=selectedTodo]", $p).selectedTodo();
 	if ($.fn.pagerForm) $("form[rel=pagerForm]", $p).pagerForm({parentBox:$p});
 
-	// 这里放其他第三方jQuery插件...
+	// 执行第三方jQuery插件【 第三方jQuery插件注册：DWZ.regPlugins.push(function($p){}); 】
+	$.each(DWZ.regPlugins, function(index, fn){
+		fn($p);
+	});
 }
 
 

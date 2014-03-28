@@ -4,6 +4,7 @@
  */
 
 var DWZ = {
+	regPlugins: [], // [function($parent){} ...] 
 	// sbar: show sidebar
 	keyCode: {
 		ENTER: 13, ESC: 27, END: 35, HOME: 36,
