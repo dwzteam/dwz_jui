@@ -110,7 +110,7 @@ var DWZ = {
 		} else if (json[DWZ.keys.statusCode] == DWZ.statusCode.timeout) {
 			if(alertMsg) alertMsg.error(json[DWZ.keys.message] || DWZ.msg("sessionTimout"), {okCall:DWZ.loadLogin});
 			else DWZ.loadLogin();
-		} else {
+		} else if (json[DWZ.keys.statusCode] == DWZ.statusCode.ok){
 			if(json[DWZ.keys.message] && alertMsg) alertMsg.correct(json[DWZ.keys.message]);
 		};
 	},
