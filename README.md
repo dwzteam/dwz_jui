@@ -67,7 +67,9 @@ https://code.csdn.net/dwzteam/
 	jQuery.DWZ-jUI-5群(满员) 85031937
 	jQuery.DWZ-jUI-6群(欢迎加入) 172602882
 	jQuery.DWZ-jUI-7群(满员) 210322217
-	jQuery.DWZ-jUI-8群(欢迎加入) 139067378
+	jQuery.DWZ-jUI-8群(满员) 139067378
+	jQuery.DWZ-jUI-9群(欢迎加入) 59680552
+	jQuery.DWZ-jUI-10群(欢迎加入) 329597326
 
 
 <b>版权声明:</b>
