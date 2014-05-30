@@ -28,7 +28,10 @@ var DWZ = {
 	pageInfo: {pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"},
 	statusCode: {ok:200, error:300, timeout:301},
 	keys: {statusCode:"statusCode", message:"message"},
-	ui:{sbar:true},
+	ui:{
+		sbar:true,
+		hideMode:'display' //navTab组件切换的隐藏方式，支持的值有’display’，’offsets’负数偏移位置的值，默认值为’display’
+	},
 	frag:{}, //page fragment
 	_msg:{}, //alert message
 	_set:{
@@ -126,6 +129,7 @@ var DWZ = {
 		$.extend(DWZ.statusCode, op.statusCode);
 		$.extend(DWZ.keys, op.keys);
 		$.extend(DWZ.pageInfo, op.pageInfo);
+		$.extend(DWZ.ui, op.ui);
 		
 		jQuery.ajax({
 			type:'GET',
