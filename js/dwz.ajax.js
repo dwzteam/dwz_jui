@@ -341,6 +341,10 @@ $.fn.extend({
 		return this.each(function(){
 			var $this = $(this);
 			$this.click(function(event){
+				if ($this.hasClass('disabled')) {
+					return false;
+				}
+				
 				var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
 				DWZ.debug(url);
 				if (!url.isFinishedTm()) {
@@ -366,7 +370,14 @@ $.fn.extend({
 			var $p = $this.attr("targetType") == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
 			var $form = $("#pagerForm", $p);
 			var url = $this.attr("href");
-			window.location = url+(url.indexOf('?') == -1 ? "?" : "&")+$form.serialize();
+			//window.location = url+(url.indexOf('?') == -1 ? "?" : "&")+$form.serialize();
+			var $iframe = $("#callbackframe");
+			if ($iframe.size() == 0) {
+				$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
+			}
+
+			form.target = "callbackframe";
+			
 		}
 		
 		return this.each(function(){
