@@ -1,0 +1,13 @@
+#git remote add github https://github.com/zhanghuihua/dwz_jui.git
+git remote add github git@github.com:zhanghuihua/dwz_jui.git
+#提交到csdn code
+git push -u origin master
+
+##提交到github
+git push -u github master
+
+git config --global user.name
+
+github生成SSH公钥
+ssh-keygen -t rsa -C "zhanghuihua@sohu.com"
+~/.ssh/id_rsa.pub 中内容复制到github
