@@ -60,8 +60,8 @@ https://code.csdn.net/dwzteam/
 	[杭州]吴平(Ajax开发)	w@j-ui.com
 	[北京]张慧华(Ajax开发)	z@j-ui.com
 
-	新加入成员：<br/>
-	[北京]张涛	QQ:122794105<br/>
+	新加入成员：
+	[北京]张涛	QQ:122794105
 	[北京]冀刚	QQ:63502308	jiweigang2008@tom.com
 	[北京]郑应海	QQ:55691650
 	[成都]COCO	QQ:80095667
