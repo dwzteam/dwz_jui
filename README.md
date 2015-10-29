@@ -1,4 +1,4 @@
-github源码下载：https://github.com/zhanghuihua/dwz_jui
+github源码下载：https://github.com/dwzteam/dwz_jui
 
 DWZ富客户端框架(jQuery RIA framework), 是中国人自己开发的基于jQuery实现的Ajax RIA开源框架.
 
