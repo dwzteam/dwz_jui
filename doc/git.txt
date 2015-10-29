@@ -14,6 +14,9 @@ git push origin v1.5.1
 git push github v1.5.1
 git push oschina v1.5.1
 
+#删除tag
+git tag -d v1.5.1
+
 github生成SSH公钥
 ssh-keygen -t rsa -C "zhanghuihua@sohu.com"
 ~/.ssh/id_rsa.pub 中内容复制到github
