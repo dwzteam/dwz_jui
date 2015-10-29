@@ -48,6 +48,8 @@
 					$checkboxLi.attr('checked', true);
 					break;
 			}
+
+			$checkboxLi.trigger('change');
 		}
 	};
 })(jQuery);

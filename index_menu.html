@@ -20,16 +20,33 @@
 <!--[if lte IE 9]>
 <script src="js/speedup.js" type="text/javascript"></script>
 <![endif]-->
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+<!--[if lt IE 9]>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<![endif]-->
+<script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+<!--[if gte IE 9]>
+
 <script src="js/jquery.cookie.js" type="text/javascript"></script>
 <script src="js/jquery.validate.js" type="text/javascript"></script>
 <script src="js/jquery.bgiframe.js" type="text/javascript"></script>
-<script src="xheditor/xheditor-1.2.1.min.js" type="text/javascript"></script>
+<script src="xheditor/xheditor-1.2.2.min.js" type="text/javascript"></script>
 <script src="xheditor/xheditor_lang/zh-cn.js" type="text/javascript"></script>
 <script src="uploadify/scripts/jquery.uploadify.min.js" type="text/javascript"></script>
 
 <script src="bin/dwz.min.js" type="text/javascript"></script>
 <script src="js/dwz.regional.zh.js" type="text/javascript"></script>
+
+<!--[if lt IE 7]>
+<script type="text/javascript">
+	try {
+		document.execCommand("BackgroundImageCache", false, true);
+
+		//清理浏览器内存,只对IE起效
+		window.setInterval("CollectGarbage();", 10000);
+	}catch(e){}
+</script>
+<![endif]-->
 
 <script type="text/javascript">
 $(function(){

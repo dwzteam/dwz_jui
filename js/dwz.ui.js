@@ -1,16 +1,6 @@
 function initEnv() {
 	$("body").append(DWZ.frag["dwzFrag"]);
 
-	if ( $.browser.msie && /6.0/.test(navigator.userAgent) ) {
-		try {
-			document.execCommand("BackgroundImageCache", false, true);
-		}catch(e){}
-	}
-	//清理浏览器内存,只对IE起效
-	if ($.browser.msie) {
-		window.setInterval("CollectGarbage();", 10000);
-	}
-
 	$(window).resize(function(){
 		initLayout();
 		$(this).trigger(DWZ.eventType.resizeGrid);

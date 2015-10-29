@@ -103,7 +103,7 @@
 				<span class="info">(lookup附件)</span>
 			</dd>
 		</dl>
-		
+
 		<div class="divider"></div>
 		<h3 class="contentTitle">主从结构</h3>
 		<div class="tabs">
@@ -132,7 +132,25 @@
 								<th type="del" width="60">操作</th>
 							</tr>
 						</thead>
-						<tbody></tbody>
+						<tbody>
+							<tr class="unitBox">
+								<td><input type="text" name="items[0].itemString" value="" size="12" class="required" remote="validate_remote.html" maxlength="10"></td>
+								<td><input type="text" name="items[0].itemInt" value="1" size="12" class="digits textInput"></td>
+								<td><input type="text" name="items[0].itemFloat" value="0.8" size="12" class="number textInput"></td>
+								<td><input type="text" name="items[0].itemDate" value="2011-12-28" class="date  textInput" datefmt="yyyy-MM-dd" size="12">
+									<a class="inputDateButton" href="javascript:void(0)">选择</a></td>
+								<td><input type="text" name="items[0].itemDataTime" value="" class="date  textInput" datefmt="yyyy-MM-dd" size="16"><a class="inputDateButton" href="javascript:void(0)">选择</a></td>
+								<td><input type="hidden" name="items[0].org.id"><input type="text" name="items[0].org.orgName" autocomplete="off" lookupgroup="items[0].org" suggesturl="demo/database/db_lookupSuggest.html" suggestfields="orgName" postfield="keywords" lookuppk="id" size="12" class="required textInput"><a class="btnLook" href="demo/database/dwzOrgLookup.html" lookupgroup="items[0].org" autocomplete="off" suggesturl="demo/database/db_lookupSuggest.html" suggestfields="orgName" postfield="keywords" lookuppk="id" title="查找带回">查找带回</a></td>
+								<td>
+									<select class="combox" name="${param.inputName}">
+										<option value="Yes">是</option>
+										<option value="No">否</option>
+									</select>
+								</td>
+								<td><input type="hidden" name="items[0].attachment.id"><input type="text" name="items[0].attachment.fileName" size="12" readonly="readonly" class="textInput readonly"><a class="btnAttach" href="demo/database/db_attachmentLookup.html" lookupgroup="items[0].attachment" lookuppk="id" width="560" height="300" title="查找带回">查找带回</a></td>
+								<td><a href="javascript:void(0)" class="btnDel ">删除</a></td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 				<div>
