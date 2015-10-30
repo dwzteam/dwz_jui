@@ -1,5 +1,5 @@
-#git remote add github https://github.com/zhanghuihua/dwz_jui.git
-git remote add github git@github.com:zhanghuihua/dwz_jui.git
+#git remote add github https://github.com/dwzteam/dwz_jui.git
+git remote add github git@github.com:dwzteam/dwz_jui.git
 git remote add oschina git@git.oschina.net:dwzteam/dwz_jui.git
 
 #提交到csdn code
@@ -16,6 +16,7 @@ git push oschina v1.5.1
 
 #删除tag
 git tag -d v1.5.1
+git push origin :refs/tags/v1.5.1
 
 github生成SSH公钥
 ssh-keygen -t rsa -C "zhanghuihua@sohu.com"
