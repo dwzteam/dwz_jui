@@ -56,28 +56,28 @@ https://code.csdn.net/dwzteam/
 	邮箱：support@j-ui.com
 
 	DWZ创始人：
-	[北京]杜权(UI设计)		d@j-ui.com
+	[北京]杜权(UI设计/制作)	d@j-ui.com
 	[杭州]吴平(Ajax开发)	w@j-ui.com
-	[北京]张慧华(Ajax开发)	z@j-ui.com
+	[杭州]张慧华(Ajax开发)	z@j-ui.com
 
 	新加入成员：
 	[北京]张涛	QQ:122794105
 	[北京]冀刚	QQ:63502308	jiweigang2008@tom.com
-	[北京]郑应海	QQ:55691650
+	[南京]郑应海	QQ:55691650
 	[成都]COCO	QQ:80095667
 
 	官方微博(欢迎加入) http://weibo.com/dwzui 
 
-	jQuery.DWZ-jUI-1群(满员) 107983317
-	jQuery.DWZ-jUI-2群(满员) 69611933
-	jQuery.DWZ-jUI-3群(满员) 20866231
-	jQuery.DWZ-jUI-4群(满员) 369203
-	jQuery.DWZ-jUI-5群(满员) 85031937
-	jQuery.DWZ-jUI-6群(欢迎加入) 172602882
-	jQuery.DWZ-jUI-7群(满员) 210322217
-	jQuery.DWZ-jUI-8群(满员) 139067378
-	jQuery.DWZ-jUI-9群(欢迎加入) 59680552
-	jQuery.DWZ-jUI-10群(欢迎加入) 329597326
+	jQuery.DWZ-jUI-1群 107983317
+	jQuery.DWZ-jUI-2群 69611933
+	jQuery.DWZ-jUI-3群 20866231
+	jQuery.DWZ-jUI-4群 369203
+	jQuery.DWZ-jUI-5群 85031937
+	jQuery.DWZ-jUI-6群 172602882
+	jQuery.DWZ-jUI-7群 210322217
+	jQuery.DWZ-jUI-8群 139067378
+	jQuery.DWZ-jUI-9群 59680552
+	jQuery.DWZ-jUI-10群 329597326
 
 
 <b>版权声明:</b>
