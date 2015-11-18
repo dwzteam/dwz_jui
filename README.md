@@ -53,12 +53,12 @@ https://code.csdn.net/dwzteam/
 
 	合作电话：010-52897073	18600055221
 	技术支持：0571-88517625	17767167745
-	邮箱：support@j-ui.com
+	邮箱：support@jui.org
 
 	DWZ创始人：
-	[北京]杜权(UI设计/制作)	d@j-ui.com
-	[杭州]吴平(Ajax开发)	w@j-ui.com
-	[杭州]张慧华(Ajax开发)	z@j-ui.com
+	[北京]杜权(UI设计/制作)	d@jui.org
+	[杭州]吴平(Ajax开发)	w@jui.org
+	[杭州]张慧华(Ajax开发)	z@jui.org
 
 	新加入成员：
 	[北京]张涛	QQ:122794105
