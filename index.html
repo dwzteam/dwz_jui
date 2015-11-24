@@ -62,7 +62,7 @@
 <script src="js/dwz.combox.js" type="text/javascript"></script>
 <script src="js/dwz.print.js" type="text/javascript"></script>
 
-<!-- 可以用dwz.min.js替换前面全部dwz.*.js (注意：替换是下面dwz.regional.zh.js还需要引入)
+<!-- 可以用dwz.min.js替换前面全部dwz.*.js (注意：替换时下面dwz.regional.zh.js还需要引入)
 <script src="bin/dwz.min.js" type="text/javascript"></script>
 -->
 <script src="js/dwz.regional.zh.js" type="text/javascript"></script>
@@ -295,6 +295,16 @@ Error loading XML document: dwz.frag.xml
 直接用IE打开index.html弹出一个对话框：Error loading XML document: dwz.frag.xml
 原因：没有加载成功dwz.frag.xml。IE ajax laod本地文件有限制, 是ie安全级别的问题, 不是框架的问题。
 解决方法：部署到apache 等 Web容器下。
+
+如何精简JS：
+	1) dwz.min.js替换全部dwz.*.js (注意：替换时下面dwz.regional.zh.js还需要引入
+	2) demo index页面head中引入的几个第三方JS库也可以根据项目情况删除：
+		js/jquery.cookie.js			用于cookie中纪录jUI主题theme，下次打开浏览器时纪录用户选择的主题风格
+		js/jquery.validate.js		用于form表单验证
+		js/jquery.bgiframe.js		用于解决IE6 dialog盖不住navTab页面中的select问题
+		xheditor/xheditor-1.2.2.min.js	在线编辑器
+		xheditor/xheditor_lang/zh-cn.js	在线编辑器国际化
+		uploadify/scripts/jquery.uploadify.min.js	多文件上传
 </pre>
 
 <div class="divider"></div>
