@@ -18,7 +18,8 @@
 				$.History._callback = callback;
 				var current_hash = location.hash.replace(/\?.*$/, '');
 				$.History._currentHash = current_hash;
-				if ($.browser.msie) {
+
+				if (/msie/.test(navigator.userAgent.toLowerCase())) {
 					if ($.History._currentHash == '') {
 						$.History._currentHash = '#';
 					}
@@ -35,7 +36,7 @@
 			},
 			_historyCheck: function(){
 				var current_hash = "";
-				if ($.browser.msie) {
+				if (/msie/.test(navigator.userAgent.toLowerCase())) {
 					var ihistory = $("#jQuery_history")[0];
 					var iframe = ihistory.contentWindow;
 					current_hash = iframe.location.hash.skipChar("#").replace(/\?.*$/, '');
@@ -59,7 +60,7 @@
 				$.History._currentHash = hash;
 				var history = [hash, fun, args];
 				$.History._hash.push(history);
-				if ($.browser.msie) {
+				if (/msie/.test(navigator.userAgent.toLowerCase())) {
 					var ihistory = $("#jQuery_history")[0];
 					var iframe = ihistory.contentDocument || ihistory.contentWindow.document;
 					iframe.open();
@@ -71,7 +72,7 @@
 				}
 			},
 			loadHistory: function(hash){
-				if ($.browser.msie) {
+				if (/msie/.test(navigator.userAgent.toLowerCase())) {
 					location.hash = hash;
 				}
 				for (var i = 0; i < $.History._hash.length; i += 1) {

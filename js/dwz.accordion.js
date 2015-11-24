@@ -284,7 +284,7 @@ $.extend($.dwz.accordion, {
 			options.toHide.filter(":hidden").each(options.complete).end().filter(":visible").animate({height:"hide"},{
 				step: function(now) {
 					var current = (hideHeight - now) * difference;
-					if ($.browser.msie || $.browser.opera) {
+					if (/msie|opera/.test(navigator.userAgent.toLowerCase())) {
 						current = Math.ceil(current);
 					}
 					options.toShow.height( current );

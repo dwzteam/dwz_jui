@@ -137,30 +137,32 @@ function initUI(_box){
 	$("div.tabsHeader li, div.tabsPageHeader li, div.accordionHeader, div.accordion", $p).hoverClass("hover");
 
 	//validate form
-	$("form.required-validate", $p).each(function(){
-		var $form = $(this);
-		$form.validate({
-			onsubmit: false,
-			focusInvalid: false,
-			focusCleanup: true,
-			errorElement: "span",
-			ignore:".ignore",
-			invalidHandler: function(form, validator) {
-				var errors = validator.numberOfInvalids();
-				if (errors) {
-					var message = DWZ.msg("validateFormError",[errors]);
-					alertMsg.error(message);
-				} 
-			}
+	if ($.fn.validate) {
+		$("form.required-validate", $p).each(function(){
+			var $form = $(this);
+			$form.validate({
+				onsubmit: false,
+				focusInvalid: false,
+				focusCleanup: true,
+				errorElement: "span",
+				ignore:".ignore",
+				invalidHandler: function(form, validator) {
+					var errors = validator.numberOfInvalids();
+					if (errors) {
+						var message = DWZ.msg("validateFormError",[errors]);
+						alertMsg.error(message);
+					}
+				}
+			});
+
+			$form.find('input[customvalid]').each(function(){
+				var $input = $(this);
+				$input.rules("add", {
+					customvalid: $input.attr("customvalid")
+				})
+			});
 		});
-		
-		$form.find('input[customvalid]').each(function(){
-			var $input = $(this);
-			$input.rules("add", {
-				customvalid: $input.attr("customvalid")
-			})
-		});
-	});
+	}
 
 	if ($.fn.datepicker){
 		$('input.date', $p).each(function(){

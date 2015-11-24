@@ -215,7 +215,7 @@
 			return coord;
 		},
 		getOffset:function(obj, evt){
-			if($.browser.msie ) {
+			if(/msie/.test(navigator.userAgent.toLowerCase())) {
 				var objset = $(obj).offset();
 				var evtset = {
 					offsetX:evt.pageX || evt.screenX,

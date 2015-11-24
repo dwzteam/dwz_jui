@@ -134,7 +134,7 @@
 				}).mouseout(function(){
 					$(this).removeClass("hover");
 				});
-				if($.browser.msie)
+				if(/msie/.test(navigator.userAgent.toLowerCase()))
 					$(">div",node).click(function(){
 						$("a", this).trigger("click");
 						return false;
