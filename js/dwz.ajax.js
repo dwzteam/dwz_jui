@@ -15,8 +15,10 @@ function validateCallback(form, callback, confirmMsg) {
 	if (!$form.valid()) {
 		return false;
 	}
-	
+
 	var _submitFn = function(){
+		$form.find(':focus').blur();
+
 		$.ajax({
 			type: form.method || 'POST',
 			url:$form.attr("action"),
@@ -52,7 +54,9 @@ function iframeCallback(form, callback){
 		$form.append('<input type="hidden" name="ajax" value="1" />');
 	}
 	form.target = "callbackframe";
-	
+
+	$form.find(':focus').blur();
+
 	_iframeResponse($iframe[0], callback || DWZ.ajaxDone);
 }
 function _iframeResponse(iframe, callback){
@@ -370,14 +374,19 @@ $.fn.extend({
 			var $p = $this.attr("targetType") == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
 			var $form = $("#pagerForm", $p);
 			var url = $this.attr("href");
-			//window.location = url+(url.indexOf('?') == -1 ? "?" : "&")+$form.serialize();
+//			window.location = url+(url.indexOf('?') == -1 ? "?" : "&")+$form.serialize();
+
 			var $iframe = $("#callbackframe");
 			if ($iframe.size() == 0) {
 				$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
 			}
 
-			form.target = "callbackframe";
-			
+			var pagerFormUrl = $form[0].action;
+			$form[0].action = url;
+			$form[0].target = "callbackframe";
+			$form.submit();
+
+			$form[0].action = pagerFormUrl;
 		}
 		
 		return this.each(function(){
