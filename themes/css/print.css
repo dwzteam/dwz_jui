@@ -1,20 +1,20 @@
 #layout, #footer, #splitBar, #splitBarProxy, #alertBackground, #dialogBackground, #background, 
 .comboxop, .shadow, .panelBar{ display:none;}
-#printBox{display:block;}
-
+#printBox{display:block; font-family: Arial, sans-serif; }
+/*body.transform5{-webkit-transform: scale(0.5); -webkit-transform-origin: 0 0;}*/
 
 /* CSS Table */
-table.list {border-collapse:collapse;table-layout:fixed}
+table.list {border-collapse:collapse;width:100%}
 table.list thead tr {background-color: #F0EFF0;}
-table.list th {padding:1px 2px; line-height:21px; border: solid 1px #D0D0D0; font-weight:bolder; }
-table.list td {padding:1px 2px; line-height:21px; border:solid 1px #D0D0D0;overflow: hidden;}
+table.list th {border: solid 1px #D0D0D0; font-weight:bold; }
+table.list td {border:solid 1px #D0D0D0;white-space:nowrap;}
 
 
 /* Grid */
-.grid table {border-collapse:collapse; table-layout:fixed;}
-.grid table th {padding:1px 2px; line-height:21px; border: solid 1px #D0D0D0; font-weight:bolder;}
-.grid table td {padding:1px 2px; line-height:21px; border: solid 1px #D0D0D0; line-height: 21px; overflow:hidden;}
-.grid .gridTbody td div { display: block; height: 21px; line-height: 21px; overflow: hidden;}
+.grid table {border-collapse:collapse; width:100%}
+.grid table th { border: solid 1px #D0D0D0; font-weight:bold; }
+.grid table td { border: solid 1px #D0D0D0; white-space:nowrap;}
+.grid .gridTbody td div { display: block; }
 .grid .left { text-align:left;}
 .grid .right { text-align:right;}
 .grid .center { text-align:center;}

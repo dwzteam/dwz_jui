@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简单实用国产jQuery UI框架 - DWZ富客户端框架(J-UI.com)</title>
+
+<link href="themes/css/print.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div id="printBox" style="font-size: 0.5em;">
+	<table class="list">
+		<thead>
+		<tr>
+			<th width="22"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
+			<th>客户号</th>
+			<th>客户名称</th>
+			<th>客户类型</th>
+			<th>证件号码</th>
+			<th align="center">信用等级</th>
+			<th>所属行业</th>
+			<th>建档日期</th>
+			<th>操作</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr target="sid_user" rel="1">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="2">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="3">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="4">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="5">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="6">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="7">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="8">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="9">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="10">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="11">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="12">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="13">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="14">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="15">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="16">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="17">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="18">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="19">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		<tr target="sid_user" rel="20">
+			<td><input name="ids" value="xxx" type="checkbox"></td>
+			<td>A120113196309052434</td>
+			<td>天津市华建装饰工程有限公司</td>
+			<td>联社营业部</td>
+			<td>29385739203816293</td>
+			<td>5级</td>
+			<td>政府机构</td>
+			<td>2009-05-21</td>
+			<td>
+				<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
+				<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
