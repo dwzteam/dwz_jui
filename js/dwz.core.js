@@ -221,9 +221,13 @@ var DWZ = {
 		loadUrl: function(url,data,callback){
 			$(this).ajaxUrl({url:url, data:data, callback:callback});
 		},
-		initUI: function(){
+
+		initUI: function() {
 			return this.each(function(){
-				if($.isFunction(initUI)) initUI(this);
+				var $this = $(this);
+				$.each(DWZ.regPlugins, function(index, fn){
+					fn($this);
+				});
 			});
 		},
 		/**

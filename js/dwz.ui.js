@@ -14,16 +14,21 @@ function initEnv() {
 		ajaxbg.hide();
 	});
 	
-	$("#leftside").jBar({minW:150, maxW:700});
+	if ($.fn.jBar) $("#leftside").jBar({minW:150, maxW:700});
 	
 	if ($.taskBar) $.taskBar.init();
-	navTab.init();
+	if (window.navTab) navTab.init();
 	if ($.fn.switchEnv) $("#switchEnvBox").switchEnv();
 	if ($.fn.navMenu) $("#navMenu").navMenu();
 		
 	setTimeout(function(){
 		initLayout();
-		initUI();
+
+		// 注册DWZ插件。
+		DWZ.regPlugins.push(initUI); //第三方jQuery插件注册方法：DWZ.regPlugins.push(function($p){});
+
+		// 首次初始化插件
+		$(document).initUI();
 		
 		// navTab styles
 		var jTabsPH = $("div.tabsPageHeader");
@@ -44,16 +49,14 @@ function initLayout(){
 	$("#taskbar").css({top: iContentH + $("#header").height() + 5, width:$(window).width()});
 }
 
-function initUI(_box){
-	var $p = $(_box || document);
-
-	$("div.panel", $p).jPanel();
-
+function initUI($p){
 	//tables
-	$("table.table", $p).jTable();
-	
+	if ($.fn.jTable) $("table.table", $p).jTable();
+
 	// css tables
-	$('table.list', $p).cssTable();
+	if ($.fn.cssTable) $('table.list', $p).cssTable();
+
+	if ($.fn.jPanel) $("div.panel", $p).jPanel();
 
 	//auto bind tabs
 	$("div.tabs", $p).each(function(){
@@ -64,13 +67,18 @@ function initUI(_box){
 		$this.tabs(options);
 	});
 
-	$("ul.tree", $p).jTree();
-	$('div.accordion', $p).each(function(){
-		var $this = $(this);
-		$this.accordion({fillSpace:$this.attr("fillSpace"),alwaysOpen:true,active:0});
-	});
+	if ($.fn.jTree) $("ul.tree", $p).jTree();
 
-	$(":button.checkboxCtrl, :checkbox.checkboxCtrl", $p).checkboxCtrl($p);
+	if ($.fn.jTree){
+		$('div.accordion', $p).each(function(){
+			var $this = $(this);
+			$this.accordion({fillSpace:$this.attr("fillSpace"),alwaysOpen:true,active:0});
+		});
+	}
+
+	if ($.fn.checkboxCtrl){
+		$(":button.checkboxCtrl, :checkbox.checkboxCtrl", $p).checkboxCtrl($p);
+	}
 	
 	if ($.fn.combox) $("select.combox",$p).combox();
 	
@@ -269,10 +277,10 @@ function initUI(_box){
 	if ($.fn.selectedTodo) $("a[target=selectedTodo]", $p).selectedTodo();
 	if ($.fn.pagerForm) $("form[rel=pagerForm]", $p).pagerForm({parentBox:$p});
 
-	// 执行第三方jQuery插件【 第三方jQuery插件注册：DWZ.regPlugins.push(function($p){}); 】
-	$.each(DWZ.regPlugins, function(index, fn){
-		fn($p);
-	});
 }
 
-
+DWZ.regPlugins.push(function($p){
+	$("img.lazy", $p).lazyload({
+		effect : "fadeIn"
+	});
+});
