@@ -278,9 +278,3 @@ function initUI($p){
 	if ($.fn.pagerForm) $("form[rel=pagerForm]", $p).pagerForm({parentBox:$p});
 
 }
-
-DWZ.regPlugins.push(function($p){
-	$("img.lazy", $p).lazyload({
-		effect : "fadeIn"
-	});
-});
