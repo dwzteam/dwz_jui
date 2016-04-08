@@ -1,5 +1,5 @@
 /**
- * @author ZhangHuihua@msn.com
+ * @author 张慧华 z@j-ui.com
  */
 $.setRegional("alertMsg", {
 	title:{error:"Error", info:"Information", warn:"Warning", correct:"Successful", confirm:"Confirmation"},

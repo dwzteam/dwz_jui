@@ -1,6 +1,6 @@
 /**
  * jQuery ajax history plugins
- * @author ZhangHuihua@msn.com
+ * @author 张慧华 z@j-ui.com
  */
 
 

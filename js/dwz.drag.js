@@ -68,7 +68,7 @@
 					current.el.style.top = top + 'px';
 			} else {
 				var selector = data.options.selector ? $(data.options.selector, data.options.obj) : $(data.options.obj);
-				if (left >= -selector.outerWidth() * 2 / 3 && top >= 0 && (left + selector.outerWidth() / 3 < $(window).width()) && (top + selector.outerHeight() < $(window).height())) {
+				if (left >= -selector.outerWidth() * 2 / 3 && top >= 0 && (left + selector.outerWidth() / 3 < $(window).width()) && (top + selector.outerHeight() < $(window).height())) { //浏览器缩放后有bug，先注释掉
 					current.el.style.left = left + 'px';
 					current.el.style.top = top + 'px';
 				}

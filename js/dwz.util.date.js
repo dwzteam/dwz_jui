@@ -1,5 +1,5 @@
 /**
- * @author ZhangHuihua@msn.com
+ * @author 张慧华 z@j-ui.com
  * ----------------------------------------------------------
  * These functions use the same 'format' strings as the 
  * java.text.SimpleDateFormat class, with minor exceptions.

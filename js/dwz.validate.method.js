@@ -1,6 +1,6 @@
 /**
  * @requires jquery.validate.js
- * @author ZhangHuihua@msn.com
+ * @author 张慧华 z@j-ui.com
  */
 (function($){
 	if ($.validator) {
