@@ -15,7 +15,7 @@ DWZ基于jQuery可以非常方便的定制特定需求的UI组件, 并以jQuery�
 DWZ富客户端框架完全开源，可以免费获取全部源码。团队中的每个人都是开源的拥护者，都希望为中国软件开源事业尽自己的一份力量。
 
 DWZ官方微博 http://weibo.com/dwzui
-在线演示地址 http://j-ui.com
+在线演示地址 http://jui.org
 
 <b>学习DWZ的建议</b>
 <ul>
@@ -37,9 +37,6 @@ DWZ官方微博 http://weibo.com/dwzui
 <li>基于jQuery，UI组件以jQuery插件的形式发布，扩展方便</li>
 </ul>
 
-
-<b>最新测试版SVN下载:</b>
-https://code.csdn.net/dwzteam/
 
 <b>有偿服务:</b>
 <ul>
@@ -83,7 +80,7 @@ https://code.csdn.net/dwzteam/
 <b>版权声明:</b>
 
 	jUI遵循Apache2开源协议发布，并提供免费使用。
-	版权所有Copyright © 2009-2013 by DWZ (http://j-ui.com) All rights reserved。
+	版权所有Copyright © 2009-2013 by DWZ (http://jui.org) All rights reserved。
 	Apache Licence是著名的非盈利开源组织Apache采用的协议。
 	该协议和BSD类似，鼓励代码共享和尊重原作者的著作权，允许代码修改，再作为开源或商业软件发布。需要满足的条件： 
 	
