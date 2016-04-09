@@ -42,13 +42,16 @@
 					dialog.find(".dialogHeader").find("h1").html(title);
 					this.switchDialog(dialog);
 					var jDContent = dialog.find(".dialogContent");
-					jDContent.loadUrl(url, {}, function(){
-						jDContent.find("[layoutH]").layoutH(jDContent);
-						$(".pageContent", dialog).width($(dialog).width()-14);
-						$("button.close").click(function(){
-							$.pdialog.close(dialog);
-							return false;
-						});
+
+					jDContent.ajaxUrl({
+						type:options.type||'GET', url:url, data:options.data || {}, callback:function(){
+							jDContent.find("[layoutH]").layoutH(jDContent);
+							$(".pageContent", dialog).width($(dialog).width()-14);
+							$("button.close").click(function(){
+								$.pdialog.close(dialog);
+								return false;
+							});
+						}
 					});
 				}
 			
@@ -120,13 +123,15 @@
 				$.pdialog.attachShadow(dialog);
 				//load data
 				var jDContent = $(".dialogContent",dialog);
-				jDContent.loadUrl(url, {}, function(){
-					jDContent.find("[layoutH]").layoutH(jDContent);
-					$(".pageContent", dialog).width($(dialog).width()-14);
-					$("button.close").click(function(){
-						$.pdialog.close(dialog);
-						return false;
-					});
+				jDContent.ajaxUrl({
+					type:options.type||'GET', url:url, data:options.data || {}, callback:function(){
+						jDContent.find("[layoutH]").layoutH(jDContent);
+						$(".pageContent", dialog).width($(dialog).width()-14);
+						$("button.close").click(function(){
+							$.pdialog.close(dialog);
+							return false;
+						});
+					}
 				});
 			}
 			if (op.mask) {
