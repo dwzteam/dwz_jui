@@ -355,7 +355,7 @@ var navTab = {
 			var span$ = $tab.attr("tabid") == this._op.mainTabId ? "> span > span" : "> span";
 			$tab.find(">a").attr("title", op.title).find(span$).html(op.title);
 			var $panel = this._getPanels().eq(iOpenIndex);
-			if(op.fresh || $tab.attr("url") != url) {
+			if(url && (op.fresh || $tab.attr("url") != url)) {
 				$tab.attr("url", url);
 				if (op.external || url.isExternalUrl()) {
 					$tab.addClass("external");
@@ -379,17 +379,19 @@ var navTab = {
 			var $tabs = this._getTabs();
 			var $tab = $tabs.filter(":last");
 			var $panel = this._getPanels().filter(":last");
-			
-			if (op.external || url.isExternalUrl()) {
-				$tab.addClass("external");
-				navTab.openExternal(url, $panel);
-			} else {
-				$tab.removeClass("external");
-				$panel.ajaxUrl({
-					type:op.type, url:url, data:op.data, callback:function(){
-						navTab._loadUrlCallback($panel);
-					}
-				});
+
+			if(url) {
+				if (op.external || url.isExternalUrl()) {
+					$tab.addClass("external");
+					navTab.openExternal(url, $panel);
+				} else {
+					$tab.removeClass("external");
+					$panel.ajaxUrl({
+						type: op.type, url: url, data: op.data, callback: function () {
+							navTab._loadUrlCallback($panel);
+						}
+					});
+				}
 			}
 			
 			if ($.History) {
