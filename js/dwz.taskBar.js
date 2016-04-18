@@ -216,6 +216,9 @@
 		 */
 		closeDialog: function(obj){
 			var task = (typeof obj == 'string')? $("#"+obj, this._taskList):obj;
+
+			if (task.size() == 0) return; // fix bug for minable=false
+
 			task.remove();
 			if(this._getTasks().size() == 0){
 				this.hide();
