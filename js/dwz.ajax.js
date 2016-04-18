@@ -48,12 +48,12 @@ function iframeCallback(form, callback){
 	if(!$form.valid()) {return false;}
 
 	if ($iframe.size() == 0) {
-		$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
+		$iframe = $('<iframe id="callbackframe" name="callbackframe" src="about:blank" style="display:none"></iframe>').appendTo('body');
 	}
 	if(!form.ajax) {
 		$form.append('<input type="hidden" name="ajax" value="1" />');
 	}
-	form.target = "callbackframe";
+	form.target = 'callbackframe';
 
 	$form.find(':focus').blur();
 
@@ -405,3 +405,37 @@ $.fn.extend({
 	}
 });
 
+/**
+ * The W3C XMLHttpRequest specification dictates that the charset is always UTF-8; specifying another charset will not force the browser to change the encoding.
+ * iframe模拟ajax load, 解决GBK页面load乱码问题
+ *
+ * @param url
+ * @param callback
+ */
+$.iframeLoad = function(url, callback) {
+
+	var $form = $('<form type="post" action="'+url+'" target="callbackframe" style="display: none"><button type="submit">submit</button></form>').appendTo('body'),
+		$iframe = $("#callbackframe");
+
+	if ($iframe.size() == 0) {
+		$iframe = $('<iframe id="callbackframe" name="callbackframe" src="about:blank" style="display:none"></iframe>').appendTo('body');
+	}
+
+	_iframeResponse($iframe[0], function(response) {
+		$form.remove();
+		if (callback) callback.call($iframe, response);
+	});
+
+	$form.submit();
+}
+
+$.fn.iframeLoad = function(url, callback) {
+	return this.each(function(){
+		var $box = $(this);
+
+		$.iframeLoad(url, function(response){
+			$box.html(response).initUI();
+			if (callback) callback.call($box, response);
+		});
+	});
+}
