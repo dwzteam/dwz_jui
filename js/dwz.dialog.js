@@ -47,7 +47,7 @@
 						type:options.type||'GET', url:url, data:options.data || {}, callback:function(){
 							jDContent.find("[layoutH]").layoutH(jDContent);
 							$(".pageContent", dialog).width($(dialog).width()-14);
-							$("button.close").click(function(){
+							$("button.close", dialog).click(function(){
 								$.pdialog.close(dialog);
 								return false;
 							});
@@ -127,7 +127,7 @@
 					type:options.type||'GET', url:url, data:options.data || {}, callback:function(){
 						jDContent.find("[layoutH]").layoutH(jDContent);
 						$(".pageContent", dialog).width($(dialog).width()-14);
-						$("button.close").click(function(){
+						$("button.close", dialog).click(function(){
 							$.pdialog.close(dialog);
 							return false;
 						});
