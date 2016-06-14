@@ -83,8 +83,10 @@ $(function(){
 		}
 	});
 });
-
 </script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6PYkS1eDz5pMnyfO0jvBNE0F"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
 </head>
 
 <body>
@@ -143,7 +145,8 @@ $(function(){
 								<ul>
 									<li><a href="main.html" target="navTab" rel="main">我的主页</a></li>
 									<li><a href="http://www.baidu.com" target="navTab" rel="page1">页面一(外部链接)</a></li>
-									<li><a href="demo/baidu_map.html" target="navTab" rel="external" external="true" title="需要设置external属性为true">地图(external="true")</a></li>
+									<li><a href="demo/baidu_map_iframe.html" target="navTab" rel="bmap" external="true" title="需要设置external属性为true">地图(external iframe方式)</a></li>
+									<li><a href="demo/baidu_map.html" target="navTab" rel="bmap">地图(直接嵌入方式)</a></li>
 									<li><a href="demo_page1.html" target="navTab" rel="page1" fresh="false">替换页面一</a></li>
 									<li><a href="demo_page2.html" target="navTab" rel="page2">页面二</a></li>
 									<li><a href="demo_page4.html" target="navTab" rel="page3" title="页面三（自定义标签名）">页面三</a></li>

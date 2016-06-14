@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#panorama {width:100%; height: 500px;}
+		#result {width:100%;font-size:12px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6PYkS1eDz5pMnyfO0jvBNE0F"></script>
+	<title>显示/隐藏导航控件</title>
+</head>
+<body>
+<div id="panorama"></div>
+<div id="result">
+	<button id="hideNavigationControl">隐藏导航控件</button>
+	<button id="showNavigationControl">显示导航控件</button>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	var panorama = new BMap.Panorama('panorama'); //默认为显示导航控件
+	panorama.setPosition(new BMap.Point(116.316169, 40.005567));
+
+	document.getElementById("hideNavigationControl").onclick = function(){
+		panorama.setOptions({
+			navigationControl: false //隐藏导航控件
+		});
+	};
+	document.getElementById("showNavigationControl").onclick = function(){
+		panorama.setOptions({
+			navigationControl: true //显示导航控件
+		});
+	};
+</script>
+
