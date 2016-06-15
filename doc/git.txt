@@ -27,3 +27,4 @@ git config --global user.name
 
 #检查git链接
 ssh -T git@github.com
+ssh -T git@oschina.net
