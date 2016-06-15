@@ -4,7 +4,7 @@
  */
 
 var DWZ = {
-	version: '1.5.2',
+	version: '1.5.3',
 	regPlugins: [], // [function($parent){} ...] 
 	// sbar: show sidebar
 	keyCode: {
