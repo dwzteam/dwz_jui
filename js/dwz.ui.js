@@ -17,12 +17,12 @@ function initEnv() {
 	if ($.fn.jBar) $("#leftside").jBar({minW:150, maxW:700});
 	
 	if ($.taskBar) $.taskBar.init();
-	if (window.navTab) navTab.init();
 	if ($.fn.switchEnv) $("#switchEnvBox").switchEnv();
 	if ($.fn.navMenu) $("#navMenu").navMenu();
 		
 	setTimeout(function(){
 		initLayout();
+		if (window.navTab) navTab.init();
 
 		// 注册DWZ插件。
 		DWZ.regPlugins.push(initUI); //第三方jQuery插件注册方法：DWZ.regPlugins.push(function($p){});
@@ -35,7 +35,8 @@ function initEnv() {
 		jTabsPH.find(".tabsLeft").hoverClass("tabsLeftHover");
 		jTabsPH.find(".tabsRight").hoverClass("tabsRightHover");
 		jTabsPH.find(".tabsMore").hoverClass("tabsMoreHover");
-	
+
+		$(document).trigger(DWZ.eventType.initEnvAfter);
 	}, 10);
 
 }

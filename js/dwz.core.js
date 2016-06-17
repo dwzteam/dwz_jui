@@ -15,7 +15,8 @@ var DWZ = {
 	},
 	eventType: {
 		pageClear:"pageClear",	// 用于重新ajaxLoad、关闭nabTab, 关闭dialog时，去除xheditor等需要特殊处理的资源
-		resizeGrid:"resizeGrid"	// 用于窗口或dialog大小调整
+		resizeGrid:"resizeGrid",	// 用于窗口或dialog大小调整
+		initEnvAfter: "initEnvAfter" // initEnv完成出发
 	},
 	isOverAxis: function(x, reference, size) {
 		//Determines when x coordinate is over "b" element axis
