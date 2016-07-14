@@ -542,7 +542,7 @@ fieldset legend:hover {background-color: #dddddd;}
 h2.contentTitle{margin-bottom:10px; padding:0 10px; line-height:30px; font-size:14px; border-bottom:solid 1px #CCC;}
 h3.contentTitle{margin-bottom:5px; line-height:25px; font-size:13px; border-bottom:solid 1px #CCC;clear:both;}
 .dialog h2.contentTitle {border:none}
-h2.subTitle { margin: 10px; padding: 0; line-height: 30px; font-size: 14px; border-bottom: solid 1px #CCC; }
+h2.subTitle { margin: 5px 10px; padding: 0; line-height: 30px; font-size: 14px; border-bottom: solid 1px #CCC; }
 
 /* rightMenu */
 #contextmenu{display:none; position:absolute; z-index:500; left:0; top:0;}
@@ -599,6 +599,7 @@ a.btnEdit{background-position: -138px 0}
 a.btnSelect{background-position: -92px 0}
 a.btnLook{background-position: -161px 0}
 a.btnAttach{background-position: -183px 0}
+.center {text-align: center;}
 .center a.btnAdd, .center a.btnDel, .center a.btnView, .center a.btnEdit, .center a.btnSelect, .center a.btnInfo, 
 .center a.btnAssign, .center a.btnLook, .center a.btnAttach {display:inline-block;float:none}
 .right a.btnAdd, .right a.btnDel, .right a.btnView, .right a.btnEdit, .right a.btnSelect, .right a.btnInfo, 

@@ -238,7 +238,7 @@ var DWZ = {
 		layoutH: function($refBox){
 			return this.each(function(){
 				var $this = $(this);
-				if (! $refBox) $refBox = $this.parents("div.layoutBox:first");
+				if (! $refBox) $refBox = $this.getLayoutBox();
 				var iRefH = $refBox.height();
 				var iLayoutH = parseInt($this.attr("layoutH"));
 				var iH = iRefH - iLayoutH > 50 ? iRefH - iLayoutH : 50;
@@ -249,6 +249,9 @@ var DWZ = {
 					$this.height(iH).css("overflow","auto");
 				}
 			});
+		},
+		getLayoutBox: function(){
+			return $(this).parents("div.layoutBox:first");
 		},
 		hoverClass: function(className, speed){
 			var _className = className || "hover";

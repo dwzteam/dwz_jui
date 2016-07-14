@@ -55,7 +55,7 @@ function initUI($p){
 	if ($.fn.jTable) $("table.table", $p).jTable();
 
 	// css tables
-	if ($.fn.cssTable) $('table.list', $p).cssTable();
+	if ($.fn.cssTable) $('table.list', $p).not('.nowrap').cssTable();
 
 	if ($.fn.jPanel) $("div.panel", $p).jPanel();
 
@@ -244,7 +244,14 @@ function initUI($p){
 			var rel = $this.attr("rel");
 			if (rel) {
 				var $rel = $("#"+rel);
-				$rel.loadUrl($this.attr("href"), {}, function(){
+				var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
+				DWZ.debug(url);
+				if (!url.isFinishedTm()) {
+					alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
+					return false;
+				}
+
+				$rel.loadUrl(url, {}, function(){
 					$rel.find("[layoutH]").layoutH();
 				});
 			}
