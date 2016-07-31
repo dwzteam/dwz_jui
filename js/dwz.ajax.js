@@ -378,7 +378,11 @@ $.fn.extend({
 			var $p = $this.attr("targetType") == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
 			var $form = $("#pagerForm", $p);
 			var url = $this.attr("href");
-//			window.location = url+(url.indexOf('?') == -1 ? "?" : "&")+$form.serialize();
+
+			if ($form.size() == 0) {
+				window.location = url;
+				return;
+			}
 
 			var $iframe = $("#callbackframe");
 			if ($iframe.size() == 0) {
