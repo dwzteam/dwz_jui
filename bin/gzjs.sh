@@ -32,6 +32,7 @@ cat ../js/dwz.effects.js >> dwz.all.js
 cat ../js/dwz.panel.js >> dwz.all.js
 cat ../js/dwz.checkbox.js >> dwz.all.js
 cat ../js/dwz.combox.js >> dwz.all.js
+cat ../js/dwz.file.js >> dwz.all.js
 cat ../js/dwz.history.js >> dwz.all.js
 cat ../js/dwz.print.js >> dwz.all.js
 
