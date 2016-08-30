@@ -267,7 +267,7 @@ function initUI($p){
 			rel:$this.attr("rel"),
 			totalCount:$this.attr("totalCount"),
 			numPerPage:$this.attr("numPerPage"),
-			pageNumShown:$this.attr("pageNumShown"),
+			pageNumShown:$this.attr("pageNumShown") || 10,
 			currentPage:$this.attr("currentPage")
 		});
 	});
