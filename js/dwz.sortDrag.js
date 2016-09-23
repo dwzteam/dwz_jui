@@ -46,7 +46,7 @@
 			} else {
 				for (var i=0; i<$items.length; i++) {
 					var $this = $items.eq(i), position = $this.position();
-		
+
 					if (helperPos.top > position.top + 10) {
 						$this.after($placeholder);
 					} else if (helperPos.top <= position.top) {
@@ -64,7 +64,7 @@
 			$helper.animate({
 					top: (position.top+$sortBox.scrollTop()) + "px",
 					left: position.left + "px"
-				}, 
+				},
 				{
 				complete: function(){
 					if ($helper.data('op')['replace']){ //2个sortBox之间替换处理
@@ -126,15 +126,15 @@
 				}
 				$selector.mousedown(function(event){
 					DWZ.sortDrag.start($sortBox, $item, event, op);
-	
+
 					event.preventDefault();
 				});
 			});
 
-			$sortBox.find('.close').mousedown(function(event){
-				$(this).parent().remove();
-				return false;
-			});
+			//$sortBox.find('.close').mousedown(function(event){
+			//	$(this).parent().remove();
+			//	return false;
+			//});
 		});
 	}
 })(jQuery);
