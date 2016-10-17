@@ -526,7 +526,8 @@ fieldset legend:hover {background-color: #dddddd;}
 .dialog .pageContent { border-style:solid; border-width:0 1px; background-color:#fff}
 .dialog .pageFormContent, .dialog .viewInfo { border-style:solid; border-width:1px 0 0 0;}
 .dialog .formBar { border-style:solid; border-width:1px 0;}
-
+.dialog .tabsContent .pageFormContent{border-width: 1px 1px 0 1px;}
+.dialog .tabsContent .formBar { border-width: 1px 0 0 0; }
 
 .combox { float:left; margin-right:3px; background-position:100% -25px;}
 .combox select { display:none}

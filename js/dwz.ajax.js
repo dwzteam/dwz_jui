@@ -343,7 +343,28 @@ function uploadifyError(event, queueId, fileObj, errorObj){
 		+ fileObj.name + "\nerrorObj.type:" + errorObj.type + "\nerrorObj.info:" + errorObj.info);
 }
 
+$.dwzExport = function ($this) {
+	var $p = $this.attr("targetType") == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
+	var $form = $("#pagerForm", $p);
+	var url = $this.attr("href");
 
+	if ($form.size() == 0) {
+		window.location = url;
+		return;
+	}
+
+	var $iframe = $("#callbackframe");
+	if ($iframe.size() == 0) {
+		$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
+	}
+
+	var pagerFormUrl = $form[0].action;
+	$form[0].action = url;
+	$form[0].target = "callbackframe";
+	$form.submit();
+
+	$form[0].action = pagerFormUrl;
+};
 $.fn.extend({
 	ajaxTodo:function(){
 		return this.each(function(){
@@ -374,28 +395,6 @@ $.fn.extend({
 		});
 	},
 	dwzExport: function(){
-		function _doExport($this) {
-			var $p = $this.attr("targetType") == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
-			var $form = $("#pagerForm", $p);
-			var url = $this.attr("href");
-
-			if ($form.size() == 0) {
-				window.location = url;
-				return;
-			}
-
-			var $iframe = $("#callbackframe");
-			if ($iframe.size() == 0) {
-				$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
-			}
-
-			var pagerFormUrl = $form[0].action;
-			$form[0].action = url;
-			$form[0].target = "callbackframe";
-			$form.submit();
-
-			$form[0].action = pagerFormUrl;
-		}
 		
 		return this.each(function(){
 			var $this = $(this);
@@ -403,9 +402,9 @@ $.fn.extend({
 				var title = $this.attr("title");
 				if (title) {
 					alertMsg.confirm(title, {
-						okCall: function(){_doExport($this);}
+						okCall: function(){$.dwzExport($this);}
 					});
-				} else {_doExport($this);}
+				} else {$.dwzExport($this);}
 			
 				event.preventDefault();
 			});
