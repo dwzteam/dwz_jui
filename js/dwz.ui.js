@@ -86,7 +86,7 @@ function initUI($p){
 	if ($.fn.xheditor) {
 		$("textarea.editor", $p).each(function(){
 			var $this = $(this);
-			var op = {html5Upload:false, skin: 'vista',tools: $this.attr("tools") || 'full'};
+			var op = {html5Upload:false, skin: 'nostyle',tools: $this.attr("tools") || 'full'};
 			var upAttrs = [
 				["upLinkUrl","upLinkExt","zip,rar,txt"],
 				["upImgUrl","upImgExt","jpg,jpeg,gif,png"],
