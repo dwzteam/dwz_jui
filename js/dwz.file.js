@@ -33,7 +33,7 @@
 
 	function previewUploadImg($uploadWrap, files, maxW, maxH) {
 
-		var $previewElem = $uploadWrap.find('.thumbnail');
+		var $previewElem = $('<div class="thumbnail"></div>').appendTo($uploadWrap);
 
 		var file = files[0];
 
@@ -47,8 +47,15 @@
 		img.file = file;
 		$previewElem.empty().append(img);
 
-		if ($previewElem.find('.edit-icon').size() == 0) {
-			$previewElem.append('<span class="edit-icon"></span>');
+		// if ($previewElem.find('.edit-icon').size() == 0) {
+		// 	$previewElem.append('<span class="edit-icon"></span>');
+		// }
+
+		if ($previewElem.find('.del-icon').size() == 0) {
+			$('<a class="del-icon"></a>').appendTo($previewElem).click(function(event){
+				$previewElem.remove();
+				$uploadWrap.find('input[type=file]').val('');
+			});
 		}
 
 		readAsDataURL(img, file, maxW, maxH);
@@ -98,10 +105,31 @@
 						} else {
 							previewUploadImg($uploadWrap, files, op.maxW, op.maxH);
 						}
-
-
 					});
 				});
+
+				var $delIcon = $uploadWrap.find('.del-icon');
+				if ($delIcon) { // 删除服务器上的图片
+					$delIcon.click(function(event){
+						$.ajax({
+							type: 'GET',
+							url:$delIcon.attr('href'),
+							dataType:"json",
+							cache: false,
+							success: function(json){
+								DWZ.ajaxDone(json);
+
+								if (json[DWZ.keys.statusCode] == DWZ.statusCode.ok){
+									$uploadWrap.find('div.thumbnail').remove();
+									$uploadWrap.find('input[type=file]').val('');
+								}
+							},
+							error: DWZ.ajaxError
+						});
+
+						return false;
+					});
+				}
 
 			});
 		}
