@@ -21,6 +21,7 @@
 .tabs .tabsHeader li a { color:#2d3f00;}
 .tabs .tabsHeader li span { color:#2d3f00;}
 .tabs .tabsContent { border-color:#8abb12; background:#e3fda7;}
+.tabs .icon-collapse { background: url(./images/panel/panel_icon.png) no-repeat; }
 
 /* TabsPage */
 .tabsPage .tabsPageHeader, .tabsPage .tabsPageHeader li, .tabsPage .tabsPageHeader li a, .tabsPage .tabsPageHeader li span { background:url(../green/images/tabs/tabspage.png) no-repeat;}
@@ -182,7 +183,7 @@ body, #splitBar { background:#cdef7d;}
 .dialog .pageContent .pageFormContent { border-color:#8ABB12; background:#FFF;}
 
 /* Pages default */
-.page .pageHeader, .formBar { border-color:#8ABB12; background:#ebf0f5 url(../default/images/pageHeader_bg.png) repeat-x;}
+.page .pageHeader, .formBar { border-color:#8ABB12; background:#8abb12 url(../green/images/pageHeader_bg.png) repeat-x;}
 .page .searchBar label { color:#183152;}
 
 /* Pages Form */

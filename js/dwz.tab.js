@@ -62,6 +62,21 @@
 				});
 
 				switchTab(jT, op.currentIndex);
+
+				// 折叠tab
+				var collapse = jT.hasClass("collapse"),
+					$tabsHeaderContent = jTabHeader.find('>.tabsHeaderContent');
+				var collapseFn = function(event){
+					if (jT.hasClass("close")) {
+						jT.removeClass('close');
+					} else {
+						jT.addClass('close');
+					}
+				};
+				if(collapse){
+					var $icon = $('<a href="javascript:" class="icon-collapse"></a>').addClass(close?op.exp:op.coll).insertAfter($tabsHeaderContent);
+					$icon.click(collapseFn);
+				}
 			}
 			
 			function switchTab(jT, iTabIndex){

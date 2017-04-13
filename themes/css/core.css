@@ -60,7 +60,11 @@ a:hover {text-decoration:underline;}
 .tabs .tabsContent { display:block; overflow:auto; padding:5px 5px 1px 5px; border-style:solid; border-width:0 1px;}
 .tabs .tabsFooter { display:block; overflow:hidden; height:5px; background-position:0 -600px;}
 .tabs .tabsFooterContent { display:block; overflow:hidden; height:5px; background-position:100% -650px;}
-
+.tabs .icon-collapse {display: block; overflow: hidden; width: 20px; height: 21px; text-indent: -1000px; position: absolute; top: 4px; right: 4px;}
+.tabs .icon-collapse:hover { background-position:0 -50px;}
+.tabs.close .icon-collapse { background-position:0 -100px;}
+.tabs.close .icon-collapse:hover { background-position:0 -150px;}
+.tabs.close .tabsContent {display: none;}
 
 .tabsPage .tabsPageHeader { display:block; height:27px; border-style:solid; border-width:1px 1px 0 1px; background-position:0 -450px; background-repeat:repeat-x; position:relative;}
 .tabsPage .tabsPageHeaderContent { display:block; overflow:hidden; height:27px; margin-right:19px; position:relative;}
@@ -570,6 +574,8 @@ h2.subTitle { margin: 5px 10px; padding: 0; line-height: 30px; font-size: 14px; 
 #calendar .days dd.slt{ background:#B3E4EB; border:1px solid #66CCCC;}
 #calendar .days dd:hover{ border:1px solid #66CCCC;}
 #calendar .days dd.disabled {background:#ccc;}
+#calendar .days dd.fill {background: none; cursor:default;}
+#calendar .days dd.fill:hover{border: none;}
 #calendar .close{width:16px;height:16px; font-size:16px; display:block;cursor:pointer;border:1px solid #CCC;text-align:center; }
 #calendar .clearBut, #calendar .okBut { background-color: #CFEBEE; border: 1px solid #38B1B9; color: #08575B; width: 40px; }
 #calendar .time{border-collapse:collapse;float:left;background-color:#fff;display:none;}

@@ -21,6 +21,7 @@
 .tabs .tabsHeader li a { color:#03408b;}
 .tabs .tabsHeader li span { color:#183152;}
 .tabs .tabsContent { border-color:#b8d0d6; background:#eef4f5;}
+.tabs .icon-collapse { background: url(./images/panel/panel_icon.png) no-repeat; }
 
 /* TabsPage */
 .tabsPage .tabsPageHeader, .tabsPage .tabsPageHeader li, .tabsPage .tabsPageHeader li a, .tabsPage .tabsPageHeader li span { background:url(./images/tabs/tabspage.png) no-repeat;}
