@@ -113,7 +113,7 @@
 
 /* ----------------------------------------------------------------- Form */
 /* TextInput */
-.textInput, input.focus, input.required, input.error, input.readonly, input.disabled,
+input.focus, input.required, input.error, input.readonly, input.disabled,
 textarea.focus, textarea.required, textarea.error, textarea.readonly, textarea.disabled { background:url(./images/form/input_bg.png) no-repeat scroll;}
 
 .textInput, .textArea { border-color:#a2bac0 #b8d0d6 #b8d0d6 #a2bac0; background-color:#FFF;}
