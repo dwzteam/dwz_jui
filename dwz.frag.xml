@@ -158,6 +158,7 @@
 					<td><ul><li class="up">&and;</li><li class="down">&or;</li></ul></td>
 				</tr>
 			</table>
+			<button type="button" class="todayBut">今天</button>
 			<button type="button" class="clearBut">清空</button>
 			<button type="button" class="okBut">确定</button>
 		<div>

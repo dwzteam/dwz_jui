@@ -17,7 +17,7 @@
 			tmBox$:"#calendar .tm", tmUp$:"#calendar .time .up", tmDown$:"#calendar .time .down",
 			close$:"#calendar .close", calIcon$:"a.inputDateButton",
 			main$:"#calendar .main", days$:"#calendar .days", dayNames$:"#calendar .dayNames",
-			clearBut$:"#calendar .clearBut", okBut$:"#calendar .okBut"
+			clearBut$:"#calendar .clearBut", okBut$:"#calendar .okBut",todayBut$:"#calendar .todayBut",
 		};
 
 		function changeTmMenu(sltClass){
@@ -210,9 +210,15 @@
 					$this.val("");
 					closeCalendar();
 				});
+                $(setting.todayBut$).click(function(){
+                    var $dd = $(setting.days$).find("dd.slt");
+                    if ($dd.hasClass("disabled")) return false;
+                    
+                    $this.val(dp.formatDate(new Date()));
+                    closeCalendar();
+                });
 				$(setting.okBut$).click(function(){
 					var $dd = $(setting.days$).find("dd.slt");
-					
 					if ($dd.hasClass("disabled")) return false;
 					
 					var date = dp.changeDay($dd.attr("day"), $dd.attr("chMonth"));

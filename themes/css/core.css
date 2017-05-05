@@ -570,7 +570,7 @@ h2.subTitle { margin: 5px 10px; padding: 0; line-height: 30px; font-size: 14px; 
 #calendar .days dd:hover{ border:1px solid #66CCCC;}
 #calendar .days dd.disabled {background:#ccc;}
 #calendar .close{width:16px;height:16px; font-size:16px; display:block;cursor:pointer;border:1px solid #CCC;text-align:center; }
-#calendar .clearBut, #calendar .okBut { background-color: #CFEBEE; border: 1px solid #38B1B9; color: #08575B; width: 40px; }
+#calendar .clearBut, #calendar .okBut, #calendar .todayBut{ background-color: #CFEBEE; border: 1px solid #38B1B9; color: #08575B; width: 40px; }
 #calendar .time{border-collapse:collapse;float:left;background-color:#fff;display:none;}
 #calendar .time td{border:1px solid #61CAD0; line-height:16px; vertical-align:center;}
 #calendar .time .hh, #calendar .time .mm, #calendar .time .ss{width:18px; height:16px; border: none}
