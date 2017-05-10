@@ -238,7 +238,7 @@ function initUI($p){
 			return false;
 		});
 	});
-	$("a[target=ajax]", $p).each(function(){
+	$("a[target=ajax], tr[target=ajax]", $p).each(function(){
 		$(this).click(function(event){
 			var $this = $(this);
 			var rel = $this.attr("rel");

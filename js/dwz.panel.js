@@ -13,7 +13,7 @@
 				
 				var $content = $(">div", $panel).addClass(op.content);				
 				var title = $(">h1",$panel).wrap('<div class="'+op.header+'"><div class="'+op.headerC+'"></div></div>');
-				if(collapse)$("<a href=\"\"></a>").addClass(close?op.exp:op.coll).insertAfter(title);
+				if(collapse)$("<a href=\"javascript:\"></a>").addClass(close?op.exp:op.coll).insertAfter(title);
 
 				var header = $(">div:first", $panel);
 				var footer = $('<div class="'+op.footer+'"><div class="'+op.footerC+'"></div></div>').appendTo($panel);

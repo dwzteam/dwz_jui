@@ -124,11 +124,16 @@
 				if (op.refresh) {
 					$selector.unbind('mousedown');
 				}
-				$selector.mousedown(function(event){
-					DWZ.sortDrag.start($sortBox, $item, event, op);
 
-					event.preventDefault();
-				});
+				if (! $sortBox.hasClass('disabled')) {
+
+					$selector.mousedown(function(event){
+						DWZ.sortDrag.start($sortBox, $item, event, op);
+
+						event.preventDefault();
+					});
+
+				}
 			});
 
 			//$sortBox.find('.close').mousedown(function(event){

@@ -65,7 +65,7 @@
 				var monthStart = new Date(dw.year,dw.month-1,1);
 				var startDay = monthStart.getDay();
 				var dayStr="";
-				if (startDay > 0){
+				if (startDay > 0){ //日历前面补齐
 					monthStart.setMonth(monthStart.getMonth() - 1);
 					var prevDateWrap = dp.getDateWrap(monthStart);
 					for(var t=prevDateWrap.days-startDay+1;t<=prevDateWrap.days;t++) {
@@ -83,7 +83,7 @@
 						dayStr+='<dd class="'+_ctrClass+'" day="' + t + '">'+t+'</dd>';
 					}
 				}
-				for(var t=1;t<=42-startDay-dw.days;t++){
+				for(var t=1;t<=42-startDay-dw.days;t++){ // 日历后面补齐
 					var _date = new Date(dw.year,dw.month,t);
 					var _ctrClass = (_date >= minDate && _date <= maxDate) ? '' : 'disabled';
 					dayStr+='<dd class="other '+_ctrClass+'" chMonth="1" day="' + t + '">'+t+'</dd>';

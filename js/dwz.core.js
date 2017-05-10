@@ -367,10 +367,10 @@ var DWZ = {
 		replaceAll:function(os, ns){
 			return this.replace(new RegExp(os,"gm"),ns);
 		},
-		replaceTm:function($data){
-			if (!$data) return this;
+		replaceTm:function(data){
+			if (!data) return this;
 			return this.replace(RegExp("({[A-Za-z_]+[A-Za-z0-9_]*})","g"), function($1){
-				return $data[$1.replace(/[{}]+/g, "")];
+				return data[$1.replace(/[{}]+/g, "")];
 			});
 		},
 		replaceTmById:function(_box){

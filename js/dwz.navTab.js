@@ -284,10 +284,10 @@ var navTab = {
 			
 			if ($tab.hasClass("external")){
 				navTab.openExternal(url, $panel);
-			}else {
+			} else {
 				//获取pagerForm参数
 				var $pagerForm = $("#pagerForm", $panel);
-				var args = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {}
+				var args = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {};
 				
 				$panel.loadUrl(url, args, function(){navTab._loadUrlCallback($panel);});
 			}
