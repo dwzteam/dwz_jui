@@ -11,7 +11,15 @@
 		zIndex: 1000
 	};
 	DWZ.sortDrag = {
+		_onDrag: false, //用于判断重复绑定拖动事件
 		start:function($sortBox, $item, event, op){
+			var me = this;
+			if (me._onDrag) {
+				setTimeout(function(){me._onDrag = false;}, 1000);
+				return false;
+			}
+			me._onDrag = true;
+
 			var $placeholder = this._createPlaceholder($item);
 			var $helper = $item.clone();
 			var position = $item.position();
@@ -83,6 +91,8 @@
 				},
 				duration: 300
 			});
+
+			this._onDrag = false;
 		},
 		_createPlaceholder:function($item){
 			return $('<'+$item[0].nodeName+' class="sortDragPlaceholder"/>').css({
