@@ -6,7 +6,7 @@
 		cursor: 'move', // selector 的鼠标手势
 		sortBoxs: 'div.sortDrag', //拖动排序项父容器
 		replace: false, //2个sortBox之间拖动替换
-		items: '> div', //拖动排序项选择器
+		items: '> div, >dl, >p', //拖动排序项选择器
 		selector: '', //拖动排序项用于拖动的子元素的选择器，为空时等于item
 		zIndex: 1000
 	};
