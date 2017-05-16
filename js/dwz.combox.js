@@ -18,30 +18,34 @@
 		});
 	};
 	
-	var _onchange = function (event){
+	var _onchange = function(event){
 		var $ref = $("#"+event.data.ref);
 		if ($ref.size() == 0) return false;
 		$.ajax({
 			type:'POST', dataType:"json", url:event.data.refUrl.replace("{value}", encodeURIComponent(event.data.$this.val())), cache: false,
 			data:{},
 			success: function(json){
-				if (!json) return;
-				var html = '';
-
-				$.each(json, function(i){
-					if (json[i] && json[i].length > 1){
-						html += '<option value="'+json[i][0]+'">' + json[i][1] + '</option>';
-					}
-				});
-				
-				var $refCombox = $ref.parents("div.combox:first");
-				$ref.html(html).insertAfter($refCombox);
-				$refCombox.remove();
-				$ref.trigger("change").combox();
+				_comboxRefresh($ref, json);
 			},
 			error: DWZ.ajaxError
 		});
 	};
+
+	var _comboxRefresh = function($select, json){
+		if (!json) return;
+		var html = '';
+
+		$.each(json, function(i){
+			if (json[i] && json[i].length > 1){
+				html += '<option value="'+json[i][0]+'">' + json[i][1] + '</option>';
+			}
+		});
+
+		var $refCombox = $select.parents("div.combox:first");
+		$select.html(html).insertAfter($refCombox);
+		$refCombox.remove();
+		$select.trigger("change").combox();
+	}
 					
 	$.extend($.fn, {
 		comboxSelect: function(options){
@@ -127,6 +131,14 @@
 					$this.unbind("change", _onchange).bind("change", {ref:ref, refUrl:refUrl, $this:$this}, _onchange);
 				}
 				
+			});
+		},
+
+		// combox 刷新全部 option 项
+		comboxRefresh: function(json){
+			return this.each(function(){
+				var $select = $(this);
+				_comboxRefresh($select, json);
 			});
 		}
 	});

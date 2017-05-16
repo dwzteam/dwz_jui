@@ -16,7 +16,7 @@
 
 	<div class="divider"></div>
 
-	<select class="combox" name="test">
+	<select class="combox" name="test" id="combox_test_refresh">
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -29,4 +29,12 @@
 	</select>
 
 </div>
+
+<script type="text/javascript">
+	var json = [
+		['1', 'test1'],
+		['2', 'test2']
+	];
+	$('#combox_test_refresh').comboxRefresh(json);
+</script>
 
