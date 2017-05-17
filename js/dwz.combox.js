@@ -45,7 +45,13 @@
 		$select.html(html).insertAfter($refCombox);
 		$refCombox.remove();
 		$select.trigger("change").combox();
-	}
+	};
+
+	var _comboxReset = function($select){
+		var $box = $select.parents('div.select:first'),
+			defaultValue = $box.find('>a').attr('default-value');
+		$('#op_'+$box.attr('id')).find('>li a[value="'+defaultValue+'"]').trigger('click');
+	};
 					
 	$.extend($.fn, {
 		comboxSelect: function(options){
@@ -106,7 +112,11 @@
 			allSelectBox = _selectBox;
 			
 			return this.each(function(i){
-				var $this = $(this).removeClass("combox");
+				var $this = $(this);
+
+				if ($this.attr("combox-init")) return; // 避免重复初始化
+				$this.attr("combox-init", 1);
+
 				var name = $this.attr("name");
 				var value= $this.val();
 				var label = $('option[value="' + value + '"]',$this).text();
@@ -115,7 +125,7 @@
 
 				var cid = $this.attr("id") || Math.round(Math.random()*10000000);
 				var select = '<div class="combox"><div id="combox_'+ cid +'" class="select"' + (ref?' ref="' + ref + '"' : '') + '>';
-				select += '<a href="javascript:" class="'+$this.attr("class")+'" name="' + name +'" value="' + value + '">' + label +'</a></div></div>';
+				select += '<a href="javascript:" name="' + name +'" value="' + value + '" default-value="'+value+'">' + label +'</a></div></div>';
 				var options = '<ul class="comboxop" id="op_combox_'+ cid +'">';
 				$("option", $this).each(function(){
 					var option = $(this);
@@ -130,7 +140,6 @@
 				if (ref && refUrl) {
 					$this.unbind("change", _onchange).bind("change", {ref:ref, refUrl:refUrl, $this:$this}, _onchange);
 				}
-				
 			});
 		},
 
@@ -139,6 +148,14 @@
 			return this.each(function(){
 				var $select = $(this);
 				_comboxRefresh($select, json);
+			});
+		},
+
+		// combox reset还原初始值
+		comboxReset: function(){
+			return this.each(function(){
+				var $select = $(this);
+				_comboxReset($select);
 			});
 		}
 	});
