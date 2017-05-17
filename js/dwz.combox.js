@@ -112,7 +112,7 @@
 			allSelectBox = _selectBox;
 			
 			return this.each(function(i){
-				var $this = $(this);
+				var $this = $(this).hide();
 
 				var name = $this.attr("name");
 				var value= $this.val();
