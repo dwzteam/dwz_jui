@@ -114,8 +114,8 @@
 			return this.each(function(i){
 				var $this = $(this);
 
-				if ($this.attr("combox-init")) return; // 避免重复初始化
-				$this.attr("combox-init", 1);
+				// if ($this.attr("combox-init")) return; // 避免重复初始化
+				// $this.attr("combox-init", 1);
 
 				var name = $this.attr("name");
 				var value= $this.val();
