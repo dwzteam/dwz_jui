@@ -119,10 +119,11 @@
 				var label = $('option[value="' + value + '"]',$this).text();
 				var ref = $this.attr("ref");
 				var refUrl = $this.attr('refUrl') || '';
+				var resetValue = $this.attr('reset-value') !== undefined ? $this.attr('reset-value') : value
 
 				var cid = $this.attr("id") || Math.round(Math.random()*10000000);
 				var select = '<div class="combox"><div id="combox_'+ cid +'" class="select"' + (ref?' ref="' + ref + '"' : '') + '>';
-				select += '<a href="javascript:" name="' + name +'" value="' + value + '" default-value="'+value+'">' + label +'</a></div></div>';
+				select += '<a href="javascript:" name="' + name +'" value="' + value + '" default-value="'+resetValue+'">' + label +'</a></div></div>';
 				var options = '<ul class="comboxop" id="op_combox_'+ cid +'">';
 				$("option", $this).each(function(){
 					var option = $(this);
