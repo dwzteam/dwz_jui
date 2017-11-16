@@ -33,17 +33,32 @@
 					我的客户：<input type="text" name="keyword" />
 				</td>
 				<td>
-					<select class="combox" name="province">
-						<option value="">所有省市</option>
-						<option value="北京">北京</option>
-						<option value="上海">上海</option>
-						<option value="天津">天津</option>
-						<option value="重庆">重庆</option>
-						<option value="广东">广东</option>
+					<select class="combox" name="province" ref="demo_combox_city" refUrl="demo/combox/city_{value}.html" reset-value="bj">
+						<option value="all">所有省市</option>
+						<option value="bj">北京</option>
+						<option value="sh">上海</option>
+						<option value="zj">浙江省</option>
+					</select>
+					<select class="combox" name="city" id="demo_combox_city" ref="demo_combox_region" refUrl="demo/combox/region_{value}.html">
+						<option value="all">所有城市</option>
+					</select>
+					<select class="combox" name="region" id="demo_combox_region">
+						<option value="all">所有区县</option>
 					</select>
 				</td>
 				<td>
-					建档日期：<input type="text" class="date" readonly="true" />
+					<select class="combox" name="type">
+						<option value="all">所有等级</option>
+						<option value="1">1级</option>
+						<option value="2">2级</option>
+						<option value="3" selected>3级</option>
+					</select>
+				</td>
+				<td class="dateRange">
+					建档日期:
+					<input name="startDate" class="date readonly" readonly="readonly" type="text" value="">
+					<span class="limit">-</span>
+					<input name="endDate" class="date readonly" readonly="readonly" type="text" value="">
 				</td>
 			</tr>
 		</table>
@@ -990,7 +1005,9 @@
 				<option value="20">20</option>
 				<option value="50">50</option>
 				<option value="100">100</option>
+				<option value="150">150</option>
 				<option value="200">200</option>
+				<option value="250">250</option>
 			</select>
 			<span>条，共${totalCount}条</span>
 		</div>

@@ -16,7 +16,13 @@
 				<label>重复输入新密码：</label>
 				<input type="password" name="rnewPassword" size="30" equalTo="#cp_newPassword" class="required alphanumeric"/>
 			</div>
-			
+			<div class="unit">
+				<label>部门名称：</label>
+				<input id="inputOrg1" name="org1.id" value="" type="hidden">
+				<input class="required textInput valid" name="org1.orgName" type="text" postfield="keyword" suggestfields="orgNum,orgName" suggesturl="demo/database/db_lookupSuggest.html" lookupgroup="org1" autocomplete="off">
+				<a class="btnLook" href="demo/database/dwzOrgLookup.html" lookupgroup="org1">查找带回</a>
+				<span class="info">(suggest+lookup)</span>
+			</div>
 		</div>
 		<div class="formBar">
 			<ul>

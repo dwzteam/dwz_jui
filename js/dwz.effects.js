@@ -77,8 +77,7 @@
 			if ($(element).is(":hidden")) {
 				$(element).css({visibility: 'hidden', display: 'block'});
 				if(isZero)$(element).css("height","");
-				if ($.browser.opera)
-					refElement.focus();
+				// if ($.browser.opera) refElement.focus();
 			}
 			dimensions.height = $(element).outerHeight();
 			dimensions.width = $(element).outerWidth();

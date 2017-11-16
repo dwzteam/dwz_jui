@@ -34,19 +34,35 @@
 								var ckbox = $(this);
 								ckbox.click(function(){
 									var checked = $(ckbox).hasClass("checked");
+									var tnode = ckbox.parent().parent();
+									var boxes = $("input", tnode);
 									var items = [];
-									if(checked){
-										var tnode = $(ckbox).parent().parent();
-										var boxes = $("input", tnode);
-										if(boxes.size() > 1) {
-											$(boxes).each(function(){
-												items[items.length] = {name:$(this).attr("name"), value:$(this).val(), text:$(this).attr("text")};
-											});
-										} else {
-											items = {name:boxes.attr("name"), value:boxes.val(), text:boxes.attr("text")};
-										}		
-									}								
-									checkFn({checked:checked, items:items});														
+
+									if(boxes.size() > 1) {
+										$(boxes).each(function(){
+											items[items.length] = {name:$(this).attr("name"), value:$(this).val(), text:$(this).attr("text")};
+										});
+									} else {
+										items = {name:boxes.attr("name"), value:boxes.val(), text:boxes.attr("text")};
+									}
+
+									var parents = [];
+									tnode.parents('li').each(function () {
+										var $pNode = $(this), $pCkbox = $pNode.find('>div>div.ckbox');
+
+										$pCkbox.find('input').each(function(){
+											var pValue = {
+												name:$(this).attr("name"),
+												value:$(this).val(),
+												text:$(this).attr("text"),
+												checked:$pCkbox.hasClass('checked'),
+												indeterminate:$pCkbox.hasClass('indeterminate')
+											};
+											parents.push(pValue);
+										});
+									});
+
+									checkFn({checked:checked, items:items, parents:parents});
 								});
 							});
 						}

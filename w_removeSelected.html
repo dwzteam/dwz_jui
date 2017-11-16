@@ -1,3 +1,16 @@
+<script type="text/javascript">
+	function myExport(url){
+		var $form = $("#mySearchForm", navTab.getCurrentPanel());
+
+		if (!$form[0].province.value) {
+			alertMsg.error('请选择省份');
+			return false;
+		}
+
+		DWZ.pargerFormExport(url, $form);
+	}
+</script>
+
 <form id="pagerForm" method="post" action="#rel#">
 	<input type="hidden" name="pageNum" value="1" />
 	<input type="hidden" name="numPerPage" value="${model.numPerPage}" />
@@ -6,7 +19,7 @@
 </form>
 
 <div class="pageHeader">
-	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="w_removeSelected.html" method="post">
+	<form id="mySearchForm" rel="pagerForm" onsubmit="return navTabSearch(this);" action="w_removeSelected.html" method="post">
 	<div class="searchBar">
 		<ul class="searchContent">
 			<li>
@@ -61,6 +74,8 @@
 			<li><a class="edit" href="demo_page4.html?uid={sid_user}" target="navTab" warn="请选择一个用户"><span>修改</span></a></li>
 			<li class="line">line</li>
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
+			<li><a class="icon" href="javascript:myExport('demo/common/dwz-team.xls')"><span>自定义导出</span></a></li>
+			<li><a title="选中id跳出DWZ页面打印?" target="selectedBlank" rel="ids" postType="string" href="demo/common/ajaxDone.html" class="icon"><span>选中跳出DWZ</span></a></li>
 			<!--<li><a target="selectedLoad" rel="ids" postType="string" href="demo_page1.html" class="icon"><span>批量Dialog Load逗号分隔</span></a></li>-->
 		</ul>
 	</div>

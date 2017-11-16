@@ -106,15 +106,25 @@
 				
 				if (dp.hasTime()) {
 					$("#calendar .time").show();
-					
-					var $hour = $(setting.hour$).val(dw.hour).focus(function(){
+
+					var iHour = dw.hour, iMinute = dw.minute, iSecond = dw.second;
+
+					if (dp.opts.defaultTime && !$this.val()) {
+						var timeStr = dp.opts.defaultTime.split(':');
+						iHour = parseInt(timeStr[0]);
+						iMinute = parseInt(timeStr[1]);
+						iSecond = parseInt(timeStr[2]);
+					}
+					iMinute = parseInt(iMinute / dp.opts.mmStep) * dp.opts.mmStep;
+					iSecond = dp.hasSecond() ? iSecond : 0;
+
+					var $hour = $(setting.hour$).val(iHour).focus(function(){
 						changeTmMenu("hh");
 					});
-					var iMinute = parseInt(dw.minute / dp.opts.mmStep) * dp.opts.mmStep;
 					var $minute = $(setting.minute$).val(iMinute).attr('step',dp.opts.mmStep).focus(function(){
 						changeTmMenu("mm");
 					});
-					var $second = $(setting.second$).val(dp.hasSecond() ? dw.second : 0).attr('step',dp.opts.ssStep).focus(function(){
+					var $second = $(setting.second$).val(iSecond).attr('step',dp.opts.ssStep).focus(function(){
 						changeTmMenu("ss");
 					});
 					

@@ -16,25 +16,35 @@
 
 	<div class="divider"></div>
 
-	<select class="combox" name="test" id="combox_test_refresh">
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
+	<select class="combox" name="test" id="combox_test_demo">
+		<option value="1">test1</option>
+		<option value="2">test2</option>
 	</select>
 
+	<button onclick="comboxRefreshTest();">comboxRefresh</button>
+	<button onclick="comboxDisableTest();">comboxDisable</button>
+	<button onclick="comboxEnableTest();">comboxEnable</button>
 </div>
 
 <script type="text/javascript">
-	var testJson = [
-		['1', 'test1'],
-		['2', 'test2']
-	];
-	$('#combox_test_refresh').comboxRefresh(testJson);
+	function comboxRefreshTest(){
+
+		var count = Math.round(Math.random()*10);
+		var testJson = [];
+
+		for (var index=1;index<count; index++) {
+			testJson.push([''+index, 'test'+index]);
+		}
+
+		$('#combox_test_demo').comboxRefresh(testJson);
+	}
+
+	function comboxDisableTest(){
+		$('#combox_test_demo').comboxDisable();
+	}
+
+	function comboxEnableTest(){
+		$('#combox_test_demo').comboxEnable();
+	}
 </script>
 

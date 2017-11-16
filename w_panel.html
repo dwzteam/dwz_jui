@@ -106,4 +106,32 @@
 		</div>
 	</div>
 
+	<div id="testDrag" style="border:1px solid red;">test</div>
 </div>
+
+<script>
+
+	$.fn.extend({
+		divDrag: function (options) {
+
+			return this.each(function () {
+				var $box = $(this);
+				$box.mousedown(function(event){
+					var position = $box.position();
+					$box.css({
+						position:'absolute',
+						top:position.top,
+						left:position.left,
+						width:$box.width()+'px',
+						height:$box.height()+'px'
+					}).jDrag({
+						event:event
+					});
+				});
+
+			});
+		}
+	});
+
+	$('#testDrag').divDrag();
+</script>

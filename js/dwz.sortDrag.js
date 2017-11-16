@@ -23,11 +23,12 @@
 			var $placeholder = this._createPlaceholder($item);
 			var $helper = $item.clone();
 			var position = $item.position();
+			var scrollPosParents = $.scrollPosParents($sortBox);
 
 			$helper.data('$sortBox', $sortBox).data('op', op).data('$item', $item).data('$placeholder', $placeholder);
 			$helper.addClass('sortDragHelper').css({
 				position:'absolute',
-				top:position.top+$sortBox.scrollTop(),
+				top:position.top+scrollPosParents.top,
 				left:position.left,
 				zIndex:op.zIndex,
 				width:$item.width()+'px',
@@ -68,9 +69,10 @@
 			var $helper = $(arguments[0]), $sortBox = $helper.data('$sortBox'), $item = $helper.data('$item'), $placeholder = $helper.data('$placeholder');
 			var op = $.extend({}, _op, $helper.data('op'));
 
+			var scrollPosParents = $.scrollPosParents($sortBox);
 			var position = $placeholder.position();
 			$helper.animate({
-					top: (position.top+$sortBox.scrollTop()) + "px",
+					top: (position.top+scrollPosParents.top) + "px",
 					left: position.left + "px"
 				},
 				{
@@ -135,15 +137,16 @@
 					$selector.unbind('mousedown');
 				}
 
-				if (! $sortBox.hasClass('disabled')) {
+				$selector.mousedown(function(event){
 
-					$selector.mousedown(function(event){
+					if (! $sortBox.hasClass('disabled')) {
 						DWZ.sortDrag.start($sortBox, $item, event, op);
 
 						event.preventDefault();
-					});
+					}
+				});
 
-				}
+
 			});
 
 			//$sortBox.find('.close').mousedown(function(event){
@@ -152,4 +155,5 @@
 			//});
 		});
 	}
+
 })(jQuery);

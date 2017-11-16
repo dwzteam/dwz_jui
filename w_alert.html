@@ -6,6 +6,40 @@ function testConfirmMsg(url, data){
 		}
 	});
 }
+
+function testAlertError(){
+	alertMsg.error("点击确定关闭当前窗口！", {
+		okCall: function(){
+			navTab.closeCurrentTab();
+		}
+	});
+}
+
+function testAlertMisc() {
+	var buttons = [
+		{
+			name:'是',
+			call: function(){
+				console.log('testAlertMisc(): 是');
+			},
+			keyCode:DWZ.keyCode.ENTER
+		},
+		{
+			name:'否',
+			call: function(){
+				console.log('testAlertMisc(): 否');
+			}
+		},
+		{
+			name:'取消',
+			call: function(){
+				console.log('testAlertMisc(): 取消');
+			},
+			keyCode:DWZ.keyCode.ESC
+		}
+	];
+	alertMsg.open(alertMsg.types.confirm, '自定义提示框', buttons);
+}
 </script>
 
 <h2 class="contentTitle">提示对话框演示</h2>
@@ -27,7 +61,9 @@ function testConfirmMsg(url, data){
 				<a class="button" href="javascript:;" onclick="alertMsg.error('您提交的数据有误，请检查后重新提交！')"><span>错误提示</span></a><br /><br /><br />
 				<a class="button" href="javascript:;" onclick="alertMsg.info('您提交的数据有误，请检查后重新提交！')"><span>信息提示</span></a><br /><br /><br />
 				<a class="button" href="javascript:;" onclick="alertMsg.warn('您提交的数据有误，请检查后重新提交！')"><span>警告提示</span></a><br /><br /><br />
-				<a class="button" href="javascript:;" onclick="alertMsg.correct('您的数据提交成功！')"><span>成功提示</span></a><br /><br />
+				<a class="button" href="javascript:;" onclick="alertMsg.correct('您的数据提交成功！')"><span>成功提示</span></a><br /><br /><br />
+				<a class="button" href="javascript:;" onclick="testAlertError()"><span>错误提示,点击确定关闭窗口</span></a><br /><br /><br />
+				<a class="button" href="javascript:;" onclick="testAlertMisc()"><span>自定义提示框</span></a><br /><br /><br />
 			</div>
 			
 			<div>

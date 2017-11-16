@@ -2,6 +2,20 @@
  * @author Roger Wu
  */
 (function($){
+
+	$.scrollPosParents = function(el){
+		var $el = $(el);
+		// var scrollPos = {top:$el.scrollTop(), left:$el.scrollLeft()};
+		var scrollPos = {top:0, left:0};
+		$el.parents().each(function(){
+			var $p = $(this);
+			scrollPos.top += $p.scrollTop();
+			scrollPos.left += $p.scrollLeft();
+		});
+
+		return scrollPos;
+	};
+
 	$.fn.jDrag = function(options){
 		if (typeof options == 'string') {
 			if (options == 'destroy') 
@@ -36,6 +50,7 @@
 				options: data.options
 			});
 			if (!$.rwdrag.current) {
+
 				$.rwdrag.current = {
 					el: el,
 					oleft: parseInt(el.style.left) || 0,
@@ -53,6 +68,7 @@
 			var left = (current.oleft + (e.pageX || e.clientX) - current.ox);
 			var top = (current.otop + (e.pageY || e.clientY) - current.oy);
 			if (top < 1) top = 0;
+
 			if (data.options.move == 'horizontal') {
 				if ((data.options.minW && left >= $(data.options.obj).cssv("left") + data.options.minW) && (data.options.maxW && left <= $(data.options.obj).cssv("left") + data.options.maxW)) 
 					current.el.style.left = left + 'px';
@@ -68,12 +84,12 @@
 					current.el.style.top = top + 'px';
 			} else {
 				var selector = data.options.selector ? $(data.options.selector, data.options.obj) : $(data.options.obj);
-				if (left >= -selector.outerWidth() * 2 / 3 && top >= 0 && (left + selector.outerWidth() / 3 < $(window).width()) && (top + selector.outerHeight() < $(window).height())) { //浏览器缩放后有bug，先注释掉
+				// if (left >= -selector.outerWidth() * 2 / 3 && top >= 0 && (left + selector.outerWidth() / 3 < $(window).width()) && (top + selector.outerHeight() < $(window).height())) { //浏览器缩放后有bug，先注释掉
 					current.el.style.left = left + 'px';
 					current.el.style.top = top + 'px';
-				}
+				// }
 			}
-			
+
 			if (data.options.drag) {
 				data.options.drag.apply(current.el, [current.el, e]);
 			}

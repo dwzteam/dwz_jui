@@ -1,0 +1,11 @@
+.miscSortDrag dt {}
+.miscSortDrag dt .sortDragPlaceholder, .miscSortDrag dt .dragItem .close {display: none}
+.miscSortDrag .dragItem {border:1px solid #B8D0D6;padding:5px;margin:3px;display: block; width: 148px; float:left;}
+.miscSortDrag dt:after{content:" "; display: block; clear: both;}
+
+.miscSortDrag dd .panel-box {float:left; }
+.miscSortDrag dd .panel-box .title{text-align: center;color:#999; margin: 0 5px; padding: 5px; border-bottom: solid 1px #eee}
+.miscSortDrag dd .sortDrag{width:180px;height:280px;border:1px solid #e66;margin:5px;float:left;overflow-y: scroll}
+.miscSortDrag dd .sortDrag .dragItem {border:1px solid #B8D0D6;padding:5px;margin:3px;display: block; position: relative; text-align: left;}
+.miscSortDrag dd .sortDrag .dragItem .close{width:16px;height:16px; font-size:16px; display:block;cursor:pointer;border:1px solid #CCC;text-align:center; position: absolute; top:2px; right:2px}
+

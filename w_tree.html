@@ -5,8 +5,8 @@
 <div style=" float:left; display:block; margin:10px; overflow:auto; width:200px; height:200px; overflow:auto; border:solid 1px #CCC; line-height:21px; background:#FFF;">
 <p>treeFolder treeCheck expand</p>
 <form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this)">
-<ul class="tree treeFolder treeCheck expand" oncheck="kkk">
-	<li><a >框架面板</a>
+<ul class="tree treeFolder treeCheck expand" oncheck="test_check_tree">
+	<li><a tname="name" tvalue="框架面板" >框架面板</a>
 		<ul>
 			<li><a tname="name" tvalue="value1" checked="true">我的主页</a></li>
 			<li><a tname="name" tvalue="value2">页面一</a></li>
@@ -78,14 +78,16 @@
 </div>
 
 <script type="text/javascript">
-function kkk(){
-	var json = arguments[0], result="";
+function test_check_tree(json){
+	console.log(json);
+
+	var result = json.checked ? "选择" : "取消";
 //	alert(json.checked);
 
 	$(json.items).each(function(i){
 		result += "<p>name:"+this.name + " value:"+this.value+" text: "+this.text+"</p>";
 	});
 	$("#resultBox").html(result);
-	
+
 }
 </script>

@@ -63,22 +63,25 @@
 
 				allSelectBox.push(box.attr("id"));
 				$(op.selector, box).click(function(){
-					var options = $("#op_"+box.attr("id"));
-					if (options.is(":hidden")) {
-						if(options.height() > 300) {
-							options.css({height:"300px",overflow:"scroll"});
+					if (! box.hasClass('disabled')) {
+						var options = $("#op_"+box.attr("id"));
+						if (options.is(":hidden")) {
+							if(options.height() > 300) {
+								options.css({height:"300px",overflow:"scroll"});
+							}
+							var top = box.offset().top+box[0].offsetHeight-50;
+							if(top + options.height() > $(window).height() - 20) {
+								top =  $(window).height() - 20 - options.height();
+							}
+							options.css({top:top,left:box.offset().left}).show();
+							killAllBox(box.attr("id"));
+							$(document).click(killAllBox);
+						} else {
+							$(document).unbind("click", killAllBox);
+							killAllBox();
 						}
-						var top = box.offset().top+box[0].offsetHeight-50;
-						if(top + options.height() > $(window).height() - 20) {
-							top =  $(window).height() - 20 - options.height();
-						}
-						options.css({top:top,left:box.offset().left}).show();
-						killAllBox(box.attr("id"));
-						$(document).click(killAllBox);
-					} else {
-						$(document).unbind("click", killAllBox);
-						killAllBox();
 					}
+
 					return false;
 				});
 				$("#op_"+box.attr("id")).find(">li").comboxOption(selector, box);		
@@ -155,6 +158,19 @@
 				var $select = $(this);
 				_comboxReset($select);
 			});
+		},
+
+		comboxDisable: function(){
+			return this.each(function(){
+				$(this).parents('.combox .select:first').addClass('disabled');
+			});
+		},
+
+		comboxEnable: function(){
+			return this.each(function(){
+				$(this).parents('.combox .select:first').removeClass('disabled');
+			});
 		}
+
 	});
 })(jQuery);

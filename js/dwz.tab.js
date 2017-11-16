@@ -35,18 +35,19 @@
 					else $(this).click(function(event){switchTab(jT, iTabIndex)});
 
 					$("a", this).each(function(){
-						if ($(this).hasClass(op.ajaxClass)) {
-							$(this).click(function(event){
+						var $link = $(this);
+						if ($link.hasClass(op.ajaxClass)) {
+							$link.click(function(event){
 								var jGroup = jGroups.eq(iTabIndex);
-								if (this.href && !jGroup.attr("loaded")) jGroup.loadUrl(this.href,{},function(){
+								if (this.href && ($(this).attr('data-cache') == 'false' ||!jGroup.attr("loaded")) ) jGroup.loadUrl(this.href,{},function(){
 									jGroup.find("[layoutH]").layoutH();
 									jGroup.attr("loaded",true);
 								});
 								event.preventDefault();
 							});
 							
-						} else if ($(this).hasClass(op.closeClass)) {
-							$(this).click(function(event){
+						} else if ($link.hasClass(op.closeClass)) {
+							$link.click(function(event){
 								jTabs.eq(iTabIndex).remove();
 								jGroups.eq(iTabIndex).remove();
 								if (iTabIndex == op.currentIndex) {

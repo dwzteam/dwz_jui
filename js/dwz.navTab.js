@@ -331,9 +331,12 @@ var navTab = {
 	getCurrentPanel: function() {
 		return this._getPanels().eq(this._currentIndex);
 	},
-	checkTimeout:function(){
-		var json = DWZ.jsonEval(this.getCurrentPanel().html());
-		if (json && json[DWZ.keys.statusCode] == DWZ.statusCode.timeout) this.closeCurrentTab();
+	checkCloseCurrent:function(json){
+		if (!json) return;
+		if (json[DWZ.keys.statusCode] == DWZ.statusCode.timeout
+			|| (json[DWZ.keys.statusCode] == DWZ.statusCode.error && "closeCurrentNavTab" == json.callbackType) ) {
+			this.closeCurrentTab();
+		}
 	},
 	openExternal:function(url, $panel){
 		var ih = navTab._panelBox.height();

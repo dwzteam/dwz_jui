@@ -305,10 +305,12 @@
 		closeCurrent:function(){
 			this.close($.pdialog._current);
 		},
-		checkTimeout:function(){
-			var $conetnt = $(".dialogContent", $.pdialog._current);
-			var json = DWZ.jsonEval($conetnt.html());
-			if (json && json[DWZ.keys.statusCode] == DWZ.statusCode.timeout) this.closeCurrent();
+		checkCloseCurrent:function(json){
+			if (!json) return;
+			if (json[DWZ.keys.statusCode] == DWZ.statusCode.timeout
+				|| (json[DWZ.keys.statusCode] == DWZ.statusCode.error && "closeCurrentDialog" == json.callbackType) ) {
+				this.closeCurrent();
+			}
 		},
 		maxsize:function(dialog) {
 			$(dialog).data("original",{

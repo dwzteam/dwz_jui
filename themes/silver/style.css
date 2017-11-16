@@ -81,7 +81,7 @@
 .accordion .accordionContent { border-color:#C1C1C1;}
 
 /* Grid */
-.panelBar,
+.panelBar, .toolBar li.hover .buttonDisabled, .toolBar li.hover .buttonDisabled span, .toolBar .buttonDisabled, .toolBar .buttonDisabled span,
 .toolBar li.hover, .toolBar li.hover a, .toolBar li.hover span, .toolBar span,
 .pagination, .pagination li.hover, .pagination li.hover a, .pagination li span,
 .pagination li.disabled span span,

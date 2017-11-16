@@ -343,13 +343,36 @@ function uploadifyError(event, queueId, fileObj, errorObj){
 		+ fileObj.name + "\nerrorObj.type:" + errorObj.type + "\nerrorObj.info:" + errorObj.info);
 }
 
+DWZ.pargerFormExport = function (url, $form) {
+
+	if ($form.size() == 0) {
+		window.location = url;
+		return;
+	}
+
+	var $iframe = $("#callbackframe");
+	if ($iframe.size() == 0) {
+		$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
+	}
+
+	var pagerFormUrl = $form[0].action,
+		pagerFormOnSubmit = $form.attr('onsubmit');
+
+	$form[0].action = url;
+	$form[0].target = "callbackframe";
+	$form.removeAttr('onsubmit');
+	$form.submit();
+
+	$form[0].action = pagerFormUrl;
+	$form.attr('onsubmit', pagerFormOnSubmit);
+};
 
 $.fn.extend({
 	ajaxTodo:function(){
 		return this.each(function(){
 			var $this = $(this);
 			$this.click(function(event){
-				if ($this.hasClass('disabled')) {
+				if ($this.hasClass('disabled') || $this.hasClass('buttonDisabled')) {
 					return false;
 				}
 				
@@ -379,27 +402,16 @@ $.fn.extend({
 			var $form = $("#pagerForm", $p);
 			var url = $this.attr("href");
 
-			if ($form.size() == 0) {
-				window.location = url;
-				return;
-			}
-
-			var $iframe = $("#callbackframe");
-			if ($iframe.size() == 0) {
-				$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
-			}
-
-			var pagerFormUrl = $form[0].action;
-			$form[0].action = url;
-			$form[0].target = "callbackframe";
-			$form.submit();
-
-			$form[0].action = pagerFormUrl;
+			DWZ.pargerFormExport(url, $form);
 		}
 		
 		return this.each(function(){
 			var $this = $(this);
 			$this.click(function(event){
+				if ($this.hasClass('disabled') || $this.hasClass('buttonDisabled')) {
+					return false;
+				}
+
 				var title = $this.attr("title");
 				if (title) {
 					alertMsg.confirm(title, {
