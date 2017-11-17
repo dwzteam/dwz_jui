@@ -17,10 +17,8 @@
 
 	<script src="js/dwz.core.js" type="text/javascript"></script>
 	<script src="js/dwz.drag.js" type="text/javascript"></script>
-	<script src="js/dwz.ui.js" type="text/javascript"></script>
 	<script src="js/dwz.sortDrag.js" type="text/javascript"></script>
 	<script src="js/dwz.miscDrag.js" type="text/javascript"></script>
-	<script src="js/dwz.print.js" type="text/javascript"></script>
 
 	<!-- 可以用dwz.min.js替换前面全部dwz.*.js (注意：替换时下面dwz.regional.zh.js还需要引入)
 	<script src="bin/dwz.min.js" type="text/javascript"></script>
@@ -38,7 +36,8 @@
 				ui:{hideMode:'offsets'}, //【可选】hideMode:navTab组件切换的隐藏方式，支持的值有’display’，’offsets’负数偏移位置的值，默认值为’display’
 				debug:false,	// 调试模式 【true|false】
 				callback:function(){
-					$("dl.miscSortDrag").miscSortDrag().find('div.sortDrag').sortDrag({refresh:true});
+					$("dl.miscSortDrag").miscSortDrag();
+					$("div.sortDrag").sortDrag();
 				}
 			});
 
@@ -64,44 +63,60 @@
 			<dt>
 				<fieldset>
 					<legend>显示单元(Element)</legend>
-					<div class="dragItem" data-sn="element-11" data-name="室外 PM2.5">室外 PM2.5<span class="close" onclick="$(this).parent().remove();">x</span></div>
-					<div class="dragItem" data-sn="element-12" data-name="样板间1 PM2.5">样板间1 PM2.5<span class="close" onclick="$(this).parent().remove();">x</span></div>
-					<div class="dragItem" data-sn="element-13" data-name="样板间2 PM2.5">样板间2 PM2.5<span class="close" onclick="$(this).parent().remove();">x</span></div>
-					<div class="dragItem" data-sn="element-21" data-name="过滤前水质">过滤前水质<span class="close" onclick="$(this).parent().remove();">x</span></div>
-					<div class="dragItem" data-sn="element-22" data-name="过滤后水质">过滤后水质<span class="close" onclick="$(this).parent().remove();">x</span></div>
-					<div class="dragItem" data-sn="element-32" data-name="样板间1噪音">样板间1噪音<span class="close" onclick="$(this).parent().remove();">x</span></div>
-					<div class="dragItem" data-sn="element-33" data-name="样板间2噪音">样板间2噪音<span class="close" onclick="$(this).parent().remove();">x</span></div>
+					<div class="itemBox">
+						<div class="dragItem" data-sn="element-11" data-name="室外 PM2.5">室外 PM2.5<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-12" data-name="样板间1 PM2.5">样板间1 PM2.5<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-13" data-name="样板间2 PM2.5">样板间2 PM2.5<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-21" data-name="过滤前水质">过滤前水质<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-22" data-name="过滤后水质">过滤后水质<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-32" data-name="样板间1噪音">样板间1噪音<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-33" data-name="样板间2噪音">样板间2噪音<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+
+						<div class="dragItem" data-sn="element-41" data-name="样板间1温度">样板间1温度<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-42" data-name="样板间1湿度">样板间1湿度<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-51" data-name="样板间1照度">样板间1照度<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+						<div class="dragItem" data-sn="element-61" data-name="样板间1风速">样板间1风速<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+					</div>
 				</fieldset>
 
 			</dt>
 			<dd>
 				<fieldset>
 					<legend>屏幕布局配置(Screen)</legend>
+					<div class="row" style="padding: 0 10px;">
+						<div class="col-lg-4 col-md-12 col-sm-12">
+							<p class="title">空气质量(Panel)</p>
+							<div class="sortDrag" data-sn="panel-1" data-name="空气质量" data-over-sort="false">
+								<div class="dragItem" data-sn="element-11" data-name="室外 PM2.5">室外 PM2.5<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+								<div class="dragItem" data-sn="element-12" data-name="样板间1 PM2.5">样板间1 PM2.5<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+								<div class="dragItem" data-sn="element-13" data-name="样板间2 PM2.5">样板间2 PM2.5<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+							</div>
 
-					<div class="panel-box">
-						<p class="title">空气质量(Panel)</p>
-
-						<div class="sortDrag" data-sn="panel-1" data-name="空气质量">
-							<div class="dragItem" data-sn="element-11" data-name="室外 PM2.5">室外 PM2.5<span class="close" onclick="$(this).parent().remove();">x</span></div>
-							<div class="dragItem" data-sn="element-12" data-name="样板间1 PM2.5">样板间1 PM2.5<span class="close" onclick="$(this).parent().remove();">x</span></div>
-							<div class="dragItem" data-sn="element-13" data-name="样板间2 PM2.5">样板间2 PM2.5<span class="close" onclick="$(this).parent().remove();">x</span></div>
+							<p class="title">热舒适度(Panel)</p>
+							<div class="sortDrag" data-sn="panel-6" data-name="热舒适度">
+							</div>
 						</div>
-					</div>
+						<div class="col-lg-4 col-md-6 col-sm-12">
+							<p class="title">水质(Panel)</p>
+							<div class="sortDrag" data-sn="panel-2" data-name="水质" data-over-sort="false">
+								<div class="dragItem" data-sn="element-21" data-name="过滤前水质">过滤前水质<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+								<div class="dragItem" data-sn="element-22" data-name="过滤后水质">过滤后水质<label class="ctl-label"><input type="checkbox" name="fullSize">撑满</label><span class="close">X</span></div>
+							</div>
 
-					<div class="panel-box">
-						<p class="title">水质(Panel)</p>
-
-						<div class="sortDrag" data-sn="panel-2" data-name="水质">
-							<div class="dragItem" data-sn="element-21" data-name="过滤前水质">过滤前水质<span class="close" onclick="$(this).parent().remove();">x</span></div>
-							<div class="dragItem" data-sn="element-22" data-name="过滤后水质">过滤后水质<span class="close" onclick="$(this).parent().remove();">x</span></div>
+							<p class="title">风速(Panel)</p>
+							<div class="sortDrag" data-sn="panel-4" data-name="风速" data-over-sort="false">
+							</div>
 						</div>
-					</div>
+						<div class="col-lg-4 col-md-6 col-sm-12">
+							<p class="title">噪音(Panel)</p>
+							<div class="sortDrag" data-sn="panel-3" data-name="噪音">
+							</div>
 
-					<div class="panel-box">
-						<p class="title">噪音(Panel)</p>
-
-						<div class="sortDrag" data-sn="panel-3" data-name="噪音">
+							<p class="title">照度(Panel)</p>
+							<div class="sortDrag" data-sn="panel-5" data-name="照度" data-over-sort="false">
+							</div>
 						</div>
+
 					</div>
 				</fieldset>
 			</dd>

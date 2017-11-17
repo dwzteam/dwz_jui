@@ -49,7 +49,7 @@
 			var helperPos = $helper.position(), firstPos = $items.eq(0).position();
 
 			var $overBox = DWZ.sortDrag._getOverSortBox($helper, event);
-			if ($overBox.length > 0 && $overBox[0] != $sortBox[0]){ //移动到其他容器
+			if ($sortBox.attr('data-over-sort') == 'true' && $overBox.length > 0 && $overBox[0] != $sortBox[0]){ //移动到其他容器
 				$placeholder.appendTo($overBox);
 				$helper.data('$sortBox', $overBox);
 			} else {
@@ -114,6 +114,7 @@
 			return $(op.sortBoxs).filter(':visible').filter(function(){
 				var $sortBox = $(this), sortBoxPos = $sortBox.position(),
 					sortBoxH = $sortBox.height(), sortBoxW = $sortBox.width();
+
 				return DWZ.isOver(y, x, sortBoxPos.top, sortBoxPos.left, sortBoxH, sortBoxW);
 			});
 		}
@@ -132,7 +133,6 @@
 					$selector = $item.find(op.selector).css({cursor:op.cursor});
 				}
 
-
 				if (op.refresh) {
 					$selector.unbind('mousedown');
 				}
@@ -146,13 +146,15 @@
 					}
 				});
 
-
 			});
 
-			//$sortBox.find('.close').mousedown(function(event){
-			//	$(this).parent().remove();
-			//	return false;
-			//});
+			$sortBox.find('.close').mousedown(function(event){
+				$(this).parent().remove();
+				return false;
+			});
+			$sortBox.find('.ctl-label').mousedown(function(event){
+				return false;
+			});
 		});
 	}
 

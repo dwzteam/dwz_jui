@@ -66,14 +66,14 @@
 			var itemPos = $item.position();
 			var y = itemPos.top+($item.height()/2), x = itemPos.left+($item.width()/2);
 			return $sortBox.filter(':visible').filter(function(){
-				var $sortBox = $(this), sortBoxPos = $sortBox.position(),
+				var $sortBox = $(this), sortBoxPos = $sortBox.offset(),
 					sortBoxH = $sortBox.height(), sortBoxW = $sortBox.width();
 				return DWZ.isOver(y, x, sortBoxPos.top, sortBoxPos.left, sortBoxH, sortBoxW);
 			});
 		},
 		_createPlaceholder:function($item){
 			return $('<'+$item[0].nodeName+' class="sortDragPlaceholder"/>').css({
-				width:$item.outerWidth()+'px',
+				// width:$item.outerWidth()+'px',
 				height:$item.outerHeight()+'px',
 				marginTop:$item.css('marginTop'),
 				marginRight:$item.css('marginRight'),
@@ -130,7 +130,7 @@
 				$placeholder = $helper.data('$placeholder'), $item = $helper.data('$item');
 
 			if ($placeholder && $placeholder.is(':visible')) {
-				var position = $placeholder.position();
+				var position = $placeholder.offset();
 
 				$helper.animate({
 						top: (position.top+$sortBox.scrollTop()) + "px",
@@ -236,14 +236,23 @@
 
 				$sortDrag.find('.dragItem').each(function(index){
 					var $dragItem = $(this);
-					dataItem.items.push({
+					var itemData = {
 						sn: $dragItem.attr('data-sn'),
 						name: $dragItem.attr('data-name') || '',
 						sequence: index + 1
+					};
+
+					$dragItem.find('.ctl-label :checkbox').each(function(){
+						var $lable = $(this), lableName = $lable.attr('name');
+						if (lableName) {
+							itemData[lableName] = $lable.is(":checked");
+						}
 					});
+
+					dataItem.items.push(itemData);
 				});
 
-				data.push(dataItem)
+				data.push(dataItem);
 			}
 
 			return data;
