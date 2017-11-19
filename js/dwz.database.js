@@ -37,7 +37,7 @@
 			$.bringBackSuggest(args);
 			$.pdialog.closeCurrent();
 		},
-		dwzSelectedIds: function(selectedIds, targetType){
+		getSelectedIds: function(selectedIds, targetType){
 			var ids = "";
 			var $box = targetType == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
 			$box.find("input:checked").filter("[name='"+selectedIds+"']").each(function(i){
@@ -47,16 +47,6 @@
 			return ids;
 		}
 	});
-
-	DWZ.getSelectedIds = function(selectedIds, targetType){
-		var ids = "";
-		var $box = targetType == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
-		$box.find("input:checked").filter("[name='"+selectedIds+"']").each(function(i){
-			var val = $(this).val();
-			ids += i==0 ? val : ","+val;
-		});
-		return ids;
-	};
 	
 	$.fn.extend({
 		lookup: function(){
@@ -412,7 +402,7 @@
 
 				$this.click(function(){
 					var targetType = $this.attr("targetType");
-					var ids = $.dwzSelectedIds(selectedIds, targetType);
+					var ids = $.getSelectedIds(selectedIds, targetType);
 					if (!ids) {
 						alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
 						return false;
