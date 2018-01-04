@@ -1,11 +1,12 @@
-.miscSortDrag dt {float: left; width: 160px; margin-right: 10px;}
+.miscSortDrag dt {position: fixed; top: 10px; left:10px; width: 160px; margin-right: 10px;}
 .miscSortDrag dt fieldset, .miscSortDrag dt fieldset legend {border: 1px dashed blue;}
 .miscSortDrag fieldset legend {font-size: 14px; padding: 3px 8px;}
-.miscSortDrag dt fieldset .itemBox{min-height: 345px; overflow-y: auto;}
+.miscSortDrag dt fieldset .itemBox{height: 345px; overflow-y: auto;}
 .miscSortDrag dt .sortDragPlaceholder, .miscSortDrag dt .dragItem .close, .miscSortDrag dt .dragItem .ctl-label {display: none}
 .miscSortDrag dt .dragItem {border:1px solid #B8D0D6;padding:5px;margin:3px;display: block; }
 .miscSortDrag dt:after{content:" "; display: block; clear: both;}
 
+.miscSortDrag dd {margin-left: 170px;}
 .miscSortDrag dd fieldset, .miscSortDrag dd fieldset legend {border: 4px dashed red; background: #00050e; color:#fff; padding: 8px 20px;}
 .miscSortDrag dd .title{text-align: center;color:#fff; margin: 10px 0; padding: 5px; border-bottom: solid 1px #eee}
 .miscSortDrag dd .sortDrag{width: 100%;height:280px;border:1px solid #e66;overflow-y: auto}

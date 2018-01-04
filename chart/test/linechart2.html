@@ -1,37 +1,92 @@
+
+<div id="test_linechart2" style="height: 400px;"></div>
+
 <script type="text/javascript">
-var options = {
-	axis: "0 0 1 1", // Where to put the labels (trbl)
-	axisxstep: 10, // How many x interval labels to render (axisystep does the same for the y axis)
-	shade:false, // true, false
-	smooth:true, //曲线
-	symbol:"circle"
-};
 
-$(function () {
-	
-	// Make the raphael object
-	var r = Raphael("chartHolder"); 
-	
-	var lines = r.linechart(
-		20, // X start in pixels
-		10, // Y start in pixels
-		600, // Width of chart in pixels
-		400, // Height of chart in pixels
-		[[.5,1.5,2,2.5,3,3.5,4,4.5,5],[.5,1.5,2,2.5,3,3.5,4,4.5,5]], // Array of x coordinates equal in length to ycoords
-		[[7,11,9,16,3,19,12,12,15],[1,2,3,4,3,6,7,5,9]], // Array of y coordinates equal in length to xcoords
-		options // opts object
-	).hoverColumn(function () {
-        this.tags = r.set();
+	(function($){
 
-        for (var i = 0, ii = this.y.length; i < ii; i++) {
-            this.tags.push(r.tag(this.x, this.y[i], this.values[i], 160, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
-        }
-    }, function () {
-        this.tags && this.tags.remove();
-    });
+		var myChart = echarts.init(document.getElementById('test_linechart2'));
 
-    lines.symbols.attr({ r: 6 });
-});
+		// 指定图表的配置项和数据
+		var option = {
+			tooltip : {
+				trigger: 'axis'
+			},
+			legend: {
+				data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+			},
+			toolbox: {
+				show : true,
+				feature : {
+					mark : {show: true},
+					dataView : {show: true, readOnly: false},
+					magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+					restore : {show: true},
+					saveAsImage : {show: true}
+				}
+			},
+			calculable : true,
+			xAxis : [
+				{
+					type : 'category',
+					boundaryGap : false,
+					data : ['周一','周二','周三','周四','周五','周六','周日']
+				}
+			],
+			yAxis : [
+				{
+					type : 'value'
+				}
+			],
+			series : [
+				{
+					name:'邮件营销',
+					type:'line',
+					stack: '总量',
+					itemStyle: {normal: {areaStyle: {type: 'default'}}},
+					smooth: true,
+					data:[120, 132, 101, 134, 90, 230, 210]
+				},
+				{
+					name:'联盟广告',
+					type:'line',
+					stack: '总量',
+					itemStyle: {normal: {areaStyle: {type: 'default'}}},
+					smooth: true,
+					data:[220, 182, 191, 234, 290, 330, 310]
+				},
+				{
+					name:'视频广告',
+					type:'line',
+					stack: '总量',
+					itemStyle: {normal: {areaStyle: {type: 'default'}}},
+					smooth: true,
+					data:[150, 232, 201, 154, 190, 330, 410]
+				},
+				{
+					name:'直接访问',
+					type:'line',
+					stack: '总量',
+					itemStyle: {normal: {areaStyle: {type: 'default'}}},
+					smooth: true,
+					data:[320, 332, 301, 334, 390, 330, 320]
+				},
+				{
+					name:'搜索引擎',
+					type:'line',
+					stack: '总量',
+					itemStyle: {normal: {areaStyle: {type: 'default'}}},
+					smooth: true,
+					data:[820, 932, 901, 934, 1290, 1330, 1320]
+				}
+			]
+		};
+
+
+
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+
+	})(jQuery);
+
 </script>
-
-<div id="chartHolder" style="width: 650px;height: 450px"></div>

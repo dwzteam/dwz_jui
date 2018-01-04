@@ -1,52 +1,110 @@
 
+<div id="test_barchart" style="height: 400px;"></div>
+
 <script type="text/javascript">
-    var options = {
-    	stacked: false,
-    	gutter:20,
-		axis: "0 0 1 1", // Where to put the labels (trbl)
-		axisystep: 10 // How many x interval labels to render (axisystep does the same for the y axis)
+
+(function($){
+
+	var myChart = echarts.init(document.getElementById('test_barchart'));
+
+	// 指定图表的配置项和数据
+	var option = {
+		title : {
+			text: '温度计式图表',
+			subtext: 'From ExcelHome',
+			sublink: 'http://e.weibo.com/1341556070/AizJXrAEa'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			},
+			formatter: function (params){
+				return params[0].name + '<br/>'
+						+ params[0].seriesName + ' : ' + params[0].value + '<br/>'
+						+ params[1].seriesName + ' : ' + (params[1].value + params[0].value);
+			}
+		},
+		legend: {
+			selectedMode:false,
+			data:['Acutal', 'Forecast']
+		},
+		toolbox: {
+			show : true,
+			feature : {
+				mark : {show: true},
+				dataView : {show: true, readOnly: false},
+				restore : {show: true},
+				saveAsImage : {show: true}
+			}
+		},
+		calculable : true,
+		xAxis : [
+			{
+				type : 'category',
+				data : ['Cosco','CMA','APL','OOCL','Wanhai','Zim']
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				boundaryGap: [0, 0.1]
+			}
+		],
+		series : [
+			{
+				name:'Acutal',
+				type:'bar',
+				stack: 'sum',
+				barCategoryGap: '50%',
+				itemStyle: {
+					normal: {
+						color: 'tomato',
+						barBorderColor: 'tomato',
+						barBorderWidth: 6,
+						barBorderRadius:0,
+						label : {
+							show: true, position: 'insideTop'
+						}
+					}
+				},
+				data:[260, 200, 220, 120, 100, 80]
+			},
+			{
+				name:'Forecast',
+				type:'bar',
+				stack: 'sum',
+				itemStyle: {
+					normal: {
+						color: '#fff',
+						barBorderColor: 'tomato',
+						barBorderWidth: 6,
+						barBorderRadius:0,
+						label : {
+							show: true,
+							position: 'top',
+							formatter: function (params) {
+								for (var i = 0, l = option.xAxis[0].data.length; i < l; i++) {
+									if (option.xAxis[0].data[i] == params.name) {
+										return option.series[0].data[i] + params.value;
+									}
+								}
+							},
+							textStyle: {
+								color: 'tomato'
+							}
+						}
+					}
+				},
+				data:[40, 80, 50, 80,80, 70]
+			}
+		]
 	};
-	
-	$(function() {
-        // Creates canvas
-        var r = Raphael("chartHolder");
-        var data = [[10,20,30,50],[15,25,35,50]]
-        
-        // stacked: false
-		var chart1 = r.barchart(40, 10, 320, 200, data, options).hover(function() {
-            this.flag = r.popup(this.bar.x, this.bar.y, this.bar.value).insertBefore(this);
-        }, function() {
-            this.flag.animate({opacity: 0}, 500, ">", function () {this.remove();});
-        });
-		chart1.label([["A1",  "A2", "A3", "A4"],["B1",  "B2", "B3", "B4"]],true);
-		
-		
-		// stacked: true
-		options.stacked=true;
-		
-		var chart2 = r.barchart(400, 10, 320, 200, data, options).hoverColumn(function() {
-    		var y = [], res = [];
-            for (var i = this.bars.length; i--;) {
-                y.push(this.bars[i].y);
-                res.push(this.bars[i].value || "0");
-            }
-            this.flag = r.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
-        }, function() {
-            this.flag.animate({opacity: 0}, 500, ">", function () {this.remove();});
-        });
-		chart2.label([["A"],["B"],["C"],["D"]],true);
 
 
-		options.axisystep = 5;
-		options.stacked=false;
-		var data3 = [[10,20,30,50,15,25,35,50, 18, 28, 38, 24]];
-		var chart3 = r.barchart(40, 220, 620, 120, data3, options).hover(function() {
-            this.flag = r.popup(this.bar.x, this.bar.y, this.bar.value).insertBefore(this);
-        }, function() {
-            this.flag.animate({opacity: 0}, 500, ">", function () {this.remove();});
-        });
-		chart3.label([["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9",  "A10", "A11", "A12"]],true);
-	});
+	// 使用刚指定的配置项和数据显示图表。
+	myChart.setOption(option);
+
+})(jQuery);
+
 </script>
-
-<div id="chartHolder"></div>
