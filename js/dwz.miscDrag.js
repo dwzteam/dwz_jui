@@ -143,7 +143,7 @@
 							//var html = $helper.html()+'<span class="close">×</span>';
 							var html = $helper.html();
 
-							$destBox.append('<div class="dragItem" data-sn="'+$helper.attr('data-sn')+'">'+html+'</div>');
+							$destBox.append('<div class="dragItem" data-sn="'+$helper.attr('data-sn')+'" data-name="'+$helper.attr('data-name')+'">'+html+'</div>');
 
 							$placeholder.remove();
 							$helper.remove();
