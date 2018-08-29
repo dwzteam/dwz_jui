@@ -450,7 +450,7 @@
 
 				$this.click(function(){
 					var targetType = $this.attr("targetType");
-					var ids = DWZ.getSelectedIds(selectedIds, targetType);
+					var ids = $.getSelectedIds(selectedIds, targetType);
 					if (!ids) {
 						alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
 						return false;
