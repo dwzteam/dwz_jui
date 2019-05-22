@@ -47,11 +47,11 @@
 		img.file = file;
 		$previewElem.empty().append(img);
 
-		// if ($previewElem.find('.edit-icon').size() == 0) {
+		// if ($previewElem.find('.edit-icon').length == 0) {
 		// 	$previewElem.append('<span class="edit-icon"></span>');
 		// }
 
-		if ($previewElem.find('.del-icon').size() == 0) {
+		if ($previewElem.find('.del-icon').length == 0) {
 			$('<a class="del-icon"></a>').appendTo($previewElem).click(function(event){
 				$previewElem.remove();
 				$uploadWrap.find('input[type=file]').val('');

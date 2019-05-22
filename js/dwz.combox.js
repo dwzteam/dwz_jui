@@ -17,10 +17,10 @@
 			}
 		});
 	};
-	
+
 	var _onchange = function(event){
 		var $ref = $("#"+event.data.ref);
-		if ($ref.size() == 0) return false;
+		if ($ref.length == 0) return false;
 		$.ajax({
 			type:'POST', dataType:"json", url:event.data.refUrl.replace("{value}", encodeURIComponent(event.data.$this.val())), cache: false,
 			data:{},
@@ -52,11 +52,11 @@
 			defaultValue = $box.find('>a').attr('default-value');
 		$('#op_'+$box.attr('id')).find('>li a[value="'+defaultValue+'"]').trigger('click');
 	};
-					
+
 	$.extend($.fn, {
 		comboxSelect: function(options){
 			var op = $.extend({ selector: ">a" }, options);
-			
+
 			return this.each(function(){
 				var box = $(this);
 				var selector = $(op.selector, box);
@@ -84,7 +84,7 @@
 
 					return false;
 				});
-				$("#op_"+box.attr("id")).find(">li").comboxOption(selector, box);		
+				$("#op_"+box.attr("id")).find(">li").comboxOption(selector, box);
 			});
 		},
 		comboxOption: function(selector, box){
@@ -94,7 +94,7 @@
 					$this.parent().parent().find(".selected").removeClass("selected");
 					$this.addClass("selected");
 					selector.text($this.text());
-					
+
 					var $input = $("select", box);
 					if ($input.val() != $this.attr("value")) {
 						$("select", box).val($this.attr("value")).trigger("change");
@@ -105,7 +105,7 @@
 		combox:function(){
 			/* 清理下拉层 */
 			var _selectBox = [];
-			$.each(allSelectBox, function(i){ 
+			$.each(allSelectBox, function(i){
 				if ($("#" + allSelectBox[i])[0]) {
 					_selectBox.push(allSelectBox[i]);
 				} else {
@@ -113,7 +113,7 @@
 				}
 			});
 			allSelectBox = _selectBox;
-			
+
 			return this.each(function(i){
 				var $this = $(this).hide();
 
@@ -133,11 +133,11 @@
 					options +="<li><a class=\""+ ((value||option[0].text) && value==option[0].value?"selected":"") +"\" href=\"#\" value=\"" + option[0].value + "\">" + option[0].text + "</a></li>";
 				});
 				options +="</ul>";
-				
+
 				$("body").append(options);
 				$this.after(select);
 				$("div.select", $this.next()).comboxSelect().append($this);
-				
+
 				if (ref && refUrl) {
 					$this.unbind("change", _onchange).bind("change", {ref:ref, refUrl:refUrl, $this:$this}, _onchange);
 				}
@@ -169,6 +169,12 @@
 		comboxEnable: function(){
 			return this.each(function(){
 				$(this).parents('.combox .select:first').removeClass('disabled');
+			});
+		},
+		comboxVal: function(val){
+			return this.each(function(){
+				var $box = $(this).parents('.combox .select:first');
+				$('#op_'+$box.attr('id')).find('>li a[value="'+val+'"]').trigger('click');
 			});
 		}
 

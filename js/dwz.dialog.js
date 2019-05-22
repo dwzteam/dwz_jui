@@ -54,9 +54,9 @@
 						}
 					});
 				}
-			
+
 			} else { //打开一个全新的层
-			
+
 				$("body").append(DWZ.frag["dialogFrag"]);
 				dialog = $(">.dialog:last-child", "body");
 				dialog.data("id",dlgid);
@@ -64,7 +64,7 @@
 				if(options.close) dialog.data("close",options.close);
 				if(options.param) dialog.data("param",options.param);
 				($.fn.bgiframe && dialog.bgiframe());
-				
+
 				dialog.find(".dialogHeader").find("h1").html(title);
 				$(dialog).css("zIndex", ($.pdialog._zIndex+=2));
 				$("div.shadow").css("zIndex", $.pdialog._zIndex - 3).show();
@@ -72,12 +72,12 @@
 				$(dialog).click(function(){
 					$.pdialog.switchDialog(dialog);
 				});
-				
+
 				if(op.resizable)
 					dialog.jresize();
 				if(op.drawable)
 				 	dialog.dialogDrag();
-				$("a.close", dialog).click(function(event){ 
+				$("a.close", dialog).click(function(event){
 					$.pdialog.close(dialog);
 					return false;
 				});
@@ -174,7 +174,7 @@
 				width: parseInt($(dialog).width()) + 8,
 				zIndex:parseInt($(dialog).css("zIndex")) - 1
 			});
-			$(".shadow_c", shadow).children().andSelf().each(function(){
+			$(".shadow_c", shadow).children().addBack().each(function(){
 				$(this).css("height", $(dialog).outerHeight() - 4);
 			});
 		},
@@ -189,7 +189,7 @@
 			if(isNaN(dialog.css("width")) || dialog.width() < width) {
 				$(dialog).width(width+"px");
 			}
-			
+
 			var iTop = ($(window).height()-dialog.height())/2;
 			dialog.css({
 				left: ($(window).width()-dialog.width())/2,
@@ -221,7 +221,7 @@
 			var shadow = $("div.shadow");
 			if(target != "w" && target != "e") {
 				shadow.css("height", shadow.outerHeight() + options.tmove);
-				$(".shadow_c", shadow).children().andSelf().each(function(){
+				$(".shadow_c", shadow).children().addBack().each(function(){
 					$(this).css("height", $(this).outerHeight() + options.tmove);
 				});
 			}
@@ -274,7 +274,7 @@
 				$.pdialog.resizeTool(target, tmove, dialog);
 			}
 			$.pdialog.repaint(target, {oleft:oleft,otop: otop,tmove: tmove,owidth:width});
-			
+
 			$(window).trigger(DWZ.eventType.resizeGrid);
 		},
 		close:function(dialog) {
@@ -291,7 +291,7 @@
 				}
 				if(!go) return;
 			}
-			
+
 			$(dialog).hide();
 			$("div.shadow").hide();
 			if($(dialog).data("mask")){
@@ -360,7 +360,7 @@
 			content.css({width:(width-12) + "px",height:height - $(".dialogHeader", dialog).outerHeight() - $(".dialogFooter", dialog).outerHeight() - 6});
 			content.find("[layoutH]").layoutH(content);
 			$(".pageContent", dialog).css("width", (width-14) + "px");
-			
+
 			$(window).trigger(DWZ.eventType.resizeGrid);
 		}
 	};

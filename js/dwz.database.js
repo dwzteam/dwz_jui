@@ -15,14 +15,14 @@
 			return this.lookupPk(key);
 		}
 	};
-	
+
 	$.extend({
 		bringBackSuggest: function(args){
 			var $box = _lookup['$target'].parents(".unitBox:first");
 			// $box.trigger('bringBackSuggestDone', args);
 			$box.find(":input").each(function(){
 				var $input = $(this), inputName = $input.attr("name");
-				
+
 				for (var key in args) {
 					var name = (_lookup.pk == key) ? _util.lookupPk(key) : _util.lookupField(key);
 
@@ -47,11 +47,11 @@
 			return ids;
 		}
 	});
-	
+
 	$.fn.extend({
 		lookup: function(){
 			return this.each(function(){
-				var $this = $(this), options = {mask:true, 
+				var $this = $(this), options = {mask:true,
 					width:$this.attr('width')||820, height:$this.attr('height')||400,
 					maxable:eval($this.attr("maxable") || "true"),
 					resizable:eval($this.attr("resizable") || "true")
@@ -63,13 +63,13 @@
 						$target: $this,
 						pk: $this.attr("lookupPk") || "id"
 					});
-					
+
 					var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
 					if (!url.isFinishedTm()) {
 						alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
 						return false;
 					}
-					
+
 					$.pdialog.open(url, "_blank", $this.attr("title") || $this.text(), options);
 					return false;
 				});
@@ -103,20 +103,20 @@
 				var $input = $(this).attr('autocomplete', 'off').keydown(function(event){
 					if (event.keyCode == DWZ.keyCode.ENTER && $(op.suggest$).is(':visible')) return false; //屏蔽回车提交
 				});
-				
+
 				var suggestFields=$input.attr('suggestFields').split(",");
-				
+
 				function _show(event){
 					var offset = $input.offset();
 					var iTop = offset.top+this.offsetHeight;
 					var $suggest = $(op.suggest$);
-					if ($suggest.size() == 0) $suggest = $('<div id="suggest"></div>').appendTo($('body'));
+					if ($suggest.length == 0) $suggest = $('<div id="suggest"></div>').appendTo($('body'));
 
 					$suggest.css({
 						left:offset.left+'px',
 						top:iTop+'px'
 					}).show();
-					
+
 					_lookup = $.extend(_lookup, {
 						currentGroup: $input.attr("lookupGroup") || "",
 						suffix: $input.attr("suffix") || "",
@@ -129,7 +129,7 @@
 						alertMsg.error($input.attr("warn") || DWZ.msg("alertSelectMsg"));
 						return false;
 					}
-					
+
 					var postData = {};
 					postData[$input.attr("postField")||"inputValue"] = $input.val();
 
@@ -143,7 +143,7 @@
 
 							$.each(response, function(i){
 								var liAttr = '', liLabel = '';
-								
+
 								for (var i=0; i<suggestFields.length; i++){
 									var str = this[suggestFields[i]];
 									if (str) {
@@ -157,14 +157,14 @@
 								}
 								html += '<li lookupAttrs="'+liAttr+'">' + liLabel + '</li>';
 							});
-							
+
 							var $lis = $suggest.html('<ul>'+html+'</ul>').find("li");
 							$lis.hoverClass("selected").click(function(){
 								_select($(this));
 							});
-							if ($lis.size() == 1 && event.keyCode != DWZ.keyCode.BACKSPACE) {
+							if ($lis.length == 1 && event.keyCode != DWZ.keyCode.BACKSPACE) {
 								_select($lis.eq(0));
-							} else if ($lis.size() == 0){
+							} else if ($lis.length == 0){
 								var jsonStr = "";
 								for (var i=0; i<suggestFields.length; i++){
 									if (_util.lookupField(suggestFields[i]) == event.target.name) {
@@ -187,7 +187,7 @@
 				}
 				function _select($item){
 					var jsonStr = "{"+ $item.attr('lookupAttrs') +"}";
-					
+
 					$.bringBackSuggest(DWZ.jsonEval(jsonStr));
 				}
 				function _close(){
@@ -195,7 +195,7 @@
 					selectedIndex = -1;
 					$(document).unbind("click", _close);
 				}
-				
+
 				$input.focus(_show).click(false).keyup(function(event){
 					var $items = $(op.suggest$).find("li");
 					switch(event.keyCode){
@@ -211,11 +211,11 @@
 							_close();
 							break;
 						case DWZ.keyCode.DOWN:
-							if (selectedIndex >= $items.size()-1) selectedIndex = -1;
+							if (selectedIndex >= $items.length-1) selectedIndex = -1;
 							else selectedIndex++;
 							break;
 						case DWZ.keyCode.UP:
-							if (selectedIndex < 0) selectedIndex = $items.size()-1;
+							if (selectedIndex < 0) selectedIndex = $items.length-1;
 							else selectedIndex--;
 							break;
 						default:
@@ -229,7 +229,7 @@
 				});
 			});
 		},
-		
+
 		itemDetail: function(){
 			return this.each(function(){
 				var $table = $(this).css("clear","both"), $tbody = $table.find("tbody");
@@ -255,16 +255,16 @@
 					};
 					fields.push(field);
 				});
-				
+
 				$tbody.find("a.btnDel").click(function(){
 					var $btnDel = $(this);
-					
+
 					if ($btnDel.is("[href^=javascript:]")){
 						$btnDel.parents("tr:first").remove();
 						initSuffix($tbody);
 						return false;
 					}
-					
+
 					function delDbData(){
 						$.ajax({
 							type:'POST', dataType:"json", url:$btnDel.attr('href'), cache: false,
@@ -275,13 +275,13 @@
 							error: DWZ.ajaxError
 						});
 					}
-					
+
 					if ($btnDel.attr("title")){
 						alertMsg.confirm($btnDel.attr("title"), {okCall: delDbData});
 					} else {
 						delDbData();
 					}
-					
+
 					return false;
 				});
 
@@ -289,7 +289,7 @@
 				if (addButTxt) {
 					var $addBut = $('<div class="button"><div class="buttonContent"><button type="button">'+addButTxt+'</button></div></div>').insertBefore($table).find("button");
 					var $rowNum = $('<input type="text" name="dwz_rowNum" class="textInput" style="margin:2px;" value="1" size="2"/>').insertBefore($table);
-					
+
 					var trTm = "";
 					$addBut.click(function(){
 						if (! trTm) trTm = trHtml(fields);
@@ -308,7 +308,7 @@
 					});
 				}
 			});
-			
+
 			/**
 			 * 删除时重新初始化下标
 			 */
@@ -318,26 +318,26 @@
 						var $this = $(this), name = $this.attr('name'), val = $this.val();
 
 						if (name) $this.attr('name', name.replaceSuffix(i));
-						
+
 						var lookupGroup = $this.attr('lookupGroup');
 						if (lookupGroup) {$this.attr('lookupGroup', lookupGroup.replaceSuffix(i));}
-						
+
 						var suffix = $this.attr("suffix");
 						if (suffix) {$this.attr('suffix', suffix.replaceSuffix(i));}
-						
+
 						if (val && val.indexOf("#index#") >= 0) $this.val(val.replace('#index#',i+1));
 					});
 				});
 			}
-			
+
 			function tdHtml(field){
 				var html = '', suffix = '';
-				
+
 				if (field.name.endsWith("[#index#]")) suffix = "[#index#]";
 				else if (field.name.endsWith("[]")) suffix = "[]";
-				
+
 				var suffixFrag = suffix ? ' suffix="' + suffix + '" ' : '';
-				
+
 				var attrFrag = '';
 				if (field.fieldAttrs){
 					var attrs = DWZ.jsonEval(field.fieldAttrs);
@@ -367,8 +367,8 @@
 					case 'enum':
 						$.ajax({
 							type:"POST", dataType:"html", async: false,
-							url:field.enumUrl, 
-							data:{inputName:field.name}, 
+							url:field.enumUrl,
+							data:{inputName:field.name},
 							success:function(response){
 								html = response;
 							}
@@ -392,7 +392,7 @@
 				return '<tr class="unitBox">'+html+'</tr>';
 			}
 		},
-		
+
 		selectedTodo: function(){
 
 			return this.each(function(){
@@ -407,10 +407,10 @@
 						alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
 						return false;
 					}
-					
+
 					var _callback = $this.attr("callback") || (targetType == "dialog" ? dialogAjaxDone : navTabAjaxDone);
 					if (! $.isFunction(_callback)) _callback = eval('(' + _callback + ')');
-					
+
 					function _doPost(){
 						$.ajax({
 							type:'POST', url:$this.attr('href'), dataType:'json', cache: false,
@@ -437,7 +437,7 @@
 					}
 					return false;
 				});
-				
+
 			});
 		},
 

@@ -1,6 +1,6 @@
 /**
  * @author 张慧华 z@j-ui.com
- * 
+ *
  */
 
 /**
@@ -29,13 +29,13 @@ function validateCallback(form, callback, confirmMsg) {
 			error: DWZ.ajaxError
 		});
 	}
-	
+
 	if (confirmMsg) {
 		alertMsg.confirm(confirmMsg, {okCall: _submitFn});
 	} else {
 		_submitFn();
 	}
-	
+
 	return false;
 }
 /**
@@ -47,7 +47,7 @@ function iframeCallback(form, callback){
 	var $form = $(form), $iframe = $("#callbackframe");
 	if(!$form.valid()) {return false;}
 
-	if ($iframe.size() == 0) {
+	if ($iframe.length == 0) {
 		$iframe = $('<iframe id="callbackframe" name="callbackframe" src="about:blank" style="display:none"></iframe>').appendTo('body');
 	}
 	if(!form.ajax) {
@@ -61,13 +61,13 @@ function iframeCallback(form, callback){
 }
 function _iframeResponse(iframe, callback, dataType){
 	var $iframe = $(iframe), $document = $(document);
-	
+
 	$document.trigger("ajaxStart");
-	
+
 	$iframe.bind("load", function(event){
 		$iframe.unbind("load");
 		$document.trigger("ajaxStop");
-		
+
 		if (iframe.src == "javascript:'%3Chtml%3E%3C/html%3E';" || // For Safari
 			iframe.src == "javascript:'<html></html>';") { // For FF, IE
 			return;
@@ -76,12 +76,12 @@ function _iframeResponse(iframe, callback, dataType){
 		var doc = iframe.contentDocument || iframe.document;
 
 		// fixing Opera 9.26,10.00
-		if (doc.readyState && doc.readyState != 'complete') return; 
+		if (doc.readyState && doc.readyState != 'complete') return;
 		// fixing Opera 9.64
 		if (doc.body && doc.body.innerHTML == "false") return;
-	   
+
 		var response;
-		
+
 		if (doc.XMLDocument) {
 			// response is a xml document Internet Explorer property
 			response = doc.XMLDocument;
@@ -100,26 +100,26 @@ function _iframeResponse(iframe, callback, dataType){
 			// response is a xml document
 			response = doc;
 		}
-		
+
 		callback(response);
 	});
 }
 
 /**
  * navTabAjaxDone是DWZ框架中预定义的表单提交回调函数．
- * 服务器转回navTabId可以把那个navTab标记为reloadFlag=1, 下次切换到那个navTab时会重新载入内容. 
+ * 服务器转回navTabId可以把那个navTab标记为reloadFlag=1, 下次切换到那个navTab时会重新载入内容.
  * callbackType如果是closeCurrent就会关闭当前tab
  * 只有callbackType="forward"时需要forwardUrl值
  * navTabAjaxDone这个回调函数基本可以通用了，如果还有特殊需要也可以自定义回调函数.
  * 如果表单提交只提示操作是否成功, 就可以不指定回调函数. 框架会默认调用DWZ.ajaxDone()
  * <form action="/user.do?method=save" onsubmit="return validateCallback(this, navTabAjaxDone)">
- * 
- * form提交后返回json数据结构statusCode=DWZ.statusCode.ok表示操作成功, 做页面跳转等操作. statusCode=DWZ.statusCode.error表示操作失败, 提示错误原因. 
+ *
+ * form提交后返回json数据结构statusCode=DWZ.statusCode.ok表示操作成功, 做页面跳转等操作. statusCode=DWZ.statusCode.error表示操作失败, 提示错误原因.
  * statusCode=DWZ.statusCode.timeout表示session超时，下次点击时跳转到DWZ.loginUrl
  * {"statusCode":"200", "message":"操作成功", "navTabId":"navNewsLi", "forwardUrl":"", "callbackType":"closeCurrent", "rel"."xxxId"}
  * {"statusCode":"300", "message":"操作失败"}
  * {"statusCode":"301", "message":"会话超时"}
- * 
+ *
  */
 function navTabAjaxDone(json){
 	DWZ.ajaxDone(json);
@@ -128,7 +128,7 @@ function navTabAjaxDone(json){
 			navTab.reloadFlag(json.navTabId);
 		} else { //重新载入当前navTab页面
 			var $pagerForm = $("#pagerForm", navTab.getCurrentPanel());
-			var args = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {}
+			var args = $pagerForm.length>0 ? $pagerForm.serializeArray() : {}
 			navTabPageBreak(args, json.rel);
 		}
 
@@ -158,7 +158,7 @@ function navTabAjaxDone(json){
  * dialog上的表单提交回调函数
  * 当前navTab页面有pagerForm就重新加载
  * 服务器转回navTabId，可以重新载入指定的navTab. statusCode=DWZ.statusCode.ok表示操作成功, 自动关闭当前dialog
- * 
+ *
  * form提交后返回json数据结构,json格式和navTabAjaxDone一致
  */
 function dialogAjaxDone(json){
@@ -168,7 +168,7 @@ function dialogAjaxDone(json){
 			navTab.reload(json.forwardUrl, {navTabId: json.navTabId});
 		} else {
 			var $pagerForm = $("#pagerForm", navTab.getCurrentPanel());
-			var args = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {}
+			var args = $pagerForm.length>0 ? $pagerForm.serializeArray() : {}
 			navTabPageBreak(args, json.rel);
 		}
 		if ("closeCurrent" == json.callbackType) {
@@ -220,7 +220,7 @@ function divSearch(form, rel){
 	return false;
 }
 /**
- * 
+ *
  * @param {Object} args {pageNum:"",numPerPage:"",orderField:"",orderDirection:""}
  * @param String formId 分页表单选择器，非必填项默认值是 "pagerForm"
  */
@@ -233,7 +233,7 @@ function _getPagerForm($parent, args) {
 		if (args["orderField"]) form[DWZ.pageInfo.orderField].value = args["orderField"];
 		if (args["orderDirection"] && form[DWZ.pageInfo.orderDirection]) form[DWZ.pageInfo.orderDirection].value = args["orderDirection"];
 	}
-	
+
 	return form;
 }
 
@@ -262,7 +262,7 @@ function dwzPageBreak(options){
 	} else {
 		var form = _getPagerForm($parent, op.data);
 		var params = $(form).serializeArray();
-		
+
 		if (op.targetType == "dialog") {
 			if (form) $.pdialog.reload($(form).attr("action"), {data: params, callback: op.callback});
 		} else {
@@ -280,7 +280,7 @@ function navTabPageBreak(args, rel){
 }
 /**
  * 处理dialog中的分页和排序
- * 参数同 navTabPageBreak 
+ * 参数同 navTabPageBreak
  */
 function dialogPageBreak(args, rel){
 	dwzPageBreak({targetType:"dialog", rel:rel, data:args});
@@ -301,7 +301,7 @@ function ajaxTodo(url, callback){
 }
 
 /**
- * http://www.uploadify.com/documentation/uploadify/onqueuecomplete/	
+ * http://www.uploadify.com/documentation/uploadify/onqueuecomplete/
  */
 function uploadifyQueueComplete(queueData){
 
@@ -309,7 +309,7 @@ function uploadifyQueueComplete(queueData){
 		+ "The total number of errors while uploading: "+queueData.uploadsErrored+"<br/>"
 		+ "The total number of bytes uploaded: "+queueData.queueBytesUploaded+"<br/>"
 		+ "The average speed of all uploaded files: "+queueData.averageSpeed;
-	
+
 	if (queueData.uploadsErrored) {
 		alertMsg.error(msg);
 	} else {
@@ -339,19 +339,19 @@ function uploadifyError(file, errorCode, errorMsg) {
  * @param {Object} errorObj
  */
 function uploadifyError(event, queueId, fileObj, errorObj){
-	alert("event:" + event + "\nqueueId:" + queueId + "\nfileObj.name:" 
+	alert("event:" + event + "\nqueueId:" + queueId + "\nfileObj.name:"
 		+ fileObj.name + "\nerrorObj.type:" + errorObj.type + "\nerrorObj.info:" + errorObj.info);
 }
 
 DWZ.pargerFormExport = function (url, $form) {
 
-	if ($form.size() == 0) {
+	if ($form.length == 0) {
 		window.location = url;
 		return;
 	}
 
 	var $iframe = $("#callbackframe");
-	if ($iframe.size() == 0) {
+	if ($iframe.length == 0) {
 		$iframe = $("<iframe id='callbackframe' name='callbackframe' src='about:blank' style='display:none'></iframe>").appendTo("body");
 	}
 
@@ -375,7 +375,7 @@ $.fn.extend({
 				if ($this.hasClass('disabled') || $this.hasClass('buttonDisabled')) {
 					return false;
 				}
-				
+
 				var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
 				DWZ.debug(url);
 				if (!url.isFinishedTm()) {
@@ -404,7 +404,7 @@ $.fn.extend({
 
 			DWZ.pargerFormExport(url, $form);
 		}
-		
+
 		return this.each(function(){
 			var $this = $(this);
 			$this.click(function(event){
@@ -418,7 +418,7 @@ $.fn.extend({
 						okCall: function(){_doExport($this);}
 					});
 				} else {_doExport($this);}
-			
+
 				event.preventDefault();
 			});
 		});
@@ -437,7 +437,7 @@ $.iframeLoad = function(url, callback) {
 	var $form = $('<form method="post" action="'+url+'" target="callbackframe" style="display: none"><button type="submit">submit</button></form>').appendTo('body'),
 		$iframe = $("#callbackframe");
 
-	if ($iframe.size() == 0) {
+	if ($iframe.length == 0) {
 		$iframe = $('<iframe id="callbackframe" name="callbackframe" src="about:blank" style="display:none"></iframe>').appendTo('body');
 	}
 

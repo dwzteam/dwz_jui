@@ -12,9 +12,9 @@
 				var cnum = $this.children().length;
 				$(">li", $this).each(function(){
 					var $li = $(this);
-					
+
 					var first = $li.prev()[0]?false:true;
-					var last = $li.next()[0]?false:true; 
+					var last = $li.next()[0]?false:true;
 					$li.genTree({
 						icon:$this.hasClass("treeFolder"),
 						ckbox:$this.hasClass("treeCheck"),
@@ -38,7 +38,7 @@
 									var boxes = $("input", tnode);
 									var items = [];
 
-									if(boxes.size() > 1) {
+									if(boxes.length > 1) {
 										$(boxes).each(function(){
 											items[items.length] = {name:$(this).attr("name"), value:$(this).val(), text:$(this).attr("text")};
 										});
@@ -72,12 +72,12 @@
 						var parent = $(this).parent().addClass(op.selected);
 						var $li = $(this).parents("li:first"), sTarget = $li.attr("target");
 						if (sTarget) {
-							if ($("#"+sTarget, $this).size() == 0) {
+							if ($("#"+sTarget, $this).length == 0) {
 								$this.prepend('<input id="'+sTarget+'" type="hidden" />');
 							}
 							$("#"+sTarget, $this).val($li.attr("rel"));
 						}
-						
+
 						$(".ckbox",parent).trigger("click");
 						event.stopPropagation();
 						$(document).trigger("click");
@@ -90,7 +90,7 @@
 			return this.each(function(){
 				$(">li", this).each(function(){
 					var $this = $(this);
-					
+
 					var isLast = ($this.next()[0]?false:true);
 					$this.genTree({
 						icon:op.icon,
@@ -103,7 +103,7 @@
 						showSub:op.showSub,
 						isLast:isLast
 					});
-					
+
 				});
 			});
 		},
@@ -115,9 +115,9 @@
 				var parent = node.parent().prev();
 				var checked = 'unchecked';
 				if(op.ckbox) {
-					if($(">.checked",parent).size() > 0) checked = 'checked';
+					if($(">.checked",parent).length > 0) checked = 'checked';
 				}
-				if (tree.size()>0) {
+				if (tree.length>0) {
 					node.children(":first").wrap("<div></div>");
 					$(">div", node).prepend("<div class='" + (op.showSub ? op.coll : op.exp) + "'></div>"+(op.ckbox ?"<div class='ckbox " + checked + "'></div>":"")+(op.icon?"<div class='"+ (op.showSub ? op.options.folderColl : op.options.folderExp) +"'></div>":""));
 					op.showSub ? tree.show() : tree.hide();
@@ -157,7 +157,7 @@
 					});
 			});
 			function addSpace(level,node) {
-				if (level > 0) {					
+				if (level > 0) {
 					var parent = node.parent().parent();
 					var space = !parent.next()[0]?"indent":"line";
 					var plist = "<div class='" + space + "'></div>";
@@ -183,7 +183,7 @@
 			var attrs = "text='"+$input.text()+"' ";
 			if (tname) attrs += "name='"+tname+"' ";
 			if (tvalue) attrs += "value='"+tvalue+"' ";
-			
+
 			ckbox.append("<input type='checkbox' style='display:none;' " + attrs + "/>").click(function(){
 				var cked = ckbox.hasClass("checked");
 				var aClass = cked?"unchecked":"checked";
@@ -209,16 +209,16 @@
 			if($(this).parent().hasClass("tree")) return;
 			var parent = $(this).parent().parent();
 			var stree = $(">ul", parent);
-			var ckbox = stree.find(">li>a").size()+stree.find("div.ckbox").size();
-			var ckboxed = stree.find("div.checked").size();
+			var ckbox = stree.find(">li>a").length+stree.find("div.ckbox").length;
+			var ckboxed = stree.find("div.checked").length;
 			var aClass = (ckboxed==ckbox?"checked":(ckboxed!=0?"indeterminate":"unchecked"));
 			var rClass = (ckboxed==ckbox?"indeterminate":(ckboxed!=0?"checked":"indeterminate"));
 			$(">div>.ckbox", parent).removeClass("unchecked").removeClass("checked").removeClass(rClass).addClass(aClass);
-			
+
 			var $checkbox = $(":checkbox", parent);
 			if (aClass == "checked") $checkbox.attr("checked","checked");
 			else if (aClass == "unchecked") $checkbox.removeAttr("checked");
-			
+
 			parent._checkParent();
 		}
 	});

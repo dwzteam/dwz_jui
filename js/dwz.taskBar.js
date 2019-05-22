@@ -26,7 +26,7 @@
 					$.pdialog.close(id)
 					return false;
 				}).hoverClass("closeHover");
-				
+
 				$task.hoverClass("hover");
 			});
 		}
@@ -41,9 +41,9 @@
 			var $this = this;
 			$.extend(this._op, options);
 			this._taskBar = $("#" + this._op.id);
-			if (this._taskBar.size() == 0) {
+			if (this._taskBar.length == 0) {
 				this._taskBar = $(DWZ.frag["taskbar"]).appendTo($("#layout"));
-				
+
 				this._taskBar.find(".taskbarLeft").hoverClass("taskbarLeftHover");
 				this._taskBar.find(".taskbarRight").hoverClass("taskbarRightHover");
 			}
@@ -85,7 +85,7 @@
 						mCur.addClass("disabled");
 						mOther.addClass("disabled");
 					} else {
-						if($.taskBar._getTasks().size() == 1)
+						if($.taskBar._getTasks().length == 1)
 							mOther.addClass("disabled");
 					}
 				}
@@ -142,7 +142,7 @@
 				}
 				if (this._getLeft() <= this._getTaskBarW() - iW) {
 					this._nextBut.addClass(this._op.nextDis);
-				} 
+				}
 			}
 		},
 		_getLeft: function(){
@@ -154,7 +154,7 @@
 		_visibleStart: function(){
 			var iLeft = this._getLeft();
 			var jTasks = this._getTasks();
-			for (var i=0; i<jTasks.size(); i++){
+			for (var i=0; i<jTasks.length; i++){
 				if (jTasks.eq(i).position().left + jTasks.eq(i).outerWidth(true) + iLeft >= 0) return jTasks.eq(i);
 			}
 			return jTasks.eq(0);
@@ -165,10 +165,10 @@
 		_visibleEnd: function(){
 			var iLeft = this._getLeft();
 			var jTasks = this._getTasks();
-			for (var i=0; i<jTasks.size(); i++){
+			for (var i=0; i<jTasks.length; i++){
 				if (jTasks.eq(i).position().left + jTasks.eq(i).outerWidth(true) + iLeft > this._getBarWidth()) return jTasks.eq(i);
 			}
-			return jTasks.eq(jTasks.size()-1);
+			return jTasks.eq(jTasks.length-1);
 		},
 		/**
 		 * 取得所有的任务
@@ -217,16 +217,16 @@
 		closeDialog: function(obj){
 			var task = (typeof obj == 'string')? $("#"+obj, this._taskList):obj;
 
-			if (task.size() == 0) return; // fix bug for minable=false
+			if (task.length == 0) return; // fix bug for minable=false
 
 			task.remove();
-			if(this._getTasks().size() == 0){
+			if(this._getTasks().length == 0){
 				this.hide();
-			}			
+			}
 			this._scrollCurrent();
 		},
 		/**
-		 * 
+		 *
 		 * @param {Object} id or dialog
 		 */
 		restoreDialog:function(obj){

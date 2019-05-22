@@ -4,9 +4,9 @@
 (function($){
 	$.fn.dialogDrag = function(options){
         if (typeof options == 'string') {
-                if (options == 'destroy') 
+                if (options == 'destroy')
 					return this.each(function() {
-							var dialog = this;		
+							var dialog = this;
 							$("div.dialogHeader", dialog).unbind("mousedown");
 	                });
         }
@@ -30,7 +30,7 @@
 		_init:function(dialog) {
 			this.currId = new Date().getTime();
 			var shadow = $("#dialogProxy");
-			if (!shadow.size()) {
+			if (!shadow.length) {
 				shadow = $(DWZ.frag["dialogProxy"]);
 				$("body").append(shadow);
 			}
@@ -49,7 +49,7 @@
 				$("div.dialogContent",sh).css("height",$("div.dialogContent",dialog).css("height"));
 				sh.data("dialog",dialog);
 				dialog.css({left:"-10000px",top:"-10000px"});
-				$(".shadow").hide();				
+				$(".shadow").hide();
 				$(sh).jDrag({
 					selector:".dialogHeader",
 					stop: this.stop,

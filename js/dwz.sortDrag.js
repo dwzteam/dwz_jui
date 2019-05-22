@@ -82,7 +82,7 @@
 						var $destBox = $placeholder.parents(op.sortBoxs+":first");
 						if ($srcBox[0] != $destBox[0]) { //判断是否移动到其他容器中
 							var $replaceItem = $placeholder.next();
-							if ($replaceItem.size() > 0) {
+							if ($replaceItem.length > 0) {
 								$replaceItem.insertAfter($item);
 							}
 						}
@@ -119,13 +119,13 @@
 			});
 		}
 	};
-	
+
 	$.fn.sortDrag = function(options){
-				
+
 		return this.each(function(){
 			var op = $.extend({}, _op, options);
 			var $sortBox = $(this);
-			
+
 			if ($sortBox.attr('selector')) op.selector = $sortBox.attr('selector');
 			$sortBox.find(op.items).each(function(i){
 				var $item = $(this), $selector = $item;

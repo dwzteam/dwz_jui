@@ -9,7 +9,7 @@ $.dwz = $.dwz || {};
 
 $(window).resize(function(){
 	setTimeout(function(){
-		for (var i=0; i<jmenus.size();i++){
+		for (var i=0; i<jmenus.length;i++){
 			fillSpace(jmenus.element(i).key);
 		}
 	}, 100);
@@ -35,15 +35,15 @@ $.fn.extend({
 	 */
 	activate: function(index) {
 		return this.accordion("activate", index);
-	}	
+	}
 });
 
 $.dwz.accordion = function(container, options) {
-	
+
 	// setup configuration
 	this.options = options = $.extend({}, $.dwz.accordion.defaults, options);
 	this.element = container;
-	
+
 	$(container).addClass("dwz-accordion");
 	if ( options.navigation ) {
 		var current = $(container).find("a").filter(options.navigationFilter);
@@ -61,7 +61,7 @@ $.dwz.accordion = function(container, options) {
 	options.active = findActive(options.headers, options.active);
 
 	if ( options.fillSpace ) {
-		fillSpace(options.fillSpace);		
+		fillSpace(options.fillSpace);
 	} else if ( options.autoheight ) {
 		var maxHeight = 0;
 		options.headers.next().each(function() {
@@ -74,7 +74,7 @@ $.dwz.accordion = function(container, options) {
 		.next()
 		.hide();
 	options.active.find("h2").addClass(options.selectedClass);
-	
+
 	if (options.event)
 		$(container).bind((options.event) + ".dwz-accordion", clickHandler);
 };
@@ -86,7 +86,7 @@ $.dwz.accordion.prototype = {
 			target: findActive( this.options.headers, index )[0]
 		});
 	},
-	
+
 	enable: function() {
 		this.options.disabled = false;
 	},
@@ -130,9 +130,9 @@ function completed(cancel) {
 function fillSpace(key){
 	var obj = jmenus.get(key);
 	if (!obj) return;
-	
+
 	var parent = $(obj).parent();
-	var height = parent.height() - (($(".accordionHeader", obj).size()) * ($(".accordionHeader:first-child", obj).outerHeight())) -2;
+	var height = parent.height() - (($(".accordionHeader", obj).length) * ($(".accordionHeader:first-child", obj).outerHeight())) -2;
 
 	var os = parent.children().not(obj);
 	$.each(os, function(i){
@@ -147,10 +147,10 @@ function toggle(toShow, toHide, data, clickedActive, down) {
 	options.toHide = toHide;
 	options.data = data;
 	var complete = scopeCallback(completed, this);
-	
+
 	// count elements to animate
-	options.running = toHide.size() == 0 ? toShow.size() : toHide.size();
-	
+	options.running = toHide.length == 0 ? toShow.length : toHide.length;
+
 	if ( options.animated ) {
 		if ( !options.alwaysOpen && clickedActive ) {
 			$.dwz.accordion.animations[options.animated]({
@@ -184,7 +184,7 @@ function clickHandler(event) {
 	var options = $.data(this, "dwz-accordion").options;
 	if (options.disabled)
 		return false;
-	
+
 	// called only when using activate(false) to close all parts programmatically
 	if ( !event.target && !options.alwaysOpen ) {
 		options.active.find("h2").toggleClass(options.selectedClass);
@@ -203,15 +203,15 @@ function clickHandler(event) {
 	}
 	// get the click target
 	var clicked = $(event.target);
-	
+
 	// due to the event delegation model, we have to check if one
 	// of the parent elements is our actual header, and find that
 	if ( clicked.parents(options.header).length )
 		while ( !clicked.is(options.header) )
 			clicked = clicked.parent();
-	
+
 	var clickedActive = clicked[0] == options.active[0];
-	
+
 	// if animations are still active, or the active header is the target, ignore click
 	if (options.running || (options.alwaysOpen && clickedActive))
 		return false;
@@ -237,7 +237,7 @@ function clickHandler(event) {
 			oldContent: toHide
 		},
 		down = options.headers.index( options.active[0] ) > options.headers.index( clicked[0] );
-	
+
 	options.active = clickedActive ? $([]) : clicked;
 	toggle.call(this, toShow, toHide, data, clickedActive, down );
 
@@ -273,7 +273,7 @@ $.extend($.dwz.accordion, {
 				easing: "swing",
 				duration: 300
 			}, options, additions);
-			if ( !options.toHide.size() ) {
+			if ( !options.toHide.length ) {
 				options.toShow.animate({height: "show"}, options);
 				return;
 			}

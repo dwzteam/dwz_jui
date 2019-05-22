@@ -1,6 +1,6 @@
 /**
  * @author 张慧华 z@j-ui.com
- * 
+ *
  */
 var navTab = {
 	componentBox: null, // tab component. contain tabBox, prevBut, nextBut, panelBox
@@ -11,9 +11,9 @@ var navTab = {
 	_moreBut:null,
 	_moreBox:null,
 	_currentIndex: 0,
-	
+
 	_op: {id:"navTab", stTabBox:".navTab-tab", stPanelBox:".navTab-panel", mainTabId:"main", close$:"a.close", prevClass:"tabsLeft", nextClass:"tabsRight", stMore:".tabsMore", stMoreLi:"ul.tabsMoreList"},
-	
+
 	init: function(options){
 		if ($.History) $.History.init("#container");
 		var $this = this;
@@ -34,10 +34,10 @@ var navTab = {
 			return false;
 		});
 		$(document).click(function(){$this._moreBox.hide()});
-		
+
 		this._contextmenu(this._tabBox);
 		this._contextmenu(this._getTabs());
-		
+
 		this._init();
 		this._ctrlScrollBut();
 	},
@@ -85,7 +85,7 @@ var navTab = {
 				var mOther = m.find("[rel='closeOther']");
 				var mAll = m.find("[rel='closeAll']");
 				var $tabLi = $this._getTabs();
-				if ($tabLi.size() < 2) {
+				if ($tabLi.length < 2) {
 					mCur.addClass("disabled");
 					mOther.addClass("disabled");
 					mAll.addClass("disabled");
@@ -93,14 +93,14 @@ var navTab = {
 				if ($this._currentIndex == 0 || t.attr("tabid") == $this._op.mainTabId) {
 					mCur.addClass("disabled");
 					mReload.addClass("disabled");
-				} else if ($tabLi.size() == 2) {
+				} else if ($tabLi.length == 2) {
 					mOther.addClass("disabled");
 				}
-				
+
 			}
 		});
 	},
-	
+
 	_getTabs: function(){
 		return this._tabBox.find("> li");
 	},
@@ -142,11 +142,11 @@ var navTab = {
 	_getScrollBarW: function(){
 		return this.componentBox.width()-55;
 	},
-	
+
 	_visibleStart: function(){
 		var iLeft = this._getLeft(), iW = 0;
 		var $tabs = this._getTabs();
-		for (var i=0; i<$tabs.size(); i++){
+		for (var i=0; i<$tabs.length; i++){
 			if (iW + iLeft >= 0) return i;
 			iW += $tabs.eq(i).outerWidth(true);
 		}
@@ -155,11 +155,11 @@ var navTab = {
 	_visibleEnd: function(){
 		var iLeft = this._getLeft(), iW = 0;
 		var $tabs = this._getTabs();
-		for (var i=0; i<$tabs.size(); i++){
+		for (var i=0; i<$tabs.length; i++){
 			iW += $tabs.eq(i).outerWidth(true);
 			if (iW + iLeft > this._getScrollBarW()) return i;
 		}
-		return $tabs.size();
+		return $tabs.length;
 	},
 	_scrollPrev: function(){
 		var iStart = this._visibleStart();
@@ -169,9 +169,9 @@ var navTab = {
 	},
 	_scrollNext: function(){
 		var iEnd = this._visibleEnd();
-		if (iEnd < this._getTabs().size()){
+		if (iEnd < this._getTabs().length){
 			this._scrollTab(-this._getTabsW(0, iEnd+1) + this._getScrollBarW());
-		}	
+		}
 	},
 	_scrollTab: function(iLeft, isNext){
 		var $this = this;
@@ -203,10 +203,10 @@ var navTab = {
 				this._prevBut.addClass("tabsLeftDisabled");
 			} else if (this._getLeft() <= this._getScrollBarW() - iW) {
 				this._nextBut.addClass("tabsRightDisabled");
-			} 
+			}
 		}
 	},
-	
+
 	_switchTab: function(iTabIndex){
 		var $tab = this._getTabs().removeClass("selected").eq(iTabIndex).addClass("selected");
 
@@ -218,23 +218,23 @@ var navTab = {
 
 		this._getMoreLi().removeClass("selected").eq(iTabIndex).addClass("selected");
 		this._currentIndex = iTabIndex;
-		
+
 		this._scrollCurrent();
 		this._reload($tab);
 	},
-			
+
 	_closeTab: function(index, openTabid){
 
 		this._getTabs().eq(index).remove();
 		this._getPanels().eq(index).trigger(DWZ.eventType.pageClear).remove();
 		this._getMoreLi().eq(index).remove();
 		if (this._currentIndex >= index) this._currentIndex--;
-		
+
 		if (openTabid) {
 			var openIndex = this._indexTabId(openTabid);
 			if (openIndex > 0) this._currentIndex = openIndex;
 		}
-		
+
 		this._init();
 		this._scrollCurrent();
 		this._reload(this._getTabs().eq(this._currentIndex));
@@ -281,14 +281,14 @@ var navTab = {
 		if (flag && url) {
 			$tab.data("reloadFlag", null);
 			var $panel = this.getPanel($tab.attr("tabid"));
-			
+
 			if ($tab.hasClass("external")){
 				navTab.openExternal(url, $panel);
 			} else {
 				//获取pagerForm参数
 				var $pagerForm = $("#pagerForm", $panel);
-				var args = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {};
-				
+				var args = $pagerForm.length>0 ? $pagerForm.serializeArray() : {};
+
 				$panel.loadUrl(url, args, function(){navTab._loadUrlCallback($panel);});
 			}
 		}
@@ -304,7 +304,7 @@ var navTab = {
 		var op = $.extend({data:{}, navTabId:"", callback:null}, options);
 		var $tab = op.navTabId ? this._getTab(op.navTabId) : this._getTabs().eq(this._currentIndex);
 		var $panel =  op.navTabId ? this.getPanel(op.navTabId) : this._getPanels().eq(this._currentIndex);
-		
+
 		if ($panel){
 			if (!url) {
 				url = $tab.attr("url");
@@ -315,9 +315,9 @@ var navTab = {
 				} else {
 					if ($.isEmptyObject(op.data)) { //获取pagerForm参数
 						var $pagerForm = $("#pagerForm", $panel);
-						op.data = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {}
+						op.data = $pagerForm.length>0 ? $pagerForm.serializeArray() : {}
 					}
-					
+
 					$panel.ajaxUrl({
 						type:"POST", url:url, data:op.data, callback:function(response){
 							navTab._loadUrlCallback($panel);
@@ -343,7 +343,7 @@ var navTab = {
 		$panel.html(DWZ.frag["externalFrag"].replaceAll("{url}", url).replaceAll("{height}", ih+"px"));
 	},
 	/**
-	 * 
+	 *
 	 * @param {Object} tabid
 	 * @param {Object} url
 	 * @param {Object} params: title, data, fresh
@@ -378,7 +378,7 @@ var navTab = {
 			this._tabBox.append(tabFrag.replaceAll("#tabid#", tabid).replaceAll("#title#", op.title));
 			this._panelBox.append('<div class="page unitBox"></div>');
 			this._moreBox.append('<li><a href="javascript:" title="#title#">#title#</a></li>'.replaceAll("#title#", op.title));
-			
+
 			var $tabs = this._getTabs();
 			var $tab = $tabs.filter(":last");
 			var $panel = this._getPanels().filter(":last");
@@ -396,7 +396,7 @@ var navTab = {
 					});
 				}
 			}
-			
+
 			if ($.History) {
 				setTimeout(function(){
 					$.History.addHistory(tabid, function(tabid){
@@ -405,14 +405,14 @@ var navTab = {
 					}, tabid);
 				}, 10);
 			}
-				
-			this._currentIndex = $tabs.size() - 1;
+
+			this._currentIndex = $tabs.length - 1;
 			this._contextmenu($tabs.filter(":last").hoverClass("hover"));
 		}
-		
+
 		this._init();
 		this._scrollCurrent();
-		
+
 		this._getTabs().eq(this._currentIndex).attr("url", url);
 	}
 };

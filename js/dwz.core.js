@@ -1,11 +1,11 @@
 /**
  * @author 张慧华 z@j-ui.com
- * 
+ *
  */
 
 var DWZ = {
-	version: '1.6.0',
-	regPlugins: [], // [function($parent){} ...] 
+	version: '1.6.2',
+	regPlugins: [], // [function($parent){} ...]
 	// sbar: show sidebar
 	keyCode: {
 		ENTER: 13, ESC: 27, END: 35, HOME: 36,
@@ -26,7 +26,7 @@ var DWZ = {
 		//Determines when x, y coordinates is over "b" element
 		return this.isOverAxis(y, top, height) && this.isOverAxis(x, left, width);
 	},
-	
+
 	pageInfo: {pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"},
 	statusCode: {ok:200, error:300, timeout:301},
 	keys: {statusCode:"statusCode", message:"message"},
@@ -65,7 +65,7 @@ var DWZ = {
 			window.location = DWZ._set.loginUrl;
 		}
 	},
-	
+
 	/*
 	 * json to string
 	 */
@@ -107,7 +107,7 @@ var DWZ = {
 	},
 	ajaxError:function(xhr, ajaxOptions, thrownError){
 		if (alertMsg) {
-			alertMsg.error("<div>Http status: " + xhr.status + " " + xhr.statusText + "</div>" 
+			alertMsg.error("<div>Http status: " + xhr.status + " " + xhr.statusText + "</div>"
 				+ "<div>ajaxOptions: "+ajaxOptions + "</div>"
 				+ "<div>thrownError: "+thrownError + "</div>"
 				+ "<div>"+DWZ.getHtmlBody(xhr.responseText)+"</div>");
@@ -128,7 +128,7 @@ var DWZ = {
 
 	init:function(pageFrag, options){
 		var op = $.extend({
-				loginUrl:"login.html", loginTitle:null, callback:null, debug:false, 
+				loginUrl:"login.html", loginTitle:null, callback:null, debug:false,
 				statusCode:{}, keys:{}
 			}, options);
 		this._set.loginUrl = op.loginUrl;
@@ -138,7 +138,7 @@ var DWZ = {
 		$.extend(DWZ.keys, op.keys);
 		$.extend(DWZ.pageInfo, op.pageInfo);
 		$.extend(DWZ.ui, op.ui);
-		
+
 		jQuery.ajax({
 			type:'GET',
 			url:pageFrag,
@@ -147,22 +147,22 @@ var DWZ = {
 			cache: false,
 			error: function(xhr){
 				alert('Error loading XML document: ' + pageFrag + "\nHttp status: " + xhr.status + " " + xhr.statusText);
-			}, 
+			},
 			success: function(xml){
 				$(xml).find("_PAGE_").each(function(){
 					var pageId = $(this).attr("id");
 					if (pageId) DWZ.frag[pageId] = $(this).text();
 				});
-				
+
 				$(xml).find("_MSG_").each(function(){
 					var id = $(this).attr("id");
 					if (id) DWZ._msg[id] = $(this).text();
 				});
-				
+
 				if (jQuery.isFunction(op.callback)) op.callback();
 			}
 		});
-		
+
 		var _doc = $(document);
 		if (!_doc.isBind(DWZ.eventType.pageClear)) {
 			_doc.bind(DWZ.eventType.pageClear, function(event){
@@ -189,7 +189,7 @@ var DWZ = {
 		if (!$.regional) $.regional = {};
 		$.regional[key] = value;
 	};
-	
+
 	$.fn.extend({
 		/**
 		 * @param {Object} op: {type:GET/POST, url:ajax请求地址, data:ajax请求参数列表, callback:回调函数 }
@@ -198,7 +198,7 @@ var DWZ = {
 			var $this = $(this);
 
 			$this.trigger(DWZ.eventType.pageClear);
-			
+
 			$.ajax({
 				type: op.type || 'GET',
 				url: op.url,
@@ -206,7 +206,7 @@ var DWZ = {
 				cache: false,
 				success: function(response){
 					var json = DWZ.jsonEval(response);
-					
+
 					if (json[DWZ.keys.statusCode]==DWZ.statusCode.error){
 						if ($.pdialog) $.pdialog.checkCloseCurrent(json);
 						if (navTab) navTab.checkCloseCurrent(json);
@@ -226,7 +226,7 @@ var DWZ = {
 							DWZ.loadLogin();
 						}});
 					}
-					
+
 				},
 				error: DWZ.ajaxError,
 				statusCode: {
@@ -259,7 +259,7 @@ var DWZ = {
 				var iRefH = $refBox.height();
 				var iLayoutH = parseInt($this.attr("layoutH"));
 				var iH = iRefH - iLayoutH > 50 ? iRefH - iLayoutH : 50;
-				
+
 				if ($this.isTag("table")) {
 					$this.removeAttr("layoutH").wrap('<div layoutH="'+iLayoutH+'" style="overflow:auto;height:'+iH+'px"></div>');
 				} else {
@@ -294,9 +294,9 @@ var DWZ = {
 		},
 		inputAlert: function(){
 			return this.each(function(){
-				
+
 				var $this = $(this);
-				
+
 				function getAltBox(){
 					return $this.parent().find("label.alt");
 				}
@@ -309,14 +309,14 @@ var DWZ = {
 						opacity:opacity || 1
 					};
 				}
-				if (getAltBox().size() < 1) {
+				if (getAltBox().length < 1) {
 					if (!$this.attr("id")) $this.attr("id", $this.attr("name") + "_" +Math.round(Math.random()*10000));
 					var $label = $('<label class="alt" for="'+$this.attr("id")+'">'+$this.attr("alt")+'</label>').appendTo($this.parent());
-					
+
 					$label.css(altBoxCss(1));
 					if ($this.val()) $label.hide();
 				}
-				
+
 				$this.focus(function(){
 					getAltBox().css(altBoxCss(0.3));
 				}).blur(function(){
@@ -348,7 +348,7 @@ var DWZ = {
 			});
 		}
 	});
-	
+
 	/**
 	 * 扩展String方法
 	 */
@@ -398,7 +398,7 @@ var DWZ = {
 			});
 		},
 		isFinishedTm:function(){
-			return !(new RegExp("{[A-Za-z_]+[A-Za-z0-9_]*}").test(this)); 
+			return !(new RegExp("{[A-Za-z_]+[A-Za-z0-9_]*}").test(this));
 		},
 		skipChar:function(ch) {
 			if (!this || this.length===0) {return '';}
@@ -406,7 +406,7 @@ var DWZ = {
 			return this;
 		},
 		isValidPwd:function() {
-			return (new RegExp(/^([_]|[a-zA-Z0-9]){6,32}$/).test(this)); 
+			return (new RegExp(/^([_]|[a-zA-Z0-9]){6,32}$/).test(this));
 		},
 		isValidMail:function(){
 			return(new RegExp(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/).test(this.trim()));
@@ -430,7 +430,7 @@ var DWZ = {
 	});
 })(jQuery);
 
-/** 
+/**
  * You can use this map like this:
  * var myMap = new Map();
  * myMap.put("key","value");
@@ -440,24 +440,24 @@ var DWZ = {
 function Map(){
 
 	this.elements = new Array();
-	
+
 	this.size = function(){
 		return this.elements.length;
 	}
-	
+
 	this.isEmpty = function(){
 		return (this.elements.length < 1);
 	}
-	
+
 	this.clear = function(){
 		this.elements = new Array();
 	}
-	
+
 	this.put = function(_key, _value){
 		this.remove(_key);
 		this.elements.push({key: _key, value: _value});
 	}
-	
+
 	this.remove = function(_key){
 		try {
 			for (i = 0; i < this.elements.length; i++) {
@@ -471,7 +471,7 @@ function Map(){
 		}
 		return false;
 	}
-	
+
 	this.get = function(_key){
 		try {
 			for (i = 0; i < this.elements.length; i++) {
@@ -481,12 +481,12 @@ function Map(){
 			return null;
 		}
 	}
-	
+
 	this.element = function(_index){
 		if (_index < 0 || _index >= this.elements.length) { return null; }
 		return this.elements[_index];
 	}
-	
+
 	this.containsKey = function(_key){
 		try {
 			for (i = 0; i < this.elements.length; i++) {
@@ -499,7 +499,7 @@ function Map(){
 		}
 		return false;
 	}
-	
+
 	this.values = function(){
 		var arr = new Array();
 		for (i = 0; i < this.elements.length; i++) {
@@ -507,7 +507,7 @@ function Map(){
 		}
 		return arr;
 	}
-	
+
 	this.keys = function(){
 		var arr = new Array();
 		for (i = 0; i < this.elements.length; i++) {

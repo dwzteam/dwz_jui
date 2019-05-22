@@ -41,7 +41,7 @@
 				var txt = $dragBox.html(),
 					icon = $dragBox.attr('data-icon'),
 					sn = $dragBox.attr('data-sn'),
-					sequence = $overBox.find('> div').size();
+					sequence = $overBox.find('> div').length;
 
 				var overBoxPos = $overBox.position(),
 					dragBoxPos = $dragBox.position();
@@ -115,7 +115,7 @@
 
 			var $dragList = $($sortBox.attr('drag-rel'));
 
-			for (var i=0; i<$dragList.size(); i++) {
+			for (var i=0; i<$dragList.length; i++) {
 
 				var $overBox = DWZ.miscDrag._getOverSortBox($dragList.eq(i), $helper);
 
@@ -192,7 +192,7 @@
 				$sortDragList = $miscSortDrag.find('.sortDrag');
 
 			var data = [];
-			for (var i=0; i<$dragBoxList.size(); i++) {
+			for (var i=0; i<$dragBoxList.length; i++) {
 				var $dragBox = $dragBoxList.eq(i), $sortDrag = $sortDragList.eq(i),
 					$dragBoxPos = $dragBox.position();
 
@@ -224,7 +224,7 @@
 				$sortDragList = $miscSortDrag.find('.sortDrag');
 
 			var data = [];
-			for (var i=0; i<$sortDragList.size(); i++) {
+			for (var i=0; i<$sortDragList.length; i++) {
 				var $sortDrag = $sortDragList.eq(i)
 
 				var dataItem = {
