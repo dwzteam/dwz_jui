@@ -4,7 +4,7 @@ DWZ富客户端框架(jQuery RIA framework), 是中国人自己开发的基于jQ
 
 DWZ富客户端框架设计目标是<b>简单实用、扩展方便、快速开发、RIA思路、轻量级</b>
 
-DWZ支持用html扩展的方式来代替javascript代码, 基本可以保证程序员不董javascript, 也能使用各种页面组件和ajax技术. 如果有特定需求也可以扩展DWZ做定制化开化.
+DWZ支持用html扩展的方式来代替javascript代码, 基本可以保证程序员不懂javascript, 也能使用各种页面组件和ajax技术. 如果有特定需求也可以扩展DWZ做定制化开化.
 
 国内很多程序员javascript不熟, 大大影响了开发速度. 使用DWZ框架自动邦定javascript效果. 不需要开发人员去关心javascript怎么写, 只要写标准html就可以了. DWZ简单扩展了html标准, 给HTML定义了一些特别的class 和attribute. DWZ框架会找到当前请求结果中的那些特别的class 和attribute, 并自动关联上相应的js处理事件和效果.
 
