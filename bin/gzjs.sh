@@ -27,6 +27,7 @@ cat ../js/dwz.taskBar.js >> dwz.all.js
 cat ../js/dwz.ajax.js >> dwz.all.js
 cat ../js/dwz.pagination.js >> dwz.all.js
 cat ../js/dwz.database.js >> dwz.all.js
+cat ../js/dwz.selectedLoad.js >> dwz.all.js
 cat ../js/dwz.datepicker.js >> dwz.all.js
 cat ../js/dwz.effects.js >> dwz.all.js
 cat ../js/dwz.panel.js >> dwz.all.js

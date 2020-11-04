@@ -3,7 +3,7 @@
  */
 (function($){
 	$.fn.extend({
-		
+
 		checkboxCtrl: function(parent){
 			return this.each(function(){
 				var $trigger = $(this);
@@ -15,12 +15,12 @@
 					} else {
 						if (group) $.checkbox.select(group, $trigger.attr("selectType") || "all", parent);
 					}
-					
+
 				});
 			});
 		}
 	});
-	
+
 	$.checkbox = {
 		selectAll: function(_name, _parent){
 			this.select(_name, "all", _parent);
@@ -41,13 +41,10 @@
 					});
 					break;
 				case "none":
-					$checkboxLi.removeAttr('checked');
+					$checkboxLi.prop('checked', false);
 					break;
 				default:
-					$checkboxLi.each(function(){
-						this.checked = true;
-					});
-
+					$checkboxLi.prop('checked', true);
 					break;
 			}
 
