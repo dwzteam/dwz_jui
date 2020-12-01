@@ -77,10 +77,30 @@ DWZ官方微博 http://weibo.com/dwzui
 	jQuery.DWZ-jUI-10群 329597326
 
 
+> ### [DWZ Mobile 详细文档](http://dwzteam.gitee.io/dwz_mobile_doc_v1)
+- `http://dwzteam.gitee.io/dwz_mobile_doc_v1`
+
+> ### DWZ Mobile Demo 演示
+- 在线演示版，使用chrome 开发模式设置手机版 `http://mobile.jui.org`
+- 安卓Apk安装设置版 `http://mobile.jui.org/apk/dwz_mobile_dev.apk`
+- 视频演示 `http://mobile.jui.org/video/dwz_mobile.mp4`
+
+|技术服务微信|
+|:---:|
+|![](./widget/image/wx_zhh.jpg?width=200)|
+
+> ### 捐助
+
+如果您觉得我们的开源软件对你有所帮助，请扫下方二维码打赏我们一杯咖啡。
+
+|支付宝|微信|
+|:---:|:---:|
+|![](./widget/image/zfb.png?width=200)|![](./widget/image/wx.png?width=200)|
+
 <b>版权声明:</b>
 
 	jUI遵循Apache2开源协议发布，并提供免费使用。
-	版权所有Copyright © 2009-2013 by DWZ (http://jui.org) All rights reserved。
+	版权所有Copyright © 2009-2020 by DWZ (http://jui.org) All rights reserved。
 	Apache Licence是著名的非盈利开源组织Apache采用的协议。
 	该协议和BSD类似，鼓励代码共享和尊重原作者的著作权，允许代码修改，再作为开源或商业软件发布。需要满足的条件： 
 	
