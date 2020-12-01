@@ -87,7 +87,7 @@ DWZ官方微博 http://weibo.com/dwzui
 
 |技术服务微信|
 |:---:|
-|![](./widget/image/wx_zhh.jpg?width=200)|
+|![](./themes/default/images/wx_zhh.jpg?width=200)|
 
 > ### 捐助
 
@@ -95,7 +95,7 @@ DWZ官方微博 http://weibo.com/dwzui
 
 |支付宝|微信|
 |:---:|:---:|
-|![](./widget/image/zfb.png?width=200)|![](./widget/image/wx.png?width=200)|
+|![](./themes/default/images/zfb.png?width=200)|![](./themes/default/images/wx.png?width=200)|
 
 <b>版权声明:</b>
 
