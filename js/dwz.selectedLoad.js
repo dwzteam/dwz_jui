@@ -32,7 +32,7 @@
 							if (postType == 'map'){
 								return $.map(ids.split(','), function(val, i) {
 									return {name: selectedIds, value: val};
-								})
+								});
 							} else {
 								var _data = {};
 								_data[selectedIds] = ids;
@@ -51,7 +51,7 @@
 							};
 							$.pdialog.open($this.attr('href'), "_blank", $this.attr("title") || $this.text(), options);
 						} else if (targetType == "navTab") {
-							navTab.openTab("_blank", $this.attr('href'),{title:$this.attr("title") || $this.text(), data:data});
+							navTab.openTab("_blank", $this.attr('href'),{type:'POST', title:$this.attr("title") || $this.text(), data:data});
 						}
 
 						//var $form = $('<form id="selectedLoadForm" method="post" action="'+$this.attr('href')+'" target="_blank">'
