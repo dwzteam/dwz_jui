@@ -289,7 +289,11 @@ var navTab = {
 				var $pagerForm = $("#pagerForm", $panel);
 				var args = $pagerForm.length>0 ? $pagerForm.serializeArray() : {};
 
-				$panel.loadUrl(url, args, function(){navTab._loadUrlCallback($panel);});
+				$panel.ajaxUrl({
+					type:"POST", url:url, data:args, callback:function(response){
+						navTab._loadUrlCallback($panel);
+					}
+				});
 			}
 		}
 	},

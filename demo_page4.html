@@ -1,6 +1,6 @@
 
 <div class="pageContent">
-	<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+	<form method="post" action="demo/common/ajaxDone_w_list.json" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
 		<div class="pageFormContent" layoutH="56">
 			<p>
 				<label>客 户 号：</label>
@@ -14,7 +14,7 @@
 				<label>部门名称：</label>
 				<input type="hidden" name="orgLookup.id" value="${orgLookup.id}"/>
 				<input type="text" class="required" name="orgLookup.orgName" value="" suggestFields="orgNum,orgName" suggestUrl="demo/database/db_lookupSuggest.html" lookupGroup="orgLookup" />
-				<a class="btnLook" href="demo/database/dwzOrgLookup.html" lookupGroup="orgLookup">查找带回</a>		
+				<a class="btnLook" href="demo/database/dwzOrgLookup.html" lookupGroup="orgLookup">查找带回</a>
 			</p>
 			<p>
 				<label>部门编号：</label>
