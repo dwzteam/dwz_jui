@@ -279,6 +279,7 @@
 		},
 		close:function(dialog) {
 			if(typeof dialog == 'string') dialog = $("body").data(dialog);
+			if (!dialog) return;
 			var close = dialog.data("close");
 			var go = true;
 			if(close && $.isFunction(close)) {
