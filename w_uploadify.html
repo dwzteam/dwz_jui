@@ -23,11 +23,11 @@
 </style>
 
 <div class="pageContent" style="margin: 0 10px" layoutH="50">
-	
-	<input id="testFileInput" type="file" name="image" 
+
+	<input id="testFileInput" type="file" name="image"
 		uploaderOption="{
 			swf:'uploadify/scripts/uploadify.swf',
-			uploader:'demo/common/ajaxDone.html',
+			uploader:'demo/common/ajaxDone.json',
 			formData:{PHPSESSID:'xxx', ajax:1},
 			buttonText:'请选择文件',
 			fileSizeLimit:'200KB',
@@ -42,10 +42,10 @@
 
 	<div class="divider"></div>
 
-	<input id="testFileInput2" type="file" name="image2" 
+	<input id="testFileInput2" type="file" name="image2"
 		uploaderOption="{
 			swf:'uploadify/scripts/uploadify.swf',
-			uploader:'demo/common/ajaxDone.html',
+			uploader:'demo/common/ajaxDone.json',
 			formData:{PHPSESSID:'xxx', ajax:1},
 			queueID:'fileQueue',
 			buttonImage:'uploadify/img/add.jpg',
@@ -54,16 +54,16 @@
 			auto:false
 		}"
 	/>
-	
+
 	<div id="fileQueue" class="fileQueue"></div>
-	
+
 	<input type="image" src="uploadify/img/upload.jpg" onclick="$('#testFileInput2').uploadify('upload', '*');"/>
 	<input type="image" src="uploadify/img/cancel.jpg" onclick="$('#testFileInput2').uploadify('cancel', '*');"/>
 
 
 	<div class="divider"></div>
 	<p style="margin:10px"><a href="http://www.uploadify.com/documentation/" target="_blank">Uploadify 在线文档</a></p>
-	
+
 <textarea cols="160" rows="10">
 uploaderOption: http://www.uploadify.com/documentation/
 	auto            : true,               // Automatically upload files when added to the queue

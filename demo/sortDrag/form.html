@@ -1,5 +1,5 @@
 <h2 class="contentTitle">可拖动表单示例</h2>
-<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this)">
+<form method="post" action="demo/common/ajaxDone.json" class="pageForm required-validate" onsubmit="return validateCallback(this)">
 <div class="pageContent">
 	<div class="pageFormContent sortDrag" layoutH="97">
 		<dl>
@@ -25,9 +25,9 @@
 			<dt>部门名称：</dt>
 			<dd>
 				<input id="inputOrg1" name="org1.id" value="" type="hidden"/>
-				<input class="required" name="org1.orgName" type="text" postField="keyword" suggestFields="orgNum,orgName" 
+				<input class="required" name="org1.orgName" type="text" postField="keyword" suggestFields="orgNum,orgName"
 					suggestUrl="demo/database/db_lookupSuggest.html" lookupGroup="org1"/>
-				<a class="btnLook" href="demo/database/dwzOrgLookup.html" lookupGroup="org1">查找带回</a>	
+				<a class="btnLook" href="demo/database/dwzOrgLookup.html" lookupGroup="org1">查找带回</a>
 			</dd>
 		</dl>
 		<dl>
@@ -60,13 +60,13 @@
 			</dd>
 		</dl>
 	</div>
-	
+
 	<div class="formBar">
 		<ul>
 			<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
 			<li><div class="button"><div class="buttonContent"><button class="close" type="button">关闭</button></div></div></li>
 		</ul>
-	</div>  
+	</div>
 
 </div>
 </form>

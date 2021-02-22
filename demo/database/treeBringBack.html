@@ -1,7 +1,7 @@
 <h2 class="contentTitle">tree查找带回</h2>
 
 <div class="pageContent">
-<form action="demo/common/ajaxDone.html" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+<form action="demo/common/ajaxDone.json" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
 
 	<div class="pageFormContent" layoutH="97">
 		<dl class="nowrap">
@@ -10,13 +10,13 @@
 				<input class="required" name="district.cityName" type="text" readonly/>
 			</dd>
 		</dl>
-		
+
 		<dl class="nowrap">
 			<dt>区县：</dt>
 			<dd>
 				<input name="district.id" value="" type="hidden"/>
 				<input class="required" name="district.districtName" type="text" readonly/>
-				<a class="btnLook" href="demo/database/treeLookup.html" lookupGroup="district">查找带回</a>	
+				<a class="btnLook" href="demo/database/treeLookup.html" lookupGroup="district">查找带回</a>
 			</dd>
 		</dl>
 	</div>

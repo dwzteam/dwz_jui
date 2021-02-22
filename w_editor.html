@@ -1,6 +1,6 @@
 <h2 class="contentTitle">编辑器</h2>
 <div style="display:block; overflow:hidden; padding:0 10px; line-height:21px;">
-	
+
 	<div class="tabs">
 		<div class="tabsHeader">
 			<div class="tabsHeaderContent">
@@ -12,14 +12,14 @@
 		</div>
 		<div class="tabsContent" layoutH="100">
 			<div>
-				<form method="post" action="demo/common/ajaxTimeout.html" class="pageForm required-validate" onsubmit="return iframeCallback(this)">
+				<form method="get" action="demo/common/ajaxTimeout.json" class="pageForm required-validate" onsubmit="return iframeCallback(this)">
 					<div class="pageFormContent" layoutH="158">
 						<div class="unit">
 							<textarea class="editor" name="description" rows="8" cols="100"
-								upLinkUrl="upload.php" upLinkExt="zip,rar,txt" 
-								upImgUrl="upload.php" upImgExt="jpg,jpeg,gif,png" 
+								upLinkUrl="upload.php" upLinkExt="zip,rar,txt"
+								upImgUrl="upload.php" upImgExt="jpg,jpeg,gif,png"
 								upFlashUrl="upload.php" upFlashExt="swf"
-								upMediaUrl="upload.php" upMediaExt:"avi">
+								upMediaUrl="upload.php" upMediaExt="avi">
 <strong>xheditor + 文件上传</strong><br/>
 upLinkUrl:超链接上传接口地址<br/>
 upLinkExt:超链接本地上传扩展限制 【可选】【默认值： zip,rar,txt】<br/>
@@ -59,7 +59,7 @@ upMediaExt:视频本地上传扩展限制 【可选】【默认值： avi】
 					</div>
 				</form>
 			</div>
-			
+
 			<div>
 <textarea rows="15" cols="90">
 说明:
@@ -67,7 +67,7 @@ upMediaExt:视频本地上传扩展限制 【可选】【默认值： avi】
 	注意textarea name 属性不能为空
 </textarea>
 			</div>
-			
+
 		</div>
 		<div class="tabsFooter">
 			<div class="tabsFooterContent"></div>

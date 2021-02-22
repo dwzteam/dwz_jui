@@ -19,11 +19,12 @@ function validateCallback(form, callback, confirmMsg) {
 	var _submitFn = function(){
 		$form.find(':focus').blur();
 
+		var url = $form.attr("action");
 		$.ajax({
-			type: form.method || 'POST',
-			url:$form.attr("action"),
-			data:$form.serializeArray(),
-			dataType:"json",
+			type: url.endsWith('.json')? 'GET' : form.method || 'POST',
+			url: url,
+			data: $form.serializeArray(),
+			dataType: "json",
 			cache: false,
 			success: callback || DWZ.ajaxDone,
 			error: DWZ.ajaxError
