@@ -9,7 +9,7 @@ $.dwz = $.dwz || {};
 
 $(window).resize(function(){
 	setTimeout(function(){
-		for (var i=0; i<jmenus.length;i++){
+		for (var i=0; i<jmenus.size();i++){
 			fillSpace(jmenus.element(i).key);
 		}
 	}, 100);

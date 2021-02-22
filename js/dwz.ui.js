@@ -13,13 +13,13 @@ function initEnv() {
 	}).ajaxStop(function(){
 		ajaxbg.hide();
 	});
-	
+
 	if ($.fn.jBar) $("#leftside").jBar({minW:150, maxW:700});
-	
+
 	if ($.taskBar) $.taskBar.init();
 	if ($.fn.switchEnv) $("#switchEnvBox").switchEnv();
 	if ($.fn.navMenu) $("#navMenu").navMenu();
-		
+
 	setTimeout(function(){
 		initLayout();
 		if (window.navTab) navTab.init();
@@ -29,7 +29,7 @@ function initEnv() {
 
 		// 首次初始化插件
 		$(document).initUI();
-		
+
 		// navTab styles
 		var jTabsPH = $("div.tabsPageHeader");
 		jTabsPH.find(".tabsLeft").hoverClass("tabsLeftHover");
@@ -70,7 +70,7 @@ function initUI($p){
 
 	if ($.fn.jTree) $("ul.tree", $p).jTree();
 
-	if ($.fn.jTree){
+	if ($.fn.accordion){
 		$('div.accordion', $p).each(function(){
 			var $this = $(this);
 			$this.accordion({fillSpace:$this.attr("fillSpace"),alwaysOpen:true,active:0});
@@ -80,9 +80,9 @@ function initUI($p){
 	if ($.fn.checkboxCtrl){
 		$(":button.checkboxCtrl, :checkbox.checkboxCtrl", $p).checkboxCtrl($p);
 	}
-	
+
 	if ($.fn.combox) $("select.combox",$p).combox();
-	
+
 	if ($.fn.xheditor) {
 		$("textarea.editor", $p).each(function(){
 			var $this = $(this);
@@ -93,21 +93,21 @@ function initUI($p){
 				["upFlashUrl","upFlashExt","swf"],
 				["upMediaUrl","upMediaExt","avi"]
 			];
-			
+
 			$(upAttrs).each(function(i){
 				var urlAttr = upAttrs[i][0];
 				var extAttr = upAttrs[i][1];
-				
+
 				if ($this.attr(urlAttr)) {
 					op[urlAttr] = $this.attr(urlAttr);
 					op[extAttr] = $this.attr(extAttr) || upAttrs[i][2];
 				}
 			});
-			
+
 			$this.xheditor(op);
 		});
 	}
-	
+
 	if ($.fn.uploadify) {
 		$(":file[uploaderOption]", $p).each(function(){
 			var $this = $(this);
@@ -117,16 +117,16 @@ function initUI($p){
 				multi: true,
 				onUploadError: uploadifyError
 			};
-			
+
 			var uploaderOption = DWZ.jsonEval($this.attr("uploaderOption"));
 			$.extend(options, uploaderOption);
 
 			DWZ.debug("uploaderOption: "+DWZ.obj2str(uploaderOption));
-			
+
 			$this.uploadify(options);
 		});
 	}
-	
+
 	// init styles
 	$("input[type=text], input[type=password], textarea", $p).addClass("textInput").focusClass("focus");
 
@@ -141,7 +141,7 @@ function initUI($p){
 	//Button
 	$("div.button", $p).hoverClass("buttonHover");
 	$("div.buttonActive", $p).hoverClass("buttonActiveHover");
-	
+
 	//tabsPageHeader
 	$("div.tabsHeader li, div.tabsPageHeader li, div.accordionHeader, div.accordion", $p).hoverClass("hover");
 
@@ -241,7 +241,7 @@ function initUI($p){
 				return false;
 			}
 			$.pdialog.open(url, rel, title, options);
-			
+
 			return false;
 		});
 	});
@@ -268,7 +268,7 @@ function initUI($p){
 			event.preventDefault();
 		});
 	});
-	
+
 	$("div.pagination", $p).each(function(){
 		var $this = $(this);
 		$this.pagination({
