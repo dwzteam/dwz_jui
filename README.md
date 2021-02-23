@@ -80,7 +80,7 @@ DWZ官方微博 http://weibo.com/dwzui
 - 在线文档：`http://dwzteam.gitee.io/dwz_mobile_doc_v1`
 - 安卓 Apk 安装测试版：`http://mobile.jui.org/apk/dwz_mobile_app.apk`
 
-### 捐助
+## 捐助
 
 如果您觉得我们的开源软件对你有所帮助，请扫下方二维码打赏我们一杯咖啡。
 
