@@ -73,12 +73,14 @@ DWZ官方微博 http://weibo.com/dwzui
 ### 技术服务微信
 ![](./themes/default/images/wx_zhh.jpg?width=200)
 
-> ## DWZ Mobile App 框架
+> ## DWZ 移动端框架
 
 - 在线演示版，使用chrome 开发模式设置手机版：`http://mobile.jui.org`
 - git源码：`https://gitee.com/dwzteam/dwz_mobile_app`
 - 在线文档：`http://dwzteam.gitee.io/dwz_mobile_doc_v1`
 - 安卓 Apk 安装测试版：`http://mobile.jui.org/apk/dwz_mobile_app.apk`
+
+![](./doc/dwz_mobile_app.jpg)
 
 ## 捐助
 
