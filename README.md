@@ -1,3 +1,5 @@
+> ## 介绍
+
 github源码下载：https://github.com/dwzteam/dwz_jui
 
 DWZ富客户端框架(jQuery RIA framework), 是中国人自己开发的基于jQuery实现的Ajax RIA开源框架.
@@ -17,39 +19,31 @@ DWZ富客户端框架完全开源，可以免费获取全部源码。团队中�
 DWZ官方微博 http://weibo.com/dwzui
 在线演示地址 http://jui.org
 
-<b>学习DWZ的建议</b>
-<ul>
-<li>通读DWZ文档，很多新手提的问题文档中都写了</li>
-<li>看demo每个组件演示效果和代码（留意组件html结构）</li>
-<li>建议安装firebug，用firebug看html结构、CSS和调试JS都非常方便。见附录一 firebug介绍</li>
-<li>对于初学者不建议看DWZ全部源码，但还是非常有必要看看dwz.ui.js和dwz.ajax.js </li>
-<li>可以从google code下载dwz_thinkphp版本，结合php后台去理解DWZ和服务器端的交互方式</li>
-</ul>
+### 学习DWZ的建议
+- 通读DWZ文档，很多新手提的问题文档中都写了
+- 看demo每个组件演示效果和代码（留意组件html结构）
+- 建议安装firebug，用firebug看html结构、CSS和调试JS都非常方便。见附录一 firebug介绍
+- 对于初学者不建议看DWZ全部源码，但还是非常有必要看看dwz.ui.js和dwz.ajax.js
+- 可以从google code下载dwz_thinkphp版本，结合php后台去理解DWZ和服务器端的交互方式
 
-<b>DWZ区别于其它JS框架，最大的优点</b>
-<ul>
-<li>完全开源，源码没有做任何混淆处理，方便扩展</li>
-<li>CSS和js代码彻底分离，修改样式方便</li>
-<li>简单实用，扩展方便，轻量级框架，快速开发</li>
-<li>仍然保留了html的页面布局方式</li>
-<li>支持HTML扩展方式调用UI组件，开发人员不需写js</li>
-<li>只要懂html语法不需精通js，就可以使用ajax开发后台</li>
-<li>基于jQuery，UI组件以jQuery插件的形式发布，扩展方便</li>
-</ul>
+### DWZ区别于其它JS框架，最大的优点
 
+- 完全开源，源码没有做任何混淆处理，方便扩展
+- CSS和js代码彻底分离，修改样式方便
+- 简单实用，扩展方便，轻量级框架，快速开发
+- 仍然保留了html的页面布局方式
+- 支持HTML扩展方式调用UI组件，开发人员不需写js
+- 只要懂html语法不需精通js，就可以使用ajax开发后台
+- 基于jQuery，UI组件以jQuery插件的形式发布，扩展方便
 
-<b>有偿服务:</b>
-<ul>
-<li>公司培训，技术支持，解决使用jUI过程中出现的全部疑难问题</li><li>定制化开发</li>
-</ul>
+### 有偿服务
+- 公司培训，技术支持，解决使用jUI过程中出现的全部疑难问题
+- 定制化开发
 
+### 联系方式
 
-
-
-<b>DWZ研发组联系方式:</b>
-
-	合作电话：010-52897073	18600055221
-	技术支持：0571-88517625	17767167745
+	合作电话：18600055221
+	技术支持：17767167745
 	邮箱：support@jui.org
 
 	DWZ创始人：
@@ -76,20 +70,17 @@ DWZ官方微博 http://weibo.com/dwzui
 	jQuery.DWZ-jUI-9群 59680552
 	jQuery.DWZ-jUI-10群 329597326
 
+### 技术服务微信
+![](./themes/default/images/wx_zhh.jpg?width=200)
 
-> ### [DWZ Mobile 详细文档](http://dwzteam.gitee.io/dwz_mobile_doc_v1)
-- `http://dwzteam.gitee.io/dwz_mobile_doc_v1`
+> ## DWZ Mobile App 框架
 
-> ### DWZ Mobile Demo 演示
-- 在线演示版，使用chrome 开发模式设置手机版 `http://mobile.jui.org`
-- 安卓Apk安装设置版 `http://mobile.jui.org/apk/dwz_mobile_dev.apk`
-- 视频演示 `http://mobile.jui.org/video/dwz_mobile.mp4`
+- 在线演示版，使用chrome 开发模式设置手机版：`http://mobile.jui.org`
+- git源码：`https://gitee.com/dwzteam/dwz_mobile_app`
+- 在线文档：`http://dwzteam.gitee.io/dwz_mobile_doc_v1`
+- 安卓 Apk 安装测试版：`http://mobile.jui.org/apk/dwz_mobile_app.apk`
 
-|技术服务微信|
-|:---:|
-|![](./themes/default/images/wx_zhh.jpg?width=200)|
-
-> ### 捐助
+### 捐助
 
 如果您觉得我们的开源软件对你有所帮助，请扫下方二维码打赏我们一杯咖啡。
 
