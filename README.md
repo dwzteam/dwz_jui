@@ -59,10 +59,9 @@ DWZ官方微博 http://weibo.com/dwzui
 
 	官方微博(欢迎加入) http://weibo.com/dwzui 
 
-	jQuery.DWZ-jUI-1群 107983317
+	jQuery.DWZ-jUI-1群 369203
 	jQuery.DWZ-jUI-2群 69611933
 	jQuery.DWZ-jUI-3群 20866231
-	jQuery.DWZ-jUI-4群 369203
 	jQuery.DWZ-jUI-5群 85031937
 	jQuery.DWZ-jUI-6群 172602882
 	jQuery.DWZ-jUI-7群 210322217
