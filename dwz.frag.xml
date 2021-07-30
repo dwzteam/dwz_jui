@@ -118,12 +118,12 @@
 </ul>
 ]]></_PAGE_>
 
-	
+
 <!-- dwz.alertMsg -->
 <_PAGE_ id="alertBoxFrag"><![CDATA[
 <div id="alertMsgBox" class="alert"><div class="alertContent"><div class="#type#"><div class="alertInner"><h1>#title#</h1><div class="msg">#message#</div></div><div class="toolBar"><ul>#butFragment#</ul></div></div></div><div class="alertFooter"><div class="alertFooter_r"><div class="alertFooter_c"></div></div></div></div>
 ]]></_PAGE_>
-		
+
 <_PAGE_ id="alertButFrag"><![CDATA[
 <li><a class="button" rel="#callback#" onclick="alertMsg.close()" href="javascript:"><span>#butMsg#</span></a></li>
 ]]></_PAGE_>
@@ -144,9 +144,9 @@
 			<dl class="dayNames"><dt>日</dt><dt>一</dt><dt>二</dt><dt>三</dt><dt>四</dt><dt>五</dt><dt>六</dt></dl>
 			<dl class="days">日期列表选项</dl>
 			<div style="clear:both;height:0;line-height:0"></div>
-			
+
 		</div>
-		
+
 		<div class="foot">
 			<table class="time">
 				<tr>
@@ -160,7 +160,7 @@
 			</table>
 			<button type="button" class="clearBut">清空</button>
 			<button type="button" class="okBut">确定</button>
-		<div>
+		</div>
 		<div class="tm">
 			<ul class="hh">
 				<li>0</li>
